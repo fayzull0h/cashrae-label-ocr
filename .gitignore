@@ -1,0 +1,16 @@
+# Virtual environments
+.venv/
+.venv-paddle/
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# PaddleOCR model caches (only if redirected into the repo)
+.paddlex/
+
+# Generated outputs (ocr_dump.json is a deliberate, tracked fixture)
+data/processed/*
+!data/processed/ocr_dump.json
