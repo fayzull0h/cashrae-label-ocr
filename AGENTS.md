@@ -51,6 +51,10 @@ This document provides context, architecture details, conventions, and operation
 - **Virtual Environment:** Located in `.venv/`
   - Activate in PowerShell: `.venv\Scripts\Activate.ps1`
   - Direct execution: `.venv\Scripts\python.exe <script_path>`
+- **Version Control:** Git + GitHub
+  - Remote `origin` → `git@github.com:fayzull0h/cashrae-label-ocr.git`
+  - `main` is the default branch and must always be green (full test suite passing).
+  - Experimental work goes on `experiment/<topic>` branches — never directly on `main`.
 - **Working Directory Convention:** Always execute commands and scripts from the project root (`appliance-energy-tool/`).
 
 ---
@@ -60,6 +64,8 @@ This document provides context, architecture details, conventions, and operation
 ```
 appliance-energy-tool/
 ├── .venv/                         # Python virtual environment (Python 3.13)
+├── .venv-paddle/                  # Optional experimental venv for PaddleOCR (gitignored)
+├── .gitignore                     # Root ignore rules (venvs, caches, generated outputs)
 ├── data/
 │   ├── raw/                       # NRCan source data (001_ to 010_)
 │   │   ├── 001_.../               # .zip archives + nested extracted folders per category
@@ -201,3 +207,33 @@ Run all commands using the project `.venv` from the repository root:
 3. **Handle Noisy Inputs Gracefully:** When building Phase 2 (OCR), anticipate character substitution errors (e.g., `0` vs `O`, `1` vs `I`/`l`, `8` vs `B`) and format inconsistencies.
 4. **Preserve Output Schema Integrity:** Any additions to the retrieval engine or OCR pipeline should adhere to structured dictionaries with confidence metrics and complete source provenance.
 5. **Keep `README.md` in Sync:** Whenever you change functionality — adding, removing, or altering scripts, APIs, CLI flags, database schema, dependencies, test counts, phase status, or known limitations — update `README.md` in the same change. The README is the user-facing source of truth and must accurately reflect the current state of the project. If a change does not affect behavior, the README may stay as-is; when in doubt, update it.
+
+---
+
+## 9. Git Workflow & Repository Hygiene
+
+- **Branch naming:** `feature/<topic>`, `fix/<topic>`, `experiment/<topic>`, `chore/<topic>`. Anything uncertain, heavy, or dependency-adding is an `experiment/` branch.
+- **Never commit to `main` while its tests fail.** Run `.venv/Scripts/python.exe -m unittest discover -s tests` before every commit.
+- **Commit messages:** short imperative subject with a prefix — `feat:`, `fix:`, `test:`, `docs:`, `chore:`, `experiment:`, `refactor:`. Example: `feat: add PaddleOCR backend behind OCRBackend protocol`.
+- **Small, single-purpose commits.** Do not mix a dependency change with a refactor.
+- **Never force-push `main`** and never rewrite shared history. Force-push is acceptable only on your own unmerged `experiment/` branch.
+- **No secrets or machine-specific paths** in commits. Use environment variables such as `TESSERACT_CMD`.
+
+### What is tracked on purpose
+
+- `database/appliances.db` — reproducible build artifact, kept for zero-setup runs.
+- `data/raw/**` — authoritative NRCan source CSVs; do not edit or regenerate.
+- `data/samples/*` — real label photos used as OCR fixtures (currently ~6 MB).
+- `data/processed/ocr_dump.json` — deliberate OCR fixture for parser development.
+
+### What must never be committed
+
+- `.venv/`, `.venv-paddle/`, `__pycache__/`, `*.pyc`, `.pytest_cache/`
+- New files in `data/processed/` (debug images, comparison dumps) unless deliberately promoted to fixtures.
+- PaddleOCR model caches (`~/.paddlex` or any `PADDLE_PDX_CACHE_HOME` inside the repo).
+- Files larger than 10 MB without discussing them first.
+
+### Known cleanup
+
+`scripts/__pycache__/*.pyc` and `tests/__pycache__/*.pyc` were tracked in the initial commit. They are removed from the index by `.gitignore` plus `git rm -r --cached`; do not delete the working files.
+
