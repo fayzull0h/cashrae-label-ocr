@@ -1,0 +1,10 @@
+{
+  "airconditioner_label.png": {
+    "category": "room_air_conditioners",
+    "brand": "International Comfort Products",
+    "model_number": "NXA630GKA100",
+    "serial_number": "140302785",
+    "verified": true,
+    "notes": "Model confirmed against ICP/Arcoaire documentation (NXA630GKA100, 16 SEER). Plate manufacturer is International Comfort Products. Serial may carry an E/F prefix; the prefix is not scored."
+  }
+}

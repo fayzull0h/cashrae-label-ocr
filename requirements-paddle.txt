@@ -1,0 +1,10 @@
+# Experimental: PaddleOCR comparison (install into .venv-paddle, NOT .venv)
+#   python -m venv .venv-paddle
+#   .venv-paddle/Scripts/python.exe -m pip install -r requirements-paddle.txt
+#
+# paddlepaddle is pinned to 3.2.2: 3.3.1 crashes on Windows CPU in the
+# oneDNN/PIR executor (ConvertPirAttribute2RuntimeAttribute).
+Pillow>=10.0
+pytesseract>=0.3.10
+paddlepaddle==3.2.2
+paddleocr==3.7.0

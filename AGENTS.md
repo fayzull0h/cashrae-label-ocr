@@ -79,11 +79,18 @@ appliance-energy-tool/
 │   ├── verify_import.py           # Database verification & sanity check script
 │   ├── appliance_lookup.py        # Core retrieval engine (normalization, exact/fuzzy search)
 │   ├── label_ocr.py               # Phase 2: preprocessing + Tesseract OCR backend
+│   ├── label_ocr_paddle.py        # Experimental PaddleOCR backend (same OCRBackend protocol)
+│   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demonstration tool with interactive & demo modes
 ├── tests/
 │   ├── test_lookup.py             # Integration test suite (12 unit tests covering Phase 1)
-│   └── test_label_ocr.py          # OCR foundation tests (23 tests)
+│   ├── test_label_ocr.py          # OCR foundation tests (23 tests)
+│   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
+│   └── test_compare_ocr.py        # Comparison metrics and reporting tests
+├── docs/
+│   └── paddleocr-experiment.md    # PaddleOCR experiment methodology and results
 ├── requirements.txt               # pandas, Pillow, pytesseract
+├── requirements-paddle.txt        # Experimental PaddleOCR dependencies (isolated venv)
 ├── AGENTS.md                      # Agent context and reference document (this file)
 ├── README.md                      # Project overview, status, setup, usage, and limitations
 └── handoff-prompt.md              # Detailed project requirements and background specification
@@ -154,6 +161,7 @@ NRCan uses different column names for annual energy consumption across appliance
 - **Pluggable engines:** `OCRBackend` protocol with `extract(image) -> (text, confidence)`. Keep new engines (e.g. a VLM) behind this interface so parsing/matching code does not change.
 - **Raw text only:** `extract_text()` returns `{image_path, raw_text, confidence (0–1), backend, preprocessing, word_count}`. Field parsing belongs in a later module, not here.
 - **Batch safety:** `extract_directory()` records per-file errors instead of aborting the batch.
+- **Experimental PaddleOCR:** `scripts/label_ocr_paddle.py` implements the same `OCRBackend` protocol and must only be installed in `.venv-paddle/` via `requirements-paddle.txt`. Never add Paddle to `requirements.txt` or make it the default unless the experiment in `docs/paddleocr-experiment.md` meets its decision criteria and the change is merged deliberately. The default CLI profile is tuned PP-OCRv5 mobile (`fast_profile_kwargs()`); `--accurate` switches to PP-OCRv6 medium. `paddlepaddle` must stay pinned to `3.2.2` on Windows.
 
 ---
 
@@ -184,6 +192,14 @@ Run all commands using the project `.venv` from the repository root:
 - **Run OCR over a directory:**
   ```bash
   .venv\Scripts\python.exe scripts/label_ocr.py --dir data/samples --json
+  ```
+- **Run the experimental PaddleOCR backend (isolated venv):**
+  ```bash
+  .venv-paddle\Scripts\python.exe scripts/label_ocr_paddle.py --image data/samples/airconditioner_label.png
+  ```
+- **Compare Tesseract vs PaddleOCR:**
+  ```bash
+  .venv-paddle\Scripts\python.exe scripts/compare_ocr.py --dir data/samples --ground-truth data/samples/ground_truth.json
   ```
 - **Run CLI demo:**
   ```bash

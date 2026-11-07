@@ -57,24 +57,34 @@ tested, and raw text can now be extracted from real label photos. Field parsing
 
 ```
 appliance-energy-tool/
+├── .venv/                         # Main Python environment (Python 3.13)
+├── .venv-paddle/                  # Isolated experimental environment (gitignored)
+├── .gitignore                     # Venvs, bytecode, generated outputs
 ├── data/
 │   ├── raw/                       # NRCan source data (001_ to 010_)
 │   │   ├── 001_.../               # .zip archives + nested extracted folders
 │   │   └── ...                    # Each holds *_Data_*.csv, *_Dictionary_*.csv, *_Information.csv
-│   ├── samples/                   # Real appliance label photos for OCR testing
-│   └── processed/                 # Debug images and derived outputs
+│   ├── samples/                   # Real appliance label photos + ground_truth.json
+│   └── processed/                 # Debug images and generated comparison outputs
 ├── database/
 │   └── appliances.db              # SQLite: 10 appliance tables + 2 metadata tables
+├── docs/
+│   └── paddleocr-experiment.md    # PaddleOCR comparison write-up (experimental branch)
 ├── scripts/
 │   ├── import_datasets.py         # CSV ingestion pipeline into SQLite
 │   ├── verify_import.py           # Database inspection / sanity check
 │   ├── appliance_lookup.py        # Retrieval engine (normalization, exact/fuzzy search)
 │   ├── label_ocr.py               # Phase 2: preprocessing + Tesseract OCR backend
+│   ├── label_ocr_paddle.py        # Experimental PaddleOCR backend (same interface)
+│   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demo, interactive mode, ad-hoc lookups
 ├── tests/
 │   ├── test_lookup.py             # 12 integration tests for the retrieval engine
-│   └── test_label_ocr.py          # 23 tests for the OCR foundation
+│   ├── test_label_ocr.py          # 23 tests for the OCR foundation
+│   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
+│   └── test_compare_ocr.py        # Comparison metrics and reporting tests
 ├── requirements.txt               # pandas, Pillow, pytesseract
+├── requirements-paddle.txt        # Experimental PaddleOCR dependencies
 ├── AGENTS.md                      # Agent context and conventions
 └── handoff-prompt.md              # Project background and requirements
 ```
@@ -177,7 +187,7 @@ python scripts/verify_import.py
 ### Run the test suite
 
 ```bash
-# Everything (Phase 1 + OCR foundation)
+# Everything (Phase 1 + OCR foundation + experiment tests)
 .venv/Scripts/python.exe -m unittest discover -s tests
 
 # Just the retrieval engine
@@ -187,7 +197,8 @@ python scripts/verify_import.py
 .venv/Scripts/python.exe -m unittest tests/test_label_ocr.py
 ```
 
-Expected result: `Ran 35 tests ... OK` for the full suite.
+Expected result: `Ran 56 tests ... OK` for the full suite. The PaddleOCR integration
+test is skipped unless you run the suite with `.venv-paddle/Scripts/python.exe`.
 
 ### Extract text from a label photo (Phase 2)
 
@@ -204,6 +215,35 @@ Expected result: `Ran 35 tests ... OK` for the full suite.
 # Save preprocessed images for inspection
 .venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --debug
 ```
+
+### Experimental: compare Tesseract with PaddleOCR
+
+This is an isolated experiment. It lives on the `experiment/paddleocr` branch, uses a
+separate virtual environment, and **does not change the default OCR engine**.
+
+```bash
+# One-time setup (isolated from .venv)
+.venv/Scripts/python.exe -m venv .venv-paddle
+.venv-paddle/Scripts/python.exe -m pip install -r requirements-paddle.txt
+
+# Run the PaddleOCR backend directly (tuned PP-OCRv5 mobile profile)
+.venv-paddle/Scripts/python.exe scripts/label_ocr_paddle.py --image data/samples/airconditioner_label.png
+
+# Accurate but slow profile (PP-OCRv6 medium, ~25x slower on CPU)
+.venv-paddle/Scripts/python.exe scripts/label_ocr_paddle.py --image data/samples/airconditioner_label.png --accurate
+
+# Compare both engines and write a Markdown report
+.venv-paddle/Scripts/python.exe scripts/compare_ocr.py \
+  --dir data/samples \
+  --ground-truth data/samples/ground_truth.json
+```
+
+`paddlepaddle` is pinned to `3.2.2` in `requirements-paddle.txt`: version `3.3.1`
+crashes on Windows CPU in the oneDNN/PIR executor.
+
+Results are written to `data/processed/ocr_comparison.json` and
+`data/processed/ocr_comparison.md`. See `docs/paddleocr-experiment.md` for methodology,
+measured results, and the adoption decision.
 
 ### Try the CLI
 
