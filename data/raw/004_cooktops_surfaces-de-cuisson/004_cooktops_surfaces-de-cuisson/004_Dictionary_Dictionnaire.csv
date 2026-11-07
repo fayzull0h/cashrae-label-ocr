@@ -1,0 +1,9 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+AEC_03,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+COOK_TOP_TYPE_LABEL,CHARACTER (100),Type,Type,English
+COOK_TOP_TYPE_LABEL,CHARACTER (100),Type,Type,Français
+NONIMAL_WIDTH_LABEL,CHARACTER (100),Width (in),Largeur (po),English
+NONIMAL_WIDTH_LABEL,CHARACTER (100),Width (in),Largeur (po),Français

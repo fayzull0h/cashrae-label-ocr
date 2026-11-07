@@ -1,0 +1,426 @@
+"REC_REF_KEY","MODEL_NUM_1","BRAND_NAME","AEC","EG_WEB_SHAPE_LABEL_EN","EG_WEB_SHAPE_LABEL_FR","VOL_LIT","VOL_CUB","TYPE_LABEL_EN","TYPE_LABEL_FR","SIZE_CATEGORY","EG_WEB_DEFROST_LABEL_EN","EG_WEB_DEFROST_LABEL_FR","HR24_FREEZE_KG"
+2368534,"F1051","Liebherr",465,"Upright","Verticaux",267,9.43,"09","09",3,"Automatic","Automatique",18
+2528298,"HNCM070E","Haier",276,"Chest","Coffre",198.2,7,"18","18",1,"-","-",9.8
+2528299,"HNCM070EB","Haier",276,"Chest","Coffre",198.2,7,"18","18",1,"-","-",9.8
+2528300,"HNCM070EC","Haier",276,"Chest","Coffre",198.2,7,"18","18",1,"-","-",9.8
+2531055,"MCCF35WF","Magic Chef",212,"Chest","Coffre",95,3.4,"18","18",0,"-","-",14
+3493051,"FGCH20M7LW*","Gallery",434,"Chest","Coffre",562.089,19.85,"10","10",8,"-","-",14.9
+3493055,"FKFH21F7HW*","Frigidaire",690,"Upright","Verticaux",580.779,20.51,"09","09",8,"Automatic","Automatique",13.5
+3493077,"LFFH17F7HW*","Frigidaire",615,"Upright","Verticaux",473.741,16.73,"09","09",6,"Automatic","Automatique",11.8
+3493079,"LFFN15M5HW*","Frigidaire",357,"Chest","Coffre",420.505,14.85,"10","10",5,"-","-",12.5
+3745381,"65405003","Uberhaus",212,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5
+3745382,"65405005","Uberhaus",247,"Chest","Coffre",150,5.3,"18","18",0,"-","-",8
+4295826,"BI-36F/O","Sub-Zero",817,"Upright","Verticaux",641.94,22.67,"09","09",9,"Automatic","Automatique",11.43
+4295827,"BI-36F/S/PH","Sub-Zero",817,"Upright","Verticaux",641.94,22.67,"09","09",9,"Automatic","Automatique",11.43
+4295828,"BI-36F/S/TH","Sub-Zero",817,"Upright","Verticaux",641.94,22.67,"09","09",9,"Automatic","Automatique",11.43
+4911355,"T30IF800SP","Thermador",480,"Upright","Verticaux",447.972,15.82,"09","09",6,"Automatic","Automatique",12.6
+4911356,"T24IF800SP","Thermador",388,"Upright","Verticaux",346.598,12.24,"09","09",4,"Automatic","Automatique",15.2
+4911357,"T18IF800SP","Thermador",359,"Upright","Verticaux",244.657,8.64,"09","09",2,"Automatic","Automatique",2.22
+4911358,"T24ID800RP","Thermador",410,"Upright","Verticaux",320.263,11.31,"09","09",3,"Automatic","Automatique",13
+4911359,"T24ID800LP","Thermador",410,"Upright","Verticaux",320.263,11.31,"09","09",3,"Automatic","Automatique",13
+4911360,"T18ID800LP","Thermador",356,"Upright","Verticaux",222.004,7.84,"09","09",2,"Automatic","Automatique",1.2
+4911361,"T18ID800RP","Thermador",356,"Upright","Verticaux",222.004,7.84,"09","09",2,"Automatic","Automatique",1.2
+5350080,"FFUH21F2NW*","Frigidaire",690,"Upright","Verticaux",580.779,20.51,"09","09",8,"Automatic","Automatique",13.5
+5768623,"HS502FW","Brada",511,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+6188298,"HS-502FWE","Midea",511,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+6188299,"UL-BD386WE-S","Midea",511,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+6188300,"HNCM035E","Haier",212,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5
+6188301,"FR434","Igloo",212,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5
+6188302,"FR438","Igloo",170,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5
+6215241,"043-1895-2","Cuisinart",238,"Upright","Verticaux",79.6,2.8,"16","16",0,"Manual","Non automatique",8
+6215242,"RS-11DC1HS","Hisense",238,"Upright","Verticaux",79.6,2.8,"16","16",0,"Manual","Non automatique",8
+6219008,"ZIFP360NX****","GE Monogram",704,"Upright","Verticaux",607.963,21.47,"09","09",9,"Automatic","Automatique",21.288
+6219009,"ZIFS360NX****","GE Monogram",704,"Upright","Verticaux",607.963,21.47,"09","09",9,"Automatic","Automatique",21.288
+6448375,"HS502FWSS","Brada",511,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+6448376,"AFU137DW","Avantgarde",511,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+6506907,"HD-200","Hicon",276,"Chest","Coffre",198,7,"18","18",1,"-","-",9.8
+7038034,"043-0292-2","Master Chef",214,"Chest","Coffre",99,3.5,"18","18",0,"-","-",6
+7038035,"043-0293-0","Master Chef",242,"Chest","Coffre",144,5.1,"18","18",0,"-","-",8
+7589867,"043-0293-0","Master Chef",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+7589868,"FC-19DD1HNA","Hisense",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+7589869,"FFFC05M2KW","Frigidaire",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+7589870,"FFFC05M3LW","Frigidaire",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+7589871,"CFC05LW","Crosley",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+7589872,"043-0292-2","Master Chef",203.2,"Chest","Coffre",97.5,3.46,"18","18",0,"-","-",15
+7589873,"FC-13DD1HA","Hisense",203.2,"Chest","Coffre",97.5,3.46,"18","18",0,"-","-",15
+7589874,"CF353","Emerson",203.2,"Chest","Coffre",97.5,3.46,"18","18",0,"-","-",15
+7919983,"RF463702","Gaggenau",410,"Upright","Verticaux",320.263,11.31,"09","09",3,"Automatic","Automatique",13
+7919984,"RF463703","Gaggenau",410,"Upright","Verticaux",320.263,11.31,"09","09",3,"Automatic","Automatique",13
+7919985,"RF411701","Gaggenau",359,"Upright","Verticaux",244.657,8.64,"09","09",2,"Automatic","Automatique",2.22
+7919986,"RF461701","Gaggenau",388,"Upright","Verticaux",346.598,12.24,"09","09",4,"Automatic","Automatique",15.2
+7919987,"RF471701","Gaggenau",480,"Upright","Verticaux",447.972,15.82,"09","09",6,"Automatic","Automatique",12.6
+7920123,"HF71CM20NW","Haier",278,"Chest","Coffre",201.5,7.1,"18","18",1,"-","-",16.1
+8317951,"FC-33DD1HA","Hisense",193.09,"Chest","Coffre",250.1,8.83,"10","10",2,"-","-",18.3
+8317952,"FC88D1AWD","Hisense",193.09,"Chest","Coffre",250.1,8.83,"10","10",2,"-","-",18.3
+8317953,"FC-33DD1HB","Hisense",190.41,"Chest","Coffre",250.1,8.83,"10","10",2,"-","-",18.3
+8317954,"FC88D1BWD","Hisense",190.41,"Chest","Coffre",250.1,8.83,"10","10",2,"-","-",18.3
+8918403,"FC-19DD1SA","Hisense",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+8918404,"FC51D7AWD","Hisense",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+8918405,"FFFC05M1QW","Frigidaire",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+8918409,"FC-13DD1SA","Hisense",194,"Chest","Coffre",98.2,3.47,"18","18",0,"-","-",9
+8918410,"FC35D7AWD","Hisense",194,"Chest","Coffre",98.2,3.47,"18","18",0,"-","-",9
+8918411,"FC-26DD1SA","Hisense",254,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+8918412,"FC72D7AWD","Hisense",254,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+8918413,"FFFC07M1QW","Frigidaire",254,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+8920333,"FKC17F7QT*","Frigidaire",615,"Upright","Verticaux",473.741,16.73,"09","09",6,"Automatic","Automatique",13.3
+8927945,"CFDFB5302*****","Brigade",601,"Upright","Verticaux",450.237,15.9,"09","09",6,"Automatic","Automatique",11.2
+8927946,"CVCFB5302*****","Brigade",601,"Upright","Verticaux",450.237,15.9,"09","09",6,"Automatic","Automatique",11.2
+8927947,"CFDFB5362*****","Brigade",665,"Upright","Verticaux",543.683,19.2,"09","09",7,"Automatic","Automatique",12.93
+8927948,"CVCFB5362*****","Brigade",665,"Upright","Verticaux",543.683,19.2,"09","09",7,"Automatic","Automatique",12.93
+9391391,"ID-24F","Sub-Zero",377,"Upright","Verticaux",107.7,3.8,"17","17",0,"Automatic","Automatique",15.45
+9391392,"ID-30F","Sub-Zero",356,"Upright","Verticaux",138.8,4.9,"17","17",0,"Automatic","Automatique",15.45
+9497541,"FCM5SH****","GE",218,"Chest","Coffre",142.43,5.03,"18","18",0,"-","-",11
+9497542,"FCM7SH****","GE",250,"Chest","Coffre",198.78,7.02,"18","18",1,"-","-",8.9
+9497543,"FCM11PH****","GE",218,"Chest","Coffre",300.16,10.6,"10","10",3,"-","-",11
+9497544,"FCM7DH****","GE",250,"Chest","Coffre",198.78,7.02,"18","18",1,"-","-",8.9
+9517766,"CFC051QW","Crosley",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+9517767,"253.1250241*","Kenmore",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+9517768,"253.1240241*","Kenmore",194,"Chest","Coffre",98.2,3.47,"18","18",0,"-","-",9
+9517769,"CFC072QW","Crosley",254,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+9517770,"253.1270241*","Kenmore",254,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+9571862,"RS-04DC1SS","Hisense",241,"Upright","Verticaux",30.7,1.08,"16","16",0,"Manual","Non automatique",3
+9571863,"RC13D1A*E","Hisense",241,"Upright","Verticaux",30.7,1.08,"16","16",0,"Manual","Non automatique",3
+9571864,"WUF13W","Commercial Cool",241,"Upright","Verticaux",30.7,1.08,"16","16",0,"Manual","Non automatique",3
+9572784,"IC-30FI","Sub-Zero",557,"Upright","Verticaux",433.2,15.3,"09","09",5,"Automatic","Automatique",28.45
+9572785,"IC-24FI","Sub-Zero",558,"Upright","Verticaux",348.2,12.3,"09","09",4,"Automatic","Automatique",9.21
+9572786,"IT-30FI","Sub-Zero",606,"Upright","Verticaux",427.5,15.1,"09","09",5,"Automatic","Automatique",9.21
+9574319,"FCM5FX****","GE",218,"Chest","Coffre",142,5,"18","18",0,"-","-",7.6
+9574320,"FCM7FX****","GE",250,"Chest","Coffre",199,7,"18","18",1,"-","-",6.6
+9574321,"FCM10FX****","GE",218,"Chest","Coffre",301,11,"10","10",3,"-","-",7.4
+9574322,"MCM5FX****","Moffat",218,"Chest","Coffre",142,5,"18","18",0,"-","-",7.6
+9574323,"MCM7FX****","Moffat",250,"Chest","Coffre",199,7,"18","18",1,"-","-",6.6
+9574324,"MCM10FX****","Moffat",218,"Chest","Coffre",301,11,"10","10",3,"-","-",7.4
+9606170,"AQC0501DRW","Amana",215,"Chest","Coffre",142,5,"10","10",0,"-","-",10
+9606171,"AQC0701DRW","Amana",248,"Chest","Coffre",197,7,"18","18",1,"-","-",12
+9606172,"AQC0902DRW","Amana",219,"Chest","Coffre",255,9,"18","18",2,"-","-",13
+9737219,"33NR81","Dayton",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.4
+9737220,"33NR82","Dayton",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.5
+9737221,"33NR83","Dayton",244,"Chest","Coffre",301,10.6,"10","10",3,"-","-",11.6
+9737243,"HS-129C-2","Brada",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+9737346,"CF500","Emerson",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+9875448,"FFFU14M1QW*","Frigidaire",334,"Upright","Verticaux",409,14.43,"08","08",5,"Manual","Non automatique",11.42
+9875450,"FFFU17M1QW*","Frigidaire",362,"Upright","Verticaux",491,17.34,"08","08",6,"Manual","Non automatique",21.21
+9875451,"CFUMC17QW*","Crosley",362,"Upright","Verticaux",491,17.34,"08","08",6,"Manual","Non automatique",21.21
+9875452,"FFFU21M1QW*","Frigidaire",397,"Upright","Verticaux",593,20.94,"08","08",8,"Manual","Non automatique",19.23
+9875454,"CFUMC21QW*","Crosley",397,"Upright","Verticaux",593,20.94,"08","08",8,"Manual","Non automatique",19.23
+9875455,"FFFU14F2QW*","Frigidaire",436,"Upright","Verticaux",391,13.82,"09","09",5,"Automatic","Automatique",15.5
+9875457,"CFUF14QW*","Crosley",436,"Upright","Verticaux",391,13.82,"09","09",5,"Automatic","Automatique",15.5
+9875459,"FFVU17F4QW*","Frigidaire",479,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+9875460,"FFFH17F6QW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.78
+9875461,"FFFH17F4QT*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+9875462,"FFFH17F2QW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+9875465,"FGVU17F8QF*","Gallery",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.78
+9875466,"FGVU17F8QT*","Gallery",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.78
+9875467,"CFUFH17QW*","Crosley",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+9875468,"FGFU19F6QF*","Gallery",509,"Upright","Verticaux",526,18.58,"09","09",7,"Automatic","Automatique",17.09
+9875470,"E32AF85PQS*","Electrolux",509,"Upright","Verticaux",526,18.58,"09","09",7,"Automatic","Automatique",17.09
+9875471,"EI32AF80QS*","Electrolux",509,"Upright","Verticaux",526,18.58,"09","09",7,"Automatic","Automatique",17.09
+9875472,"FFFH20F2QW*","Frigidaire",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+9875474,"FFVU21F4QW*","Frigidaire",538,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.72
+9875475,"FFFH21F6QW*","Frigidaire",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+9875479,"FGVU21F8QF*","Gallery",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+9875480,"FGVU21F8QT*","Gallery",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+9875481,"CFUFH21QW*","Crosley",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.72
+9875482,"CFUFHC21QW*","Crosley",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+9875490,"FFFC18M6QW*","Frigidaire",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+9875492,"CFC183QW*","Crosley",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+9875493,"FFFC22M6QW*","Frigidaire",383,"Chest","Coffre",611,21.57,"10","10",9,"-","-",13.41
+9875495,"CFC224QW*","Crosley",383,"Chest","Coffre",611,21.57,"10","10",9,"-","-",13.41
+9875526,"AZC31T15D*","Amana",297,"Chest","Coffre",419.09,14.8,"10","10",5,"-","-",14.017
+9875527,"DCFM148A1WDD*","Danby",297,"Chest","Coffre",419.09,14.8,"10","10",5,"-","-",14.017
+9875528,"MZC31T15D*","Maytag",297,"Chest","Coffre",419.09,14.8,"10","10",5,"-","-",14.017
+9875529,"WZC3115D*","Whirlpool",297,"Chest","Coffre",419.09,14.8,"10","10",5,"-","-",14.017
+9875530,"WZC5415D*","Whirlpool",297,"Chest","Coffre",419.09,14.8,"10","10",5,"-","-",14.017
+9875532,"AZF33X18D*","Amana",496,"Upright","Verticaux",501.2,17.7,"09","09",7,"Automatic","Automatique",14.655
+9875533,"DUF177A1WDB*","Danby",496,"Upright","Verticaux",501.2,17.7,"09","09",7,"Automatic","Automatique",14.655
+9875534,"WZF34X18D*","Whirlpool",496,"Upright","Verticaux",501.2,17.7,"09","09",7,"Automatic","Automatique",14.655
+9875536,"WSZ57L18D*","Whirlpool",496,"Upright","Verticaux",501.2,17.7,"09","09",7,"Automatic","Automatique",14.768
+10012762,"FUM21DH****","GE",397,"Upright","Verticaux",592.955,20.94,"08","08",8,"Manual","Non automatique",19.23
+10012763,"FUF14DH****","GE",436,"Upright","Verticaux",391.339,13.82,"09","09",5,"Automatic","Automatique",15.5
+10012764,"FUF17DH****","GE",479,"Upright","Verticaux",470.909,16.63,"09","09",6,"Automatic","Automatique",18.99
+10012765,"FUF20DH****","GE",534,"Upright","Verticaux",572.567,20.22,"09","09",8,"Automatic","Automatique",21.99
+10012782,"DUFM026B1WDD","Danby Designer",237,"Upright","Verticaux",74.8,2.64,"16","16",0,"Manual","Non automatique",8
+10012783,"DUFM085A2WP1","Danby Premiere",247,"Upright","Verticaux",241.3,8.52,"08","08",2,"Manual","Non automatique",9.3
+10012784,"DUFM101A1WDD1","Danby Designer",261,"Upright","Verticaux",287.1,10.14,"08","08",3,"Manual","Non automatique",8.8
+10012785,"DCF081A1WDD","Danby Designer",189,"Chest","Coffre",229.8,8.12,"10","10",2,"-","-",8.4
+10012786,"DCF096A1WDD1","Danby Designer",206,"Chest","Coffre",272.1,9.61,"10","10",3,"-","-",9
+10012787,"SYCF081A1W1","Simplicity",189,"Chest","Coffre",229.8,8.12,"10","10",2,"-","-",8.4
+10012788,"DUFM043A1WDD","Danby Designer",260,"Upright","Verticaux",122.1,4.31,"16","16",0,"Manual","Non automatique",8.8
+10012789,"DUFM032A1WDB","Danby",272,"Upright","Verticaux",90.1,3.18,"16","16",0,"Manual","Non automatique",4.8
+10012791,"DCF038A1*","Danby",197,"Chest","Coffre",107.8,3.81,"18","18",0,"-","-",8.3
+10012792,"DCF055A1WDB1","Danby",224,"Chest","Coffre",156,5.51,"18","18",1,"-","-",7.1
+10012793,"DCF055A1*","Danby Premiere",224,"Chest","Coffre",156,5.51,"18","18",1,"-","-",7.1
+10012794,"DCF071A3WDD1","Danby Designer",225,"Chest","Coffre",201.2,7.11,"18","18",1,"-","-",9.4
+10012796,"SYCF038A1W1","Simplicity",197,"Chest","Coffre",107.8,3.81,"18","18",0,"-","-",8.3
+10012797,"SYCF051A1W1","Simplicity",196,"Chest","Coffre",144.4,5.1,"18","18",0,"-","-",7.9
+10012798,"SYCF071A3W1","Simplicity",225,"Chest","Coffre",201.2,7.11,"18","18",1,"-","-",9.4
+10012799,"DCF072A2WP","Danby Premiere",252,"Chest","Coffre",204.1,7.21,"18","18",1,"-","-",8.5
+10012800,"DCF072A2*","Danby",252,"Chest","Coffre",204.1,7.21,"18","18",1,"-","-",8.5
+10012801,"DCF051A1WDD","Danby Designer",196,"Chest","Coffre",144.4,5.1,"18","18",0,"-","-",7.9
+10012802,"DUFM085A2WDD1","Danby Designer",247,"Upright","Verticaux",241.3,8.52,"08","08",2,"Manual","Non automatique",9.3
+10012816,"043-0293-0","Master Chef",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+10012817,"043-0292-2","Master Chef",194,"Chest","Coffre",98.2,3.47,"18","18",0,"-","-",9
+10012821,"FFFU13M1QW*","Frigidaire",318,"Upright","Verticaux",363,12.82,"08","08",4,"Manual","Non automatique",12.77
+10012823,"FFFH17F4QW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+10012824,"FGVU17F8QW*","Gallery",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.78
+10012825,"LFFH17F3QW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+10012826,"LFFH20F3QW*","Frigidaire",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+10012828,"FGVU21F8QW*","Gallery",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+10012829,"FFFH21F4QW*","Frigidaire",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.72
+10012830,"FFFH21F4QT*","Frigidaire",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.72
+10012831,"FFFC16M5QW*","Frigidaire",306,"Chest","Coffre",441,15.58,"10","10",6,"-","-",15.37
+10012832,"CFC162QW*","Crosley",306,"Chest","Coffre",441,15.58,"10","10",6,"-","-",15.37
+10012833,"FFCH16M5QW*","Frigidaire",275,"Chest","Coffre",441,15.58,"10","10",6,"-","-",13.35
+10012983,"LFFH20F3QM*","Frigidaire",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+10012984,"253.21242*","Kenmore",318,"Upright","Verticaux",363,12.82,"08","08",4,"Manual","Non automatique",12.77
+10012985,"253.21042*","Kenmore",397,"Upright","Verticaux",593,20.94,"08","08",8,"Manual","Non automatique",19.23
+10012986,"253.22442*","Kenmore",436,"Upright","Verticaux",391,13.82,"09","09",5,"Automatic","Automatique",15.5
+10012988,"253.27702*","Kenmore",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.78
+10012989,"253.22742*","Kenmore",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+10012990,"253.22042*","Kenmore",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+10012991,"253.27002*","Kenmore",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+10012992,"253.27003*","Kenmore",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+10012993,"253.27009*","Kenmore",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.99
+10012995,"253.12112*","Kenmore",249,"Chest","Coffre",315,11.11,"10","10",3,"-","-",17.9
+10012996,"253.12512*","Kenmore",306,"Chest","Coffre",441,15.58,"10","10",6,"-","-",15.37
+10012997,"253.17802*","Kenmore",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+10012998,"253.17202*","Kenmore",383,"Chest","Coffre",611,21.57,"10","10",9,"-","-",13.41
+10013009,"ZIFS360NH****","GE Monogram",615,"Upright","Verticaux",620.705,21.92,"09","09",9,"Automatic","Automatique",15.3
+10013010,"ZIFP360NH****","GE Monogram",615,"Upright","Verticaux",620.705,21.92,"09","09",9,"Automatic","Automatique",15.3
+10013011,"ZIF360NH****","GE Monogram",615,"Upright","Verticaux",620.705,21.92,"09","09",9,"Automatic","Automatique",15.3
+10017261,"DUFM166A1WDB*","Danby",356,"Upright","Verticaux",470.06,16.6,"08","08",6,"Manual","Non automatique",15.131
+10017262,"AZC31T22D*","Amana",386,"Chest","Coffre",614.47,21.7,"10","10",9,"-","-",15.602
+10017263,"DCFM217A1WDD*","Danby",386,"Chest","Coffre",614.47,21.7,"10","10",9,"-","-",15.602
+10017264,"WZC5422D*","Whirlpool",386,"Chest","Coffre",614.47,21.7,"10","10",9,"-","-",15.602
+10017265,"WZC3122D*","Whirlpool",386,"Chest","Coffre",614.47,21.7,"10","10",9,"-","-",15.602
+10194900,"AZF33X20D*","Amana",525,"Upright","Verticaux",556.42,19.65,"09","09",8,"Automatic","Automatique",18.177
+10194901,"ICFF2014A*","Imperial",525,"Upright","Verticaux",556.42,19.65,"09","09",8,"Automatic","Automatique",18.177
+10194902,"MZF34X20D*","Maytag",525,"Upright","Verticaux",556.42,19.65,"09","09",8,"Automatic","Automatique",18.177
+10194904,"WZF79R20D*","Whirlpool",525,"Upright","Verticaux",556.42,19.65,"09","09",8,"Automatic","Automatique",18.177
+10300706,"CCF50M2W","Criterion",218,"Chest","Coffre",142,5,"18","18",0,"-","-",7.6
+10300707,"CCF70M2W","Criterion",250,"Chest","Coffre",199,7,"18","18",1,"-","-",6.6
+10300708,"CCF10M2W","Criterion",238,"Chest","Coffre",288,10.2,"10","10",3,"-","-",12.4
+10300777,"DCF071A3*","Danby",225,"Chest","Coffre",201.2,7.11,"18","18",1,"-","-",9.4
+10304689,"970F44853*","Electrolux",509,"Upright","Verticaux",526,18.58,"09","09",7,"Automatic","Automatique",17.09
+10990158,"FRF434I","Igloo",174,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5
+10990160,"AZF33X16D*","Amana",466,"Upright","Verticaux",444,15.68,"09","09",6,"Automatic","Automatique",12.249
+10990161,"ICFF1614A*","Imperial",466,"Upright","Verticaux",444,15.68,"09","09",6,"Automatic","Automatique",12.249
+10990162,"MZF34X16D*","Maytag",466,"Upright","Verticaux",444,15.68,"09","09",6,"Automatic","Automatique",12.249
+10990163,"WZF34X16D*","Whirlpool",466,"Upright","Verticaux",444,15.68,"09","09",6,"Automatic","Automatique",12.249
+10990164,"WZF56R16D*","Whirlpool",466,"Upright","Verticaux",444,15.68,"09","09",6,"Automatic","Automatique",12.249
+10990165,"FCM15DH****","GE",297,"Chest","Coffre",419.09,14.8,"10","10",5,"-","-",14.017
+10990166,"FCM22DH****","GE",386,"Chest","Coffre",614.47,21.7,"10","10",9,"-","-",15.602
+10990306,"253-12502E","Kenmore",220,"Chest","Coffre",143.5,5.07,"18","18",0,"-","-",12
+10990307,"253-12702E","Kenmore",254,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+10990308,"253-12402E","Kenmore",194,"Chest","Coffre",98.2,3.47,"18","18",0,"-","-",9
+10990309,"FFFC07M4NW","Frigidaire",225.33,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+10990310,"FFFC05M4NW","Frigidaire",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+10990311,"253-18502C","Kenmore",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+10990312,"253-18702C","Kenmore",225.33,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+10990313,"CFC05NW","Crosley",237.3,"Chest","Coffre",145,5.12,"18","18",0,"-","-",13
+10990314,"CFC07NW","Crosley",225.33,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",13
+10990315,"RS-04DC1SS","Hisense",241,"Upright","Verticaux",30.7,1.08,"16","16",0,"Manual","Non automatique",3
+10990316,"RC13D1A*E","Hisense",241,"Upright","Verticaux",30.7,1.08,"16","16",0,"Manual","Non automatique",3
+10990317,"WUF13W","Commercial Cool",241,"Upright","Verticaux",30.7,1.08,"16","16",0,"Manual","Non automatique",3
+10990329,"HS502FW-2","Brada",391,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+10990330,"UDF-138DW","Whynter",391,"Upright","Verticaux",391,13.8,"09","09",5,"Automatic","Automatique",17.5
+10990387,"HF861","Liebherr",439,"Upright","Verticaux",220,7.77,"09","09",2,"Automatic","Automatique",18
+10990388,"FNS37492IE","Miele",439,"Upright","Verticaux",220,7.77,"09","09",2,"Automatic","Automatique",18
+10990403,"IC-18FI","Sub-Zero",490,"Upright","Verticaux",237.86,8.4,"09","09",2,"Automatic","Automatique",7.75
+11776316,"FPFU19F8RF*","Frigidaire",509,"Upright","Verticaux",526,18.58,"09","09",7,"Automatic","Automatique",17.09
+11818175,"AT50FRE","Attitude",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+12881075,"FRF438-B","Igloo",152,"Chest","Coffre",100,3.5,"18","18",0,"-","-",8
+12881076,"FRF452-C","Igloo",172,"Chest","Coffre",145,5.1,"18","18",0,"-","-",10
+13155596,"FFFU14F1RW*","Frigidaire",436,"Upright","Verticaux",391,13.82,"09","09",5,"Automatic","Automatique",15.5
+13155597,"FFFH17F1RW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+13155598,"FFFH20D1RW*","Frigidaire",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+13155599,"253.12812*","Kenmore",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+13155600,"253.21742*","Kenmore",362,"Upright","Verticaux",491,17.34,"08","08",6,"Manual","Non automatique",21.21
+13232957,"FFFC18M4RW*","Frigidaire",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+13455157,"FCM16DJ****","GE",306,"Chest","Coffre",620.705,15.58,"10","10",6,"-","-",15.37
+13455158,"FCM22DJ****","GE",383,"Chest","Coffre",620.705,21.57,"10","10",9,"-","-",13.41
+14084543,"WHS-185C1WSB","Arctic King",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+14105574,"CFFH17F1RW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.99
+14105576,"URBD99DW","Midea",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+14105577,"URBD142D","Midea",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+14105578,"URBD198D","Midea",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.6
+14105579,"URBD295D","Midea",238,"Chest","Coffre",288,10.2,"10","10",3,"-","-",12.2
+14398441,"FCM7CJ****","GE",250,"Chest","Coffre",198.78,7.02,"18","18",1,"-","-",9.5
+14643022,"CFC162RC*","Crosley",306,"Chest","Coffre",441,15.58,"10","10",6,"-","-",15.37
+14643023,"WWFC16M4RC*","White-Westinghouse",306,"Chest","Coffre",441,15.58,"10","10",6,"-","-",15.37
+14643025,"CFC183RC*","Crosley",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+14643026,"WWFC18M4RC*","White-Westinghouse",331,"Chest","Coffre",496,17.51,"10","10",7,"-","-",13.61
+14643027,"253.12822*","Kenmore",383,"Chest","Coffre",611,21.57,"10","10",9,"-","-",13.41
+14643028,"253.22040*","Kenmore",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+14643029,"WWFH20F2RC*","White-Westinghouse",480,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.72
+14643030,"CFUFH21RC*","Crosley",484,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.72
+14644071,"HFC5001ACW","Haier",217,"Chest","Coffre",143,5,"18","18",0,"-","-",7.76
+14644072,"HFC7001ACW","Haier",249,"Chest","Coffre",199,7,"18","18",1,"-","-",11.51
+14644690,"HFU0100AC*","Haier",240,"Upright","Verticaux",31.1,1.1,"16","16",0,"Manual","Non automatique",7.84
+14644691,"HFC7002ASW","Haier",249,"Chest","Coffre",199,7,"18","18",1,"-","-",11.51
+14647860,"FC35D6AWD","Hisense",194,"Chest","Coffre",98.2,3.47,"18","18",0,"-","-",9
+14647861,"BD-250N/HC(EU)","Hisense",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14647862,"FC88D6AWD","Hisense",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14647863,"BD-250N/HC(EU)-01","Hisense",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14647864,"FC88D6BWD","Hisense",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14860517,"HFC9204AC*","Haier",225,"Chest","Coffre",259,9.15,"10","10",2,"-","-",9.24
+14860518,"HFC1104AC*","Haier",245,"Chest","Coffre",304,10.74,"10","10",3,"-","-",8.59
+14860519,"HFC1504AC*","Haier",294,"Chest","Coffre",412,14.55,"10","10",5,"-","-",15.06
+14862196,"FFFC09M1RW","Frigidaire",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14862197,"FFFC09M1RB","Frigidaire",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14862198,"253.12902510","Kenmore",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14862199,"253.12909510","Kenmore",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+14977911,"CCUK12W","Commercial Cool",244,"Upright","Verticaux",33.9,1.2,"16","16",0,"Manual","Non automatique",2
+14977912,"HFC3501AC*","Haier",190,"Chest","Coffre",99.11,3.5,"18","18",0,"-","-",16
+14977931,"DCF145A1*","Danby Designer",292,"Chest","Coffre",411.6,14.54,"10","10",5,"-","-",0
+14980724,"HF71CL53NW","Haier",248,"Chest","Coffre",201.9,7.13,"18","18",1,"-","-",11.51
+14980725,"HF71CM33NW","Haier",248,"Chest","Coffre",201.9,7.13,"18","18",1,"-","-",11.51
+14980726,"HF50CM23NW","Haier",216,"Chest","Coffre",144.98,5.12,"18","18",0,"-","-",11.94
+14982110,"DUF138E1WDD","Danby Designer",391,"Upright","Verticaux",391.2,13.82,"09","09",5,"Automatic","Automatique",14
+15011322,"ICM050LC","Idylis",240,"Chest","Coffre",142,5,"18","18",0,"-","-",14.9
+15011323,"ICM070LC","Idylis",277,"Chest","Coffre",198,7,"18","18",1,"-","-",13.4
+15011326,"RB36*****","Fisher & Paykel",300,"Upright","Verticaux",104,3.7,"17","17",0,"Automatic","Automatique",10.85
+15011327,"FRF110","Igloo",240,"Upright","Verticaux",31.1,1.1,"16","16",0,"Manual","Non automatique",1.9
+15011328,"FRF300","Igloo",270,"Upright","Verticaux",84.8,3,"16","16",0,"Manual","Non automatique",5.28
+15011329,"3730-915","Classic",300,"Upright","Verticaux",140,4.9,"08","08",0,"Manual","Non automatique",12.4
+15011330,"3730-922","Classic",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+15011331,"3730-923","Classic",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+15011332,"3730-924","Classic",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.2
+15012811,"FCM7SK****","GE",250,"Chest","Coffre",198.78,7.02,"18","18",1,"-","-",9.1
+15012812,"FCM7CK****","GE",250,"Chest","Coffre",198.78,7.02,"18","18",1,"-","-",9.1
+15012813,"FCM7DK****","GE",250,"Chest","Coffre",198.78,7.02,"18","18",1,"-","-",9.1
+15012814,"FCM5SK****","GE",218,"Chest","Coffre",142.43,5.03,"18","18",0,"-","-",10.2
+15199121,"MZF34X18F***","Maytag",496,"Upright","Verticaux",501.2,17.7,"09","09",7,"Automatic","Automatique",14.655
+15199122,"MZC3122F***","Maytag",386,"Chest","Coffre",614.5,21.7,"10","10",9,"-","-",15.602
+15201625,"HS185C","Midea",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+15201626,"HS258C","Midea",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+15201627,"HS384CN","Midea",238,"Chest","Coffre",288,10.2,"10","10",3,"-","-",12.4
+15201628,"WHS-129C1","Midea",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+15201629,"WHS-79C1","Midea",167,"Chest","Coffre",59,2.1,"18","18",0,"-","-",6.36
+15201630,"NS-CZ50WH6-C","Insignia",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+15201631,"NS-CZ70WH6-C","Insignia",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+15201632,"NS-CZ10WH6-C","Insignia",238,"Chest","Coffre",288,10.2,"10","10",3,"-","-",12.4
+15201633,"NS-CZ35WH7-C","Insignia",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+15201634,"NS-UZ58WH6-C","Insignia",314,"Upright","Verticaux",165,5.8,"08","08",1,"Manual","Non automatique",11.6
+15201635,"WHS-109FW1","Arctic King",240,"Upright","Verticaux",84,3,"16","16",0,"Manual","Non automatique",4.4
+15201636,"WHS-129C1WSB","Arctic King",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+15201637,"WHS-185C1WS","Arctic King",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+15201750,"HFC7114BCW","Haier",226,"Chest","Coffre",201.33,7.11,"18","18",1,"-","-",12.83
+15799303,"WWFU14M1SW*","White-Westinghouse",334,"Upright","Verticaux",409,14.43,"08","08",5,"Manual","Non automatique",11.42
+15799304,"WWFC22M1SW*","White-Westinghouse",383,"Chest","Coffre",611,21.57,"10","10",9,"-","-",13.41
+15799306,"WWVU21F4SC*","White-Westinghouse",538,"Upright","Verticaux",581,20.53,"09","09",8,"Automatic","Automatique",21.72
+15799756,"IC-36FI","Sub-Zero",631,"Upright","Verticaux",566.3,20,"09","09",8,"Automatic","Automatique",10.59
+16293733,"253.22052*","Kenmore",534,"Upright","Verticaux",573,20.22,"09","09",8,"Automatic","Automatique",21.32
+16293734,"CFUFHC17SW*","Crosley",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",18.78
+16303527,"ML24FAS***","Marvel",305,"Upright","Verticaux",133.7,4.72,"17","17",0,"Automatic","Automatique",13.79
+16303528,"ML24FAP***","Marvel",351,"Upright","Verticaux",129.4,4.57,"17","17",0,"Automatic","Automatique",12.28
+16303529,"MP24FAP***","Marvel",351,"Upright","Verticaux",129.4,4.57,"17","17",0,"Automatic","Automatique",12.28
+16303530,"MP24FAS***","Marvel",340,"Upright","Verticaux",129.4,4.57,"17","17",0,"Automatic","Automatique",12.12
+16303888,"ZOF2862E","Gorenje",322,"Upright","Verticaux",427.6,15.1,"09","09",5,"Automatic","Automatique",22.25
+16304577,"U-3024FZRINT-00B","U-Line",430,"Upright","Verticaux",127,4.5,"17","17",0,"Automatic","Automatique",
+16304578,"U-3024FZRS-00B","U-Line",430,"Upright","Verticaux",127,4.5,"17","17",0,"Automatic","Automatique",
+16304579,"U-3024FZRS-07A","U-Line",430,"Upright","Verticaux",127,4.5,"17","17",0,"Automatic","Automatique",
+16513780,"WZF57R16F***","Whirlpool",419,"Upright","Verticaux",444,15.68,"09","09",6,"Automatic","Automatique",27.59
+16604879,"MCF71W","Marathon",224,"Chest","Coffre",199.1,7.03,"18","18",1,"-","-",9
+16604880,"MCF71BLS","Marathon",224,"Chest","Coffre",199.1,7.03,"18","18",1,"-","-",9
+16604881,"MCF71W","Epic",224,"Chest","Coffre",199.1,7.03,"18","18",1,"-","-",9
+16604882,"MCF71BLS","Epic",224,"Chest","Coffre",199.1,7.03,"18","18",1,"-","-",9
+16604883,"MCF71W","Stirling",224,"Chest","Coffre",199.1,7.03,"18","18",1,"-","-",9
+16604884,"MCF71BLS","Stirling",224,"Chest","Coffre",199.1,7.03,"18","18",1,"-","-",9
+16604945,"BKFH17F1SW*","Frigidaire",431,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",19.62
+16681801,"WHS-75FW1","Midea",219,"Upright","Verticaux",59,2.1,"16","16",0,"Manual","Non automatique",4.1
+16683402,"CF106B0W","Avanti",240,"Chest","Coffre",310.3,10.96,"10","10",3,"-","-",13
+16685074,"MCF35W","Marathon",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685075,"MCF35BL","Marathon",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685076,"MCF35BLS","Marathon",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685077,"MCF35W","Epic",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685078,"MCF35BL","Epic",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685079,"MCF35BLS","Epic",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685080,"MCF35W","Stirling",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685081,"MCF35BL","Stirling",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685082,"MCF35BLS","Stirling",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685083,"CF35B0W","Avanti",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685084,"CF35B2P","Avanti",172,"Chest","Coffre",98.3,3.47,"18","18",0,"-","-",3.5
+16685085,"CF50B0W","Avanti",195,"Chest","Coffre",142.6,5.03,"18","18",0,"-","-",5
+16685086,"MCF51W","Marathon",195,"Chest","Coffre",142.6,5.03,"18","18",0,"-","-",5
+16685087,"MCF51BL","Marathon",195,"Chest","Coffre",142.6,5.03,"18","18",0,"-","-",5
+16685088,"MCF51BLS","Marathon",195,"Chest","Coffre",142.6,5.03,"18","18",0,"-","-",5
+16703405,"CF70B0W","Avanti",224,"Chest","Coffre",198,7,"18","18",1,"-","-",
+16703406,"CF50B0W","Avanti",195,"Chest","Coffre",142,5,"18","18",0,"-","-",
+16703407,"CF35B2P","Avanti",172,"Chest","Coffre",98,3.5,"18","18",0,"-","-",
+16703408,"CF35B0W","Avanti",172,"Chest","Coffre",98,3.5,"18","18",0,"-","-",
+16703409,"CF24Q0W","Avanti",137,"Chest","Coffre",70.8,2.5,"18","18",0,"-","-",
+16703410,"CF106B0W","Avanti",240,"Chest","Coffre",310,11,"10","10",3,"-","-",
+16703411,"VFR14PS-IS-F","Avanti",217,"Upright","Verticaux",32,1.13,"16","16",0,"Manual","Non automatique",
+16763063,"VF306W","Avanti",223,"Upright","Verticaux",82.4,2.91,"16","16",0,"Manual","Non automatique",
+16784358,"970F27012*","Kenmore",393,"Upright","Verticaux",391,13.82,"09","09",5,"Automatic","Automatique",17.83
+16784359,"FFVU17F2SC*","Frigidaire",479,"Upright","Verticaux",471,16.63,"09","09",6,"Automatic","Automatique",17.85
+16784403,"CF15046CE","Avanti",198,"Chest","Coffre",144.42,5.1,"18","18",0,"-","-",
+17080935,"?ACFM035ADW","Arctic King",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+17080936,"?ACFM050ADW","Arctic King",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+17141335,"FC72D6BWE","Hisense",228,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",12
+17141336,"FC72D6AWE","Hisense",228,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",12
+17141337,"FC72D6CWE","Hisense",228,"Chest","Coffre",203.4,7.18,"18","18",1,"-","-",12
+17599031,"MO24FAS***","Marvel",324,"Upright","Verticaux",133.7,4.72,"17","17",0,"Automatic","Automatique",14.05
+17686520,"EDV064S","EuroDesign",289,"Upright","Verticaux",179.2,6.3,"08","08",1,"Manual","Non automatique",15.6
+17698974,"RB36*****","DCS",300,"Upright","Verticaux",104,3.7,"17","17",0,"Automatic","Automatique",10.85
+17699093,"253-12902F","Kenmore",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699094,"253-12909F","Kenmore",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699095,"CFCE09SW","Crosley",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699096,"253-12902F","Kenmore",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699097,"253-12909F","Kenmore",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699098,"CFCE09SW","Crosley",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699099,"FFFC09M1RW","Frigidaire",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699100,"FFFC09M1RB","Frigidaire",218,"Chest","Coffre",245.1,8.66,"10","10",2,"-","-",12.4
+17699101,"ACFM035ADW","Arctic King",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+17699102,"ACFM050ADW","Arctic King",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+17699103,"CM050BW","Crosley",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+17699104,"CM070BW","Crosley",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.6
+17699105,"CM102AW","Crosley",238,"Chest","Coffre",288,10.2,"10","10",3,"-","-",12.2
+17699106,"VM050CW","Conservator",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+17699107,"VM070BW","Conservator",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.6
+17699108,"URBD142E","Midea",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+17699109,"URBD99DE","Midea",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+17699110,"KTUF88","Koolatron",240,"Upright","Verticaux",84,3,"16","16",0,"Manual","Non automatique",4.4
+17699111,"KTCF99","Koolatron",193,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.1
+17699112,"KTCF155","Koolatron",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+17699113,"KTCF195","Koolatron",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.2
+17699114,"WHS-109FW1","Midea",240,"Upright","Verticaux",84,3,"16","16",0,"Manual","Non automatique",4.4
+17699115,"WHS-109FSS1","Midea",240,"Upright","Verticaux",84,3,"16","16",0,"Manual","Non automatique",4.4
+17699116,"WHS-185CW1","Midea",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+17699117,"WHS-258CW1","Midea",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.3
+17699118,"043-2352","Master Chef",240,"Upright","Verticaux",84,3,"16","16",0,"Manual","Non automatique",4.4
+17699119,"043-0292","Master Chef",172,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.97
+17699120,"043-0293","Master Chef",195,"Chest","Coffre",142,5,"18","18",0,"-","-",10.43
+17700439,"DUFM059C1*","Danby Designer",256,"Upright","Verticaux",168,5.9,"16","16",1,"Manual","Non automatique",8.2
+17700440,"DCFM036C1*","Danby Diplomat",189,"Chest","Coffre",97.7,3.45,"18","18",0,"-","-",5.2
+17700441,"DCFM050C1*","Danby Diplomat",215,"Chest","Coffre",141.6,5,"18","18",0,"-","-",8.5
+17700442,"DCFM070C1*","Danby Diplomat",248,"Chest","Coffre",197,7,"18","18",1,"-","-",9.1
+17700443,"DCFM090C1*","Danby Diplomat",219,"Chest","Coffre",255,9,"10","10",2,"-","-",11.7
+17700444,"DCFM036C1*","Danby",189,"Chest","Coffre",97.7,3.45,"18","18",0,"-","-",5.2
+17700445,"DCFM050C1*","Danby",215,"Chest","Coffre",141.6,5,"18","18",0,"-","-",8.5
+17700446,"DCFM070C1*","Danby",248,"Chest","Coffre",197,7,"18","18",1,"-","-",9.1
+17700447,"DCFM090C1*","Danby",219,"Chest","Coffre",255,9,"10","10",2,"-","-",11.7
+17965301,"B18IF800SP","Bosch",443,"Upright","Verticaux",244.66,8.64,"09","09",2,"Automatic","Automatique",2.22
+18443212,"TUF-24-*-**-B","True Residential",385,"Upright","Verticaux",118.931,4.2,"17","17",0,"Automatic","Automatique",15.6
+18443213,"TUF-24-D-**-B","True Residential",383,"Upright","Verticaux",116.099,4.1,"17","17",0,"Automatic","Automatique",14.2
+18460413,"MP30FA2**","Marvel",601,"Upright","Verticaux",450.237,15.9,"09","09",6,"Automatic","Automatique",11.2
+18460414,"MP36FA2**","Marvel",665,"Upright","Verticaux",543.683,19.2,"09","09",7,"Automatic","Automatique",12.93
+18807413,"FFFC05M1TW","Frigidaire",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+18807414,"FFFC05M2TW","Frigidaire",218,"Chest","Coffre",142,5,"18","18",0,"-","-",11.03
+18807415,"FFFC07M1TW","Frigidaire",250,"Chest","Coffre",199,7,"18","18",1,"-","-",9.2
+19248421,"DUF167A2*","Danby",481,"Upright","Verticaux",473,16.7,"09","09",6,"Automatic","Automatique",12.5
+19248422,"DUF167A2*","Danby Designer",481,"Upright","Verticaux",473,16.7,"09","09",6,"Automatic","Automatique",12.5
+19248423,"DCFM110B1*","Danby",245,"Chest","Coffre",310.3,10.96,"10","10",3,"-","-",13
+19248442,"043-2352-8","Master Chef",240,"Upright","Verticaux",84,3,"16","16",0,"Manual","Non automatique",4.4
+19248443,"043-0292-2","Master Chef",172,"Chest","Coffre",100,3.5,"18","18",0,"-","-",5.97
+19248444,"043-0293-0","Master Chef",195,"Chest","Coffre",142,5,"18","18",0,"-","-",10.43
+19382735,"AQC0501GRW","Amana",215,"Chest","Coffre",142,5,"18","18",0,"-","-",8.5
+19382736,"AQC0701GRW","Amana",248,"Chest","Coffre",197,7,"18","18",1,"-","-",9.1
+19382737,"AQC0902GRW","Amana",219,"Chest","Coffre",255,9,"18","18",2,"-","-",11.7
+19382810,"NS-UZ17XWH7","Insignia",438,"Upright","Verticaux",481,17,"09","09",6,"Automatic","Automatique",14.6
+19382811,"NS-UZ21XWH7","Insignia",492,"Upright","Verticaux",594,21,"09","09",8,"Automatic","Automatique",14.4
+19453732,"53JU88","Dayton",238,"Chest","Coffre",288,10.2,"10","10",3,"-","-",12.4
+19686914,"DCF051A2*","Danby Designer",196,"Chest","Coffre",144.4,5.1,"10","10",0,"-","-",7.9
+19686915,"DCF071A4*","Danby Designer",225,"Chest","Coffre",201.2,7.1,"18","18",1,"-","-",9.4
+19686916,"DCF096A2*","Danby Designer",206,"Chest","Coffre",272.1,9.6,"18","18",3,"-","-",9

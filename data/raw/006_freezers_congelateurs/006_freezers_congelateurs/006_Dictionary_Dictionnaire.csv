@@ -1,0 +1,15 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+ENERGY_CONSUMPT,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+EG_WEB_SHAPE_LABEL_EN,CHARACTER (100),Type,Type,English
+EG_WEB_SHAPE_LABEL_FR,CHARACTER (100),Type,Type,Français
+VOL_LIT,NUMBER 3dp,Volume (L),Volume (L),-
+VOL_CUB,NUMBER 3dp,Volume (ft³),Volume (pi³),-
+TYPE_LABEL_EN,CHARACTER (100),Type Number on EnerGuide Label,Numéro de type sur l'étiquette ÉnerGuide,English
+TYPE_LABEL_FR,CHARACTER (100),Type Number on EnerGuide Label,Numéro de type sur l'étiquette ÉnerGuide,Français
+SIZE_CATEGORY,NUMBER 3dp,Size Category on EnerGuide Label,Catégorie dimensionnelle sur l'étiquette ÉnerGuide,-
+EG_WEB_DEFROST_LABEL_EN,CHARACTER (100),Defrost Mechanism,Fonctionnement du dégivrage,English
+EG_WEB_DEFROST_LABEL_FR,CHARACTER (100),Defrost Mechanism,Fonctionnement du dégivrage,Français
+HR24_FREEZE_KG,NUMBER 3dp,24-Hour Freezing Capability (kg/24 h),Capacité de congélation par période de 24 heures (kg/24h),-

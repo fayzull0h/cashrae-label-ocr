@@ -1,0 +1,21 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+AEC_03,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+TYPE_LABEL_EN,CHARACTER (100),Type,Type,English
+TYPE_LABEL_FR,CHARACTER (100),Type,Type,Français
+EQUIP_TYPE_LABEL_EN,CHARACTER (100),Ovens,Fours,English
+EQUIP_TYPE_LABEL_FR,CHARACTER (100),Ovens,Fours,Français
+U_TYPE_LABEL_EN,CHARACTER (100),Single or Upper Oven Self Cleaning,Four simple ou supérieur - autonettoyants,English
+U_TYPE_LABEL_FR,CHARACTER (100),Single or Upper Oven Self Cleaning,Four simple ou supérieur - autonettoyants,Français
+L_TYPE_LABEL_EN,CHARACTER (100),Second or Lower Oven Self Cleaning,Deuxième four ou inférieur - autonettoyants,English
+L_TYPE_LABEL_FR,CHARACTER (100),Second or Lower Oven Self Cleaning,Deuxième four ou inférieur - autonettoyants,Français
+U_COOK_METH_LABEL_EN,CHARACTER (100),Single or Upper Oven Cooking Method,Four simple ou supérieur mode de cuisson,English
+U_COOK_METH_LABEL_FR,CHARACTER (100),Single or Upper Oven Cooking Method,Four simple ou supérieur mode de cuisson,Français
+L_COOK_METH_LABEL_EN,CHARACTER (100),Second or Lower Oven Cooking Method,Deuxième four ou inférieur mode de cuisson,English
+L_COOK_METH_LABEL_FR,CHARACTER (100),Second or Lower Oven Cooking Method,Deuxième four ou inférieur mode de cuisson,Français
+U_USABLE_SPACE_EN,NUMBER 3dp,Single or Upper Oven Space (litres),Four simple ou supérieur espace (litres),-
+L_USABLE_SPACE_FR,NUMBER 3dp,Second or Lower Oven Space (litres),Deuxième four ou inférieur espace (litres),-
+NOMINAL_WIDTH_LABEL_EN,CHARACTER (100),Width (in),Largeur (po),English
+NOMINAL_WIDTH_LABEL_FR,CHARACTER (100),Width (in),Largeur (po),Français

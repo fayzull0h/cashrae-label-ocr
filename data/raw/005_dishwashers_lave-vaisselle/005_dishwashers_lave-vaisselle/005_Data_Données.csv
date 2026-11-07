@@ -1,0 +1,601 @@
+"REC_REF_KEY","MODEL_NUM_1","BRAND_NAME","TAEC_C373_04","MAX_H20_FACTOR_L_PER_CYCLE","MAX_H20_FACTOR_G_PER_CYCLE","DWSIZE_LABEL_EN","DWSIZE_LABEL_FR","TYPE_LABEL_EN","TYPE_LABEL_FR","EF_C373_04","HW_CONSUMPT"
+1322039,"PLA8743XU","Smeg",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1322040,"STO905U","Smeg",258,9.88,2.61,"Standard","Ordinaire","Built-in","Encastré",0.833,9.88
+1322041,"STA4645U","Smeg",250,12,3.17,"Standard","Ordinaire","Built-in","Encastré",0.854,12
+1322042,"PLA68XU","Smeg",306,14.271,3.77,"Standard","Ordinaire","Built-in","Encastré",0.7,14.271
+1322043,"STA8614XU","Smeg",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1322044,"STA8743U","Smeg",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1605897,"LFA-086XL","Fagor",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1605898,"LFA-086XLIT","Fagor",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1605899,"F89078VI-S","AEG-Electrolux",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1605900,"F89078VI-M","AEG-Electrolux",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+1605901,"F65478VI-S","AEG-Electrolux",250,12,3.17,"Standard","Ordinaire","Built-in","Encastré",0.854,12
+1605902,"F45078I-M","AEG-Electrolux",306,14.271,3.77,"Standard","Ordinaire","Built-in","Encastré",0.7,14.271
+2442687,"SHE4AP0#UC","Bosch",279,14.08,3.72,"Standard","Ordinaire","Built-in","Encastré",0.77,14.08
+2566875,"LFDS3XL60HZ","Scholtes",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+2566876,"LTES3XL60HZ","Scholtes",298,11.091,2.93,"Standard","Ordinaire","Built-in","Encastré",0.722,11.091
+2566877,"LPES3XL60HZ","Scholtes",306,14.271,3.77,"Standard","Ordinaire","Built-in","Encastré",0.7,14.271
+3884871,"DDW611WLED","Danby",220,13,3.4,"Compact","Compact","Portable","Mobile",1.06,13
+3960814,"SHE3AR5#UC","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+3960815,"SHE3ARL#UC","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+3960816,"SHE3ARF#UC","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+3960817,"SHX3AR5#UC","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+3960818,"SHE3AR7#UC","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+3960819,"SHX3AR7#UC","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+4010527,"SHE7ER5#UC","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+4010528,"SHV7ER5#UC","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+4010529,"SHX7ER5#UC","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+4010530,"SGE63E1#UC","Bosch",234,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.92,11
+4010531,"SHE9ER5#UC","Bosch",200,11,2.9,"Standard","Ordinaire","Built-in","Encastré",1.07,11
+4010532,"SHV9ER5#UC","Bosch",200,11,2.9,"Standard","Ordinaire","Built-in","Encastré",1.07,11
+4010533,"SHX9ER5#UC","Bosch",200,11,2.9,"Standard","Ordinaire","Built-in","Encastré",1.07,11
+4122761,"1325*K***","Kenmore",253,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.86,10.98
+4293633,"SGE63E0#UC","Bosch",234,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.92,11
+4295842,"GSD21**V****","GE Appliances",307,18.9,4.993,"Standard","Ordinaire","Built-in","Encastré",0.7,18.9
+4295848,"GSM22**V****","GE Appliances",307,18.9,4.993,"Standard","Ordinaire","Built-in","Encastré",0.7,18.9
+4537927,"SPE5ES5#UC","Bosch",259,11.36,3,"Standard","Ordinaire","Built-in","Encastré",0.83,11.36
+4537928,"SPV5ES5#UC","Bosch",259,11.36,3,"Standard","Ordinaire","Built-in","Encastré",0.83,11.36
+4537929,"SPX5ES5#UC","Bosch",259,11.36,3,"Standard","Ordinaire","Built-in","Encastré",0.83,11.36
+4655346,"IUD8100Y**","Ikea",285,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.76,13.25
+4711023,"DWHD640J##","Thermador",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+4711024,"DWHD650J##","Thermador",260,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+4711025,"DWHD651J##","Thermador",260,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+4871411,"GSC35**D****","GE Appliances",295,16.1,4.253,"Standard","Ordinaire","Portable","Mobile",0.75,16.1
+4871412,"GSD33**D****","GE Appliances",295,16.1,4.253,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+4871413,"GSD40**D****","GE Appliances",295,16.1,4.253,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+4871415,"GLDT69*D****","GE Appliances",295,16.1,4.253,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+4969124,"DD24D****7,DD24D**I7","Fisher & Paykel",274,15.5,4.07,"Standard","Ordinaire","Built-in","Encastré",0.8,15.5
+4969125,"DD24S****7,DD24S**I7","Fisher & Paykel",136.1,7.6,2,"Compact","Compact","Built-in","Encastré",1.62,7.6
+4969126,"DD36S****2,DD36*I2","Fisher & Paykel",265.1,14,3.7,"Standard","Ordinaire","Built-in","Encastré",0.82,14
+4969127,"DD24D****7,DD24D**I7","DCS by Fisher & Paykel",274,15.5,4.07,"Standard","Ordinaire","Built-in","Encastré",0.8,15.5
+4969128,"DD24S****7,DD24S**I7","DCS by Fisher & Paykel",136.1,7.6,2,"Compact","Compact","Built-in","Encastré",1.62,7.6
+4982191,"SHX2AR##UC","Bosch",279,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.77,12.11
+5351906,"LDF755#**","LG",245,9.46,2.5,"Standard","Ordinaire","Built-in","Encastré",0.9,9.5
+5646268,"SHX5ER5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+5882583,"GDF52***D***","GE Appliances",275,14.4,3.804,"Standard","Ordinaire","Built-in","Encastré",0.78,14.4
+5882584,"GDF54***D***","GE Appliances",275,14.4,3.804,"Standard","Ordinaire","Built-in","Encastré",0.78,14.4
+5882586,"GDT53***D***","GE Appliances",275,14.4,3.804,"Standard","Ordinaire","Built-in","Encastré",0.78,14.4
+5920190,"LDS554#**","LG",279,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.8,12.9
+5920191,"LDS504#**","LG",279,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.8,12.9
+6057128,"LSDF996#**","LG",245,9.46,2.5,"Standard","Ordinaire","Built-in","Encastré",0.9,9.5
+6188369,"LDF857#**","LG",245,9.46,2.5,"Standard","Ordinaire","Built-in","Encastré",0.9,9.5
+6188419,"1276*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+6188420,"1277*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+6188421,"1278*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+6188422,"1279*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+6188423,"1280*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+6188424,"1715*K***","Kenmore",295,13.02,3.44,"Standard","Ordinaire","Portable","Mobile",0.74,13.02
+6214937,"PG8050I","Miele",325,20.1,5.3,"Standard","Ordinaire","Built-in","Encastré",0.66,20.1
+6237376,"SGV63E0###","Bosch",234,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.92,11.17
+6237377,"DF241761","Gaggenau",279,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.77,11.17
+6408769,"DWHD440###","Thermador",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+6408770,"SHE53T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408771,"SHE53TF###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408772,"SHE53TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408773,"SHP53T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408774,"SHX53T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408775,"SHV53T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408776,"SHX53TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408777,"SHP53TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408778,"SHV53TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408779,"SHX65T3###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408780,"SHE65T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408781,"SHP65TF###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408782,"SHP65T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408783,"SHP65T7###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408784,"SHX65T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408785,"SHP65TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408786,"SHE68T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408787,"SHE68TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408788,"SHV68T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408789,"SHX68TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408790,"SHX68T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6408791,"SHV68TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448315,"SHX7PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448316,"SHP7PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448317,"SHE7PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448318,"SHV7PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448341,"SHX8PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448342,"SHE8PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+6448378,"IUD3100B**","Ikea",285,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.76,13.25
+6449700,"PG8080I","Miele",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,
+6449701,"PG8080U","Miele",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,
+6449702,"PG8083SCVI","Miele",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,
+6479542,"SHX4ATF###","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+6479543,"SHX4AT5###","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+6479544,"SHX4AT7###","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+6972826,"SHE33T5###","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+6972827,"SHE9PT5###","Bosch",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+6972828,"SHX9PT5###","Bosch",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+6972829,"SHV9PT5###","Bosch",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+6972830,"SHX9PT7###","Bosch",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+6972831,"DF261761","Gaggenau",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+6972832,"DF260761","Gaggenau",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+6972836,"KDFE454C***","KitchenAid",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.84,10.98
+6972838,"1281*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+6972839,"1283*K***","Kenmore",260,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,10.98
+7038044,"630.1230#.###","Kenmore",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+7038045,"630.1231#.###","Kenmore",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+7038046,"630.1220#.###","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.11
+7038047,"630.1221#.###","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.11
+7038048,"630.1222#.###","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.11
+7038049,"630.1223#.###","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.11
+7038050,"630.1224#.###","Kenmore",259,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.83,12.11
+7588403,"630.1232#.###","Kenmore",249,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.86,11
+7588404,"630.1290#.###","Kenmore",240,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+7588405,"630.1291#.###","Kenmore",240,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+7588406,"630.1292#.###","Kenmore",240,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+7588407,"630.1293#.###","Kenmore",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+8095036,"GLDA6**F****","GE Appliances",295,16.1,4.25,"Standard","Ordinaire","Built-in","Encastré",0.73,16.1
+8095037,"GSM18**F****","GE Appliances",260,17,4.5,"Standard","Ordinaire","Built-in","Encastré",0.83,17
+8095038,"GDF57***F***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8095039,"DDT57***F***","GE Adora",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8095040,"GDT58***F***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8095041,"GDT72***F***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8095042,"CDT72***F***","GE Café",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8095043,"GDT74***F***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8095044,"PDT75***F***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8274600,"DWS55100*","Blomberg",220,11.6,3.07,"Standard","Ordinaire","Built-in","Encastré",1.01,11.6
+8319320,"KDTE554C***","KitchenAid",260,7.38,1.95,"Standard","Ordinaire","Built-in","Encastré",0.85,7.38
+8770933,"630.1400#.###","Kenmore",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+8770934,"DW80F800***","Samsung",265,13.249,3.5,"Standard","Ordinaire","Built-in","Encastré",0.82,13.2
+8770935,"DW80F600***","Samsung",265,13.249,3.5,"Standard","Ordinaire","Built-in","Encastré",0.82,13.2
+8770936,"CDT76***F***","GE Café",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8770937,"PDT76***F***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8770938,"ZDT80***F***","Monogram",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8770939,"ZDT87***F***","Monogram",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+8770940,"PDW18**N","GE Profile",305,17.4,4.6,"Standard","Ordinaire","Built-in","Encastré",0.7,17.4
+8770941,"ZBD18**N","Monogram",305,17.4,4.6,"Standard","Ordinaire","Built-in","Encastré",0.7,17.4
+8779041,"KDFE104D***","KitchenAid",260,10.94,2.89,"Standard","Ordinaire","Built-in","Encastré",0.84,10.94
+8779243,"LDS556#**","LG",279,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.8,12.9
+8782677,"DDW611WLED*","Danby",220,13,3.4,"Compact","Compact","Portable","Mobile",1.06,13
+8782678,"DDW1809W-1","Danby",285,11.4,3.7,"Standard","Ordinaire","Built-in","Encastré",0.78,14
+8782679,"DDW1899WP-1","Danby",285,11.4,3.7,"Standard","Ordinaire","Portable","Mobile",0.78,14
+8880500,"SHP68TL###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+8909832,"FDB2400***B","Frigidaire",277,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.78,17.45
+8909833,"FGID2466***A","Frigidaire",263,13.24,3.5,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+8909834,"1401****B","Kenmore",277,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.77,17.45
+8909839,"WWBD2400***B","White-Westinghouse",277,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.77,17.45
+8920296,"LDF777#**","LG",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+8920297,"LDF876#**","LG",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+8920298,"LDF887#**","LG",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+8975040,"DW80H99**U*","Samsung",258,11.4,3,"Standard","Ordinaire","Built-in","Encastré",0.86,11.36
+9004994,"SHP68T5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+9004995,"SHV8PT5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+9032382,"HDA21**H****","Hotpoint",307,18.9,5,"Standard","Ordinaire","Built-in","Encastré",0.7,18.9
+9032383,"HDA36**H****","Hotpoint",295,16.1,4.25,"Standard","Ordinaire","Built-in","Encastré",0.73,16.1
+9032403,"MDB4949SD**","Maytag",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+9032406,"MDB7949SD**","Maytag",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+9517691,"LDS577#**","LG",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+9571826,"FGID2474***B","Frigidaire",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.85,10.03
+9571827,"FGCD2456***B","Frigidaire",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.85,10.03
+9571828,"EI24ID30***B","Electrolux",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.85,10.03
+9571829,"EI24ID50***B","Electrolux",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.85,10.03
+9571830,"EW24ID70***A","Electrolux",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.85,10.03
+9571831,"EW24ID80***A","Electrolux",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.85,10.03
+9571848,"SHV4AT5###","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+9571849,"JDB9600###","Jenn-Air",279,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.77,11
+9737355,"GDT68***H***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+10029446,"SHP53U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+10029447,"SHE65U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+10029448,"SHX78U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+10169223,"DW18PCFI","Porter&Charles",250,12,3.17,"Standard","Ordinaire","Built-in","Encastré",0.854,12
+10169224,"ST8646U","Smeg",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+10169225,"ST8646XU","Smeg",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+10169226,"F89088VI-S","AEG-Electrolux",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+10169227,"DWTPC10FI","Porter&Charles",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+10169228,"DWTPC5FC","Porter&Charles",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+10169229,"ST8644U","Smeg",245,10.6,2.8,"Standard","Ordinaire","Built-in","Encastré",0.88,10.6
+10169230,"ST8644XU","Smeg",245,10.6,2.8,"Standard","Ordinaire","Built-in","Encastré",0.88,10.6
+10169231,"F89088VI-M","AEG-Electrolux",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+10539276,"SHXN8U5###","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+10539612,"G4227U","Miele",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+10539613,"G4227SCU","Miele",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+10539614,"G4700SCI","Miele",250,11.4,3,"Standard","Ordinaire","Built-in","Encastré",0.86,11.4
+10539615,"G4760SCVI","Miele",250,11.4,3,"Standard","Ordinaire","Built-in","Encastré",0.86,11.4
+10539616,"G4925U","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539617,"G4925SCU","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539618,"G4970SCVI","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539619,"G4975VI","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539620,"G4975SCVI","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539621,"G4975SCVISF","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539622,"G6105U","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539623,"G6105SCU","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539624,"G6165SCVI","Miele",270,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.8,12.1
+10539625,"G6305U","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+10539626,"G6305SCU","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+10539627,"G6365SCVI","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+10539628,"G6505SCI","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+10539629,"G6565SCVI","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+10539630,"G6915SCI","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+10539631,"G6985SCVI","Miele",260,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.84,12.1
+11207851,"WDF320PAD**","Whirlpool",260,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.84,12.49
+11207852,"WDF520PAD**","Whirlpool",260,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.84,12.49
+11207853,"WDF540PAD**","Whirlpool",260,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.84,12.49
+11207854,"WDF760SAD**","Whirlpool",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+11207855,"WDT720PAD**","Whirlpool",260,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.84,12.49
+11207856,"WDT920SAD**","Whirlpool",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+11207857,"ADB1500AD**","Amana",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+11207858,"ADB1700AD**","Amana",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+11818194,"DW80J3020**","Samsung",265,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.82,11.27
+12117938,"SGE53U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12117939,"SGE68U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12117940,"SGX68U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12117941,"SGV68U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12125513,"D5426*","Asko",259,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",0.83,0
+12125514,"D5526*","Asko",259,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",0.83,0
+12125515,"D5626*","Asko",259,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",0.83,0
+12125516,"D5436*","Asko",199,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",1.08,0
+12125517,"D5536*","Asko",199,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",1.08,0
+12125518,"D5636*","Asko",199,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",1.08,0
+12125519,"D5556*","Asko",199,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",1.08,0
+12125520,"D5656*","Asko",199,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",1.08,0
+12125521,"D5956*","Asko",259,13.4,3.5,"Standard","Ordinaire","Built-in","Encastré",0.83,0
+12380628,"SHE4AV5***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380629,"SHS5AVF***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380630,"SHS5AV5***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380631,"SHX5AV5***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380632,"SHX5AVF***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380633,"SHS5AVL***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380634,"SHX5AVL***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+12380635,"SHS63VL***","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12593794,"PDT66***F***","GE",240,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+12593795,"GDT65***F***","GE",240,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+12601825,"DW80J75**U*","Samsung",258,9.085,3,"Standard","Ordinaire","Built-in","Encastré",0.86,11.36
+12601826,"DW80J99**U*","Samsung",258,9.085,3,"Standard","Ordinaire","Built-in","Encastré",0.86,11.36
+12601832,"SPE53U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12601833,"SPE68U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12601834,"SPX68U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12601835,"SPV68U5###","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+12772370,"PDT72***H***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+13201695,"LDT996#**","LG",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+13229159,"DDW1899BLS-1","Danby Designer",285,13,3.7,"Standard","Ordinaire","Built-in","Encastré",0.78,13
+13347852,"JDB9000CW**","Jenn-Air",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+13347853,"JDB9200CW**","Jenn-Air",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+13347854,"JDB9800CW**","Jenn-Air",270,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.82,12.87
+13347855,"KDTE104E***","KitchenAid",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+13347856,"KDFE204E***","KitchenAid",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+13347857,"KDTE204E***","KitchenAid",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+13347858,"KDTE254E***","KitchenAid",270,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.81,12.49
+13347859,"KDTM354E***","KitchenAid",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+13347860,"KDTM384E***","KitchenAid",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+13347861,"KDTM404E***","KitchenAid",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+13347862,"KDTM504E***","KitchenAid",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+13347863,"KDTM704E***","KitchenAid",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+13347864,"KDTM804E***","KitchenAid",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+13347865,"WDT780SAE**","Whirlpool",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+14105162,"FFBD2406***B","Frigidaire",296,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.3
+14105163,"CDB350***B","Crosley",296,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.3
+14105164,"1549****A","Kenmore",263,13.24,3.5,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+14105167,"FPID2497***A","Frigidaire",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.83,10.03
+14105168,"FGID2477***A","Frigidaire",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.83,10.03
+14105169,"E24ID74***A","Electrolux",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.83,10.03
+14105170,"EI24CD35***A","Electrolux",260,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.83,10.03
+14105518,"1470*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14105519,"1474*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14105520,"1475*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14105521,"1479*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14105522,"1476*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14105523,"1483*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14105590,"HDBC100AFS","Haier",265,,,"Standard","Ordinaire","Built-in","Encastré",0.85,15
+14398393,"HDBL655AF*","Haier",249,,,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+14398394,"HDBL865ATS","Haier",249,,,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+14644049,"DF281760","Gaggenau",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+14644050,"DF280760","Gaggenau",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+14644051,"DF251761","Gaggenau",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+14644822,"PDT76***J***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644823,"GDT59***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644824,"ADT52***J***","GE Artistry",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644825,"GDF51***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644826,"GDF52***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644827,"GDT53***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644828,"GDT54***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644829,"GDF61***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644830,"GDT62***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644831,"GDT63***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14644832,"GSD33**J****","GE Appliances",295,16.1,4.25,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+14647427,"GDF62***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14822377,"SHE3ARB***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+14822378,"SHX5AVB***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+14822379,"SHV53TB***","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+14822380,"SHX53TB***","Bosch",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+14859903,"PG8080","Miele",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,
+14859956,"1482*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14860901,"GLDT69*J****","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14863444,"DWTPC10SS","Porter&Charles",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+14863445,"ST8649U","Smeg",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+14863446,"ST8246U","Smeg",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+14981016,"1300*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14981017,"1442*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+14985216,"FFBD2404***C","Frigidaire",261,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.89,12.52
+14985217,"FFBD2408***C","Frigidaire",261,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.89,12.52
+14985219,"DGBD2438***B","Frigidaire",256,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.92,11.62
+14985227,"LFID2422***B","Frigidaire",256,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.92,11.62
+14985228,"FFID2423***B","Frigidaire",256,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.92,11.62
+14985231,"DD24D**8","Fisher & Paykel",286,13.6,3.6,"Standard","Ordinaire","Built-in","Encastré",0.82,13.6
+14985308,"1322*N***","Kenmore",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+14985309,"1340*N***","Kenmore",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+14985310,"1354*N***","Kenmore",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+14985311,"1369*N***","Kenmore",270,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.81,11.17
+14985312,"1309*N***","Kenmore",260,10.03,2.65,"Standard","Ordinaire","Built-in","Encastré",0.84,10.03
+14985313,"1320*N***","Kenmore",260,10.03,2.65,"Standard","Ordinaire","Built-in","Encastré",0.84,10.03
+14985314,"1347*N***","Kenmore",260,10.03,2.65,"Standard","Ordinaire","Built-in","Encastré",0.84,10.03
+14985315,"1349*N***","Kenmore",260,10.03,2.65,"Standard","Ordinaire","Built-in","Encastré",0.84,10.03
+14985316,"1431*N***","Kenmore",285,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.76,13.25
+14985317,"1241*N***","Kenmore",260,10.03,2.65,"Standard","Ordinaire","Built-in","Encastré",0.84,10.03
+14985318,"KDTM354D***","KitchenAid",260,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.84,11.17
+14985319,"IUD7070D**","Ikea",260,12.49,3.3,"Standard","Ordinaire","Built-in","Encastré",0.84,12.49
+14985320,"IUD7555D**","Ikea",260,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.84,11.17
+14985321,"IUD8010D**","Ikea",260,11.17,2.95,"Standard","Ordinaire","Built-in","Encastré",0.84,11.17
+14985322,"IUD8555D**","Ikea",260,7.38,1.95,"Standard","Ordinaire","Built-in","Encastré",0.85,7.38
+14985413,"GSD33**K****","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+14985414,"GSD40**K****","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+15012870,"DWT56502***","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012871,"DWT56502**","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012872,"DWT56502*","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012873,"DWT25502**","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012874,"DWT25502*","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012875,"DW55502***","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012876,"DW55502**","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012877,"DW55502*","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012878,"DW25502**","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012879,"DW25502*","Blomberg",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012880,"DDT25400**","Beko",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012881,"DDT25400*","Beko",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012882,"DDN25400*","Beko",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012883,"DUT25400*","Beko",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012884,"DIN25400","Beko",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012885,"DIT25400","Beko",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+15012886,"DWT58500***","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012887,"DWT58500**","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012888,"DWT58500*","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012889,"DWT28500**","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012890,"DWT28500*","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012891,"DUT28430*","Beko",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012892,"DIT28430","Beko",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012893,"DDT28430**","Beko",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012894,"DDT28430*","Beko",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+15012895,"DWT58500*WS","Blomberg",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012896,"DWT58500**WS","Blomberg",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012897,"DWT58500***WS","Blomberg",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012898,"DWT28500*WS","Blomberg",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012899,"DWT28500**WS","Blomberg",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012900,"DIT28410","Beko",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012901,"DDT28410*","Beko",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+15012902,"DIT29430","Beko",256,8.86,2.35,"Standard","Ordinaire","Built-in","Encastré",1.03,8.86
+15012903,"DDT29430*","Beko",256,8.86,2.35,"Standard","Ordinaire","Built-in","Encastré",1.03,8.86
+15012904,"DWT59500***","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.03,9.07
+15012905,"DWT59500**","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.03,9.07
+15012906,"DWT59500*","Blomberg",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.03,9.07
+15012907,"DWS55100***","Blomberg",220,11.6,3.07,"Standard","Ordinaire","Built-in","Encastré",1.01,11.6
+15012908,"DWS55100**","Blomberg",220,11.6,3.07,"Standard","Ordinaire","Built-in","Encastré",1.01,11.6
+15012909,"DIS25840","Beko",220,11.6,3.07,"Standard","Ordinaire","Built-in","Encastré",1.01,11.6
+15012910,"DDS25840*","Beko",220,11.6,3.07,"Standard","Ordinaire","Built-in","Encastré",1.01,11.6
+15271682,"LDS554#***","LG",270,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.8,12.9
+15271683,"LDS504#***","LG",270,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.8,12.9
+16069883,"ADB1300AF**","Amana",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16069884,"WDF560SAF**","Whirlpool",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16069885,"1457*N***","Kenmore",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16103041,"DW18D0WE","Avanti",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+16103042,"DW18D1BE","Avanti",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+16103043,"DW18D3SE","Avanti",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+16303646,"UPDF989#**","Signature Kitchen Suite",245,9.46,2.5,"Standard","Ordinaire","Built-in","Encastré",0.9,9.5
+16303647,"UPDF990#**","Signature Kitchen Suite",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+16305047,"DWT56502***WS","Blomberg",270,11.68,3.09,"Standard","Ordinaire","Built-in","Encastré",0.9,11.68
+16305048,"DWT56502**WS","Blomberg",270,11.68,3.09,"Standard","Ordinaire","Built-in","Encastré",0.9,11.68
+16305049,"DWT56502*WS","Blomberg",270,11.68,3.09,"Standard","Ordinaire","Built-in","Encastré",0.9,11.68
+16305050,"FDW103WS","Viking Range LLC",270,11.68,3.09,"Standard","Ordinaire","Built-in","Encastré",0.9,11.68
+16305051,"RVDW103WSSS","Viking Range LLC",270,11.68,3.09,"Standard","Ordinaire","Built-in","Encastré",0.9,11.68
+16305098,"MDB8959SF**","Maytag",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16305099,"IDF320PAF**","Ikea",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16305100,"WDF120PAF**","Whirlpool",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16305101,"WDF121PAF**","Whirlpool",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16305102,"WDP340PAF**","Whirlpool",307,18.93,5,"Standard","Ordinaire","Portable","Mobile",0.71,18.93
+16305103,"WDF770SAF**","Whirlpool",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16515456,"DF250761","Gaggenau",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+16515457,"DF281760F","Gaggenau",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+16515458,"DF280760F","Gaggenau",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+16515459,"SHV4ATB***","Bosch",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+16515481,"FDW103","Viking Range LLC",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+16515482,"RVDW103SS","Viking Range LLC",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+16515483,"CFDW103","Viking Range LLC",255,11.85,3.13,"Standard","Ordinaire","Built-in","Encastré",0.9,11.85
+16515484,"FDW302","Viking Range LLC",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+16515485,"VDW302SS","Viking Range LLC",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+16515486,"CFDW302","Viking Range LLC",225,9.07,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.07
+16515487,"FDW302WS","Viking Range LLC",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+16515488,"VDW302WSSS","Viking Range LLC",256,9.09,2.4,"Standard","Ordinaire","Built-in","Encastré",1.04,9.09
+16593987,"DDW1801MW","Danby",270,,,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+16593988,"DDW1802EBLS","Danby",270,,,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+16593989,"DDW1801MWP","Danby",270,,,"Standard","Ordinaire","Portable","Mobile",0.9,13.2
+16593990,"DDW621WDB","Danby",203,,,"Compact","Compact","Portable","Mobile",1,11.7
+16600306,"1481*N***","Kenmore",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16600307,"MDB8979SF**","Maytag",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+16681786,"GDF57***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681787,"DDT59***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681788,"GDF65***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681789,"GDT65***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681790,"GDT69***J***","GE Appliances",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681791,"PDF82***J***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681792,"PDT82***J***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681793,"CDT83***J***","GE Café",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681794,"PDT84***J***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681795,"PDT85***J***","GE Profile",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681796,"CDT86***J***","GE Café",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681797,"ZDT91***J***","Monogram",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681798,"ZDT97***J***","Monogram",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+16681799,"ZBD18**K****","Monogram",305,,,"Standard","Ordinaire","Built-in","Encastré",0.7,17.4
+16681800,"PDW18**K****","GE Profile",305,,,"Standard","Ordinaire","Built-in","Encastré",0.7,17.4
+16682054,"LDP567#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+16682055,"LDT566#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+16682056,"LDF554#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+16763125,"DW80K5050**","Samsung",265,13.249,3.5,"Standard","Ordinaire","Built-in","Encastré",0.88,13.25
+16763126,"DW80K7050**","Samsung",239,12.113,3.2,"Standard","Ordinaire","Built-in","Encastré",1,12.11
+17034320,"WDF550SAF*","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.25
+17034321,"UDT555SAF*","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.25
+17034322,"WDF518SAF*","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.25
+17034323,"UDT518SAF*","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.25
+17049984,"1452*N***","Kenmore",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+17049985,"1456*N***","Kenmore",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+17049986,"WDT995SAF**","Whirlpool",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.83,13.26
+17137299,"GSM18**V****","GE",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+17137300,"GSC18**V****","GE",270,13.25,3.5,"Standard","Ordinaire","Portable","Mobile",0.9,13.2
+17137301,"GDWF4**V****","GE",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+17137302,"GDT4****F***","GE",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+17137303,"GDT6****F***","GE",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+17137304,"GPF4****F***","GE",270,13.25,3.5,"Standard","Ordinaire","Portable","Mobile",0.9,13.2
+17137305,"GDF4****F***","GE",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+17137306,"MDF4****F***","Moffat",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.9,13.2
+17137307,"GDF63***K***","GE",249,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+17137308,"GDF61***K***","GE",249,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+17137309,"GBT76***K***","GE",240,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.75,13.25
+17672300,"1469#","Kenmore",258,10.59,2.8,"Standard","Ordinaire","Built-in","Encastré",0.85,10.6
+17683465,"DD24D**9","Fisher & Paykel",265,,,"Standard","Ordinaire","Built-in","Encastré",0.82,13.35
+17683466,"DD24DCT*9","Fisher & Paykel",265,,,"Standard","Ordinaire","Built-in","Encastré",0.82,13.35
+17683467,"DD24S**9","Fisher & Paykel",151,,,"Compact","Compact","Built-in","Encastré",1.53,6.84
+17683468,"DD24SCT*9","Fisher & Paykel",151,,,"Compact","Compact","Built-in","Encastré",1.53,6.84
+17683469,"DD24DCHT*9","Fisher & Paykel",268,,,"Standard","Ordinaire","Built-in","Encastré",0.82,12.74
+17683470,"DD24SCHT*9","Fisher & Paykel",139,,,"Compact","Compact","Built-in","Encastré",1.58,6.23
+17685730,"DDT29430**","Beko",256,8.86,2.35,"Standard","Ordinaire","Built-in","Encastré",1.03,8.86
+17685888,"630.1260*****","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+17685889,"630.1261*****","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+17685890,"630.1262*****","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+17685891,"630.1263*****","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+17685892,"630.1264*****","Kenmore",269,12.11,3.2,"Standard","Ordinaire","Built-in","Encastré",0.79,12.11
+17686598,"STFABUBL","Smeg",245,10.6,2.8,"Standard","Ordinaire","Built-in","Encastré",0.88,10.6
+17686599,"STFABUCR","Smeg",245,10.6,2.8,"Standard","Ordinaire","Built-in","Encastré",0.88,10.6
+17686600,"STFABURD","Smeg",245,10.6,2.8,"Standard","Ordinaire","Built-in","Encastré",0.88,10.6
+17686601,"STFABUPB","Smeg",245,10.6,2.8,"Standard","Ordinaire","Built-in","Encastré",0.88,10.6
+17686602,"F6DW24SS1","Fulgor Milano",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+17686603,"F6DW24FI1","Fulgor Milano",265,12.87,3.4,"Standard","Ordinaire","Built-in","Encastré",0.81,12.87
+17687566,"SHEM63W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687567,"SHSM63W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687568,"SHXM63W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687569,"SHVM63W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687570,"SHE863WF**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687571,"SHS863WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687572,"SHS863WF**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687573,"SHX863WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687574,"SHV863WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687575,"SHPM65W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687576,"SHXM65W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687577,"SHP865WF**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687578,"SHP865WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687579,"SHP865W7**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687580,"SHV863WB**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687581,"SHX863WB**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17687582,"630.1275****","Kenmore",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+17687583,"630.1276****","Kenmore",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+17687584,"630.1287****","Kenmore",249,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.86,11
+17687585,"630.1288****","Kenmore",249,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.86,11
+17687591,"SHEM78WH**","Bosch",239,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.89,11
+17687592,"DF250740","Gaggenau",259,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.83,11
+17687597,"WDF545PAF**","Whirlpool",270,13.26,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+17692810,"QDT12***K***","Haier",305,,,"Standard","Ordinaire","Built-in","Encastré",0.7,17.4
+17695566,"SHEM78W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695567,"SHPM78W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695568,"SHXM78W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695569,"SHVM78W5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695570,"SHE878WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695571,"SHP878WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695572,"SHX878WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695573,"SHV878WD**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695574,"SHP87PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695575,"SHX87PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695576,"SHXM63WS**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695577,"SHP88PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695578,"SHX88PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695579,"SHV88PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695580,"SHV89PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695581,"SHX89PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695582,"SHE89PW5**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+17695620,"LDP778#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+17695621,"LDT878#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+17695622,"LSDT888#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+17695623,"LUDP899#**","LG Signature",269,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+17695624,"UPDF991#**","Signature Kitchen Suite",269,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+17696366,"GSD21**V****","GE",307,18.9,4.993,"Standard","Ordinaire","Built-in","Encastré",0.7,18.9
+17696367,"GSM22**V****","GE",307,18.9,4.993,"Standard","Ordinaire","Built-in","Encastré",0.7,18.9
+17696368,"GSC35**D****","GE",295,16.1,4.253,"Standard","Ordinaire","Portable","Mobile",0.75,16.1
+17696369,"GSD33**D****","GE",295,16.1,4.253,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+17696370,"GSD40**D****","GE",295,16.1,4.253,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+17696371,"GLDT69*D****","GE",295,16.1,4.253,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+17696372,"GDF52***D***","GE",275,14.4,3.804,"Standard","Ordinaire","Built-in","Encastré",0.78,14.4
+17696374,"GDT53***D***","GE",275,14.4,3.804,"Standard","Ordinaire","Built-in","Encastré",0.78,14.4
+17696375,"GLDA6**F****","GE",295,16.1,4.25,"Standard","Ordinaire","Built-in","Encastré",0.73,16.1
+17696376,"GSM18**F****","GE",260,17,4.5,"Standard","Ordinaire","Built-in","Encastré",0.83,17
+17696377,"GDF57***F***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696378,"GDT58***F***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696379,"GDT72***F***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696380,"GDT74***F***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696381,"GDT59***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696382,"GDF51***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696383,"GDF52***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696384,"GDT53***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696385,"GDT54***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696386,"GDF61***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696387,"GDT62***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696388,"GDT63***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696389,"GSD33**J****","GE",295,16.1,4.25,"Standard","Ordinaire","Built-in","Encastré",0.75,16.1
+17696390,"GDT68***H***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696391,"GDF62***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696392,"GLDT69*J****","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696393,"GSD33**K****","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696394,"GSD40**K****","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696395,"GDF57***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696396,"DDT59***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696397,"GDF65***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696398,"GDT65***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17696399,"GDT69***J***","GE",270,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.2
+17965465,"DGCD2444***A","Frigidaire",268,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+17965466,"FGCD2436***A","Frigidaire",268,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+17965467,"FGCD2444***A","Frigidaire",268,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+17965468,"1567****A","Kenmore",268,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+17965469,"FFBD2412***A","Frigidaire",261,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.89,12.52
+17965470,"LFBD2412***A","Frigidaire",261,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.89,12.52
+17965471,"CDBEH950***A","Crosley",268,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.84,12.6
+17965472,"CDBEH600***A","Crosley",261,16.08,4.25,"Standard","Ordinaire","Built-in","Encastré",0.89,12.52
+17967524,"G4228SCU","Miele",230,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.94,13.2
+17967525,"G4228U","Miele",230,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",0.94,13.2
+17967526,"G4720SCI","Miele",210,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",1.03,12.1
+17967527,"G4780SCVI","Miele",210,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",1.03,12.1
+17967528,"G4926SCU","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967529,"G4926U","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967530,"G4971SCVI","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967531,"G4976VI","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967532,"G4976VISF","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967533,"G4976SCVI","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967534,"G4976SCVISF","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967535,"G6625U","Miele",220,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.98,12.1
+17967536,"G6625SCU","Miele",220,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.98,12.1
+17967537,"G6665SCVI","Miele",220,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.98,12.1
+17967538,"G6745SCU","Miele",220,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.98,12.1
+17967539,"G6785SCVI","Miele",220,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.98,12.1
+17967540,"G6835SCI","Miele",199,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",1.09,12.1
+17967541,"G6875SCVI","Miele",199,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",1.09,12.1
+17967542,"G6935SCI","Miele",199,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",1.09,12.1
+17967543,"G6987SCVI","Miele",199,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",1.09,12.1
+17967544,"G4948U","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967545,"G4948SCU","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967546,"G4993SCVI","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967547,"G4998VI","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967548,"G4998SCVI","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+17967549,"G4998SCVISF","Miele",230,12.1,3.2,"Standard","Ordinaire","Built-in","Encastré",0.94,12.1
+19376710,"1454*N***","Kenmore",270,,,"Standard","Ordinaire","Built-in","Encastré",0.81,13.26
+19453726,"LDP679#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+19453727,"LDT779#**","LG",258,10.98,2.9,"Standard","Ordinaire","Built-in","Encastré",0.85,10.98
+19453801,"DW80M2020US","Samsung",250,13.2,3.5,"Standard","Ordinaire","Built-in","Encastré",1,13.2
+19473759,"ADB1400AG**","Amana",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19473760,"WDF130PAH**","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19473761,"WDF331PAH**","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.25
+19473762,"WDF330PAH**","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.8,13.25
+19473763,"WDP370PAH**","Whirlpool",307,18.93,5,"Standard","Ordinaire","Portable","Mobile",0.71,18.93
+19473764,"IDF330PAG**","Ikea",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19473765,"1748*N***","Kenmore",295,13.02,3.44,"Standard","Ordinaire","Portable","Mobile",0.74,13.02
+19473766,"1738*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19473767,"1380*N***","Kenmore",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19725302,"SHPM98W7**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+19725303,"SHXM98W7**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+19725304,"SHVM98W7**","Bosch",269,11,2.9,"Standard","Ordinaire","Built-in","Encastré",0.79,11
+19725680,"WDTA50SAH**","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19725681,"WDT750SAH**","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25
+19725682,"WDT970SAH**","Whirlpool",270,13.25,3.5,"Standard","Ordinaire","Built-in","Encastré",0.81,13.25

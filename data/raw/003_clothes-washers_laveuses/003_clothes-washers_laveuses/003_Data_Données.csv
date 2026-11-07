@@ -1,0 +1,415 @@
+"REC_REF_KEY","BRAND_NAME","MODEL_NUM_1","MOD_J1_AEC","TYPE_LABEL_EN","TYPE_LABEL_FR","AVG_L_PER_CYCLE","PROD_CLASS_LABEL_EN","PROD_CLASS_LABEL_FR","PAYMENT_MECH_LABEL_EN","PAYMENT_MECH_LABEL_FR","CAPACITY","MAX_WASH_TEMP_AVAIL_LABEL_EN","MAX_WASH_TEMP_AVAIL_LABEL_FR","WATER_LEVELS_CONTROL_LABEL_EN","WATER_LEVELS_CONTROL_LABEL_FR","MOD_J1_EF_LIT","WATER_CON_FACTOR","ANNUAL_WATER_CON_L"
+212568,"Staber","HXW2304",180,"Top-loading standard","Ordinaire à chargement par le haut",51.084,"Household","Résidentiel","-","-",56.634,"No","Non","Manual","Manuel",49.554,0.902,20024.928
+212569,"Staber","HXW2404",180,"Top-loading standard","Ordinaire à chargement par le haut",51.084,"Household","Résidentiel","-","-",56.634,"No","Non","Manual","Manuel",49.554,0.902,20024.928
+212570,"Staber","HXW2504",180,"Top-loading standard","Ordinaire à chargement par le haut",51.084,"Household","Résidentiel","-","-",56.634,"No","Non","Manual","Manuel",49.554,0.902,20024.928
+1938009,"GE","WCVH4800****",122,"Front-loading standard","Ordinaire à chargement frontal",36.54,"Household","Résidentiel","-","-",63,"Yes","Oui","Adaptive","Adaptif",65.13,0.58,14323.68
+5477847,"LG","WM8000H**",150,"Front-loading standard","Ordinaire à chargement frontal",56.802,"Household","Résidentiel","-","-",146.398,"Yes","Oui","Adaptive","Adaptif",77.588,0.388,22266.384
+5477902,"GE","GFWS1500D***",170.9,"Front-loading standard","Ordinaire à chargement frontal",56.61,"Household","Résidentiel","-","-",115.53,"Yes","Oui","Adaptive","Adaptif",75.01,0.49,22191.12
+5882632,"LG","WM4070H**",115,"Front-loading standard","Ordinaire à chargement frontal",48.401,"Household","Résidentiel","-","-",120.7,"No","Non","Adaptive","Adaptif",93.446,0.401,18973.192
+5920194,"LG","WT1101C*",230,"Top-loading standard","Ordinaire à chargement par le haut",62.495,"Household","Résidentiel","-","-",122.3,"No","Non","Adaptive","Adaptif",73.057,0.511,24498.04
+5920195,"LG","WT1201C*",225,"Top-loading standard","Ordinaire à chargement par le haut",64.338,"Household","Résidentiel","-","-",126.9,"No","Non","Adaptive","Adaptif",72.774,0.507,25220.496
+6050598,"Ariston","ARWXF129W#",107,"Front-loading standard","Ordinaire à chargement frontal",34.532,"Household","Résidentiel","-","-",51.54,"No","Non","Adaptive","Adaptif",61,0.67,13536.544
+6050599,"Ariston","ARWL129#",107,"Front-loading standard","Ordinaire à chargement frontal",34.532,"Household","Résidentiel","-","-",51.54,"No","Non","Adaptive","Adaptif",61,0.67,13536.544
+6050600,"Ariston","ARWL129S#",107,"Front-loading standard","Ordinaire à chargement frontal",34.532,"Household","Résidentiel","-","-",51.54,"No","Non","Adaptive","Adaptif",61,0.67,13536.544
+6237379,"Kenmore","592-2921*",169,"Top-loading standard","Ordinaire à chargement par le haut",56.4,"Household","Résidentiel","-","-",120,"Yes","Oui","Adaptive","Adaptif",69.44,0.47,22108.8
+6237380,"Kenmore","592-2922*",169,"Top-loading standard","Ordinaire à chargement par le haut",59.53,"Household","Résidentiel","-","-",126.66,"Yes","Oui","Adaptive","Adaptif",69.53,0.47,23335.76
+6401436,"Whirlpool","CAE2743B#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6401437,"Whirlpool","CAE2763B#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6401438,"Whirlpool","CAE2793B#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","-","-",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6401440,"Kenmore","2712*31+",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6403496,"Huebsch","HWNBD2SP112****",250,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Coin","À pièce",92.3,"No","Non","Manual","Manuel",49.56,1.12,40523.392
+6403497,"Huebsch","HWNBX2SP112****",250,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Coin","À pièce",92.3,"No","Non","Manual","Manuel",49.56,1.12,40523.392
+6403498,"Huebsch","HWNBY2SP112****",250,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Card","À carte",92.3,"No","Non","Manual","Manuel",49.56,1.12,40523.392
+6403499,"Huebsch","HWNMN2SP112****",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","None","Aucun",92.3,"No","Non","Manual","Manuel",46.73,1.12,40523.392
+6403500,"Huebsch","HWNSX1SP112****",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Coin","À pièce",92.3,"No","Non","Manual","Manuel",46.73,1.12,40523.392
+6403501,"Huebsch","HWNSX2SP112****",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Coin","À pièce",92.3,"No","Non","Manual","Manuel",46.73,1.12,40523.392
+6403518,"IPSO","BWNMN2PP112****",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","None","Aucun",92.3,"No","Non","Manual","Manuel",46.73,1.12,40523.392
+6403519,"IPSO","BWNSX2PP112****",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Coin","À pièce",92.3,"No","Non","Manual","Manuel",46.73,1.12,40523.392
+6403521,"Unimac","UWNMN2SP112****",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","None","Aucun",92.3,"No","Non","Manual","Manuel",46.73,1.12,40523.392
+6404082,"LG","WM3650H**",115,"Front-loading standard","Ordinaire à chargement frontal",48.401,"Household","Résidentiel","-","-",120.7,"No","Non","Adaptive","Adaptif",93.446,0.401,18973.192
+6449710,"Maytag","MVW18MNA#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","-","-",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6449711,"Maytag","MVW18CSA#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6449712,"Whirlpool","CAE2733B#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6449713,"Speed Queen","QCAE2733B#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6506859,"Moffat","MTAP1100F",257,"Top-loading standard","Ordinaire à chargement par le haut",113.588,"Household","Résidentiel","-","-",100.52,"No","Non","Manual","Manuel",53.33,1.13,44526.496
+6710775,"Maytag","MVW18PDA#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6710776,"Maytag","MVW18PDAX#*",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+6710777,"Maytag","MVW18PRA#**",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","Card","À carte",82.12,"No","Non","Adaptive","Adaptif",52.381,0.916,29487.024
+7737915,"LG","WT5680H*A",185,"Top-loading standard","Ordinaire à chargement par le haut",70.349,"Household","Résidentiel","-","-",142.12,"Yes","Oui","Adaptive","Adaptif",67.394,0.495,27576.808
+7917336,"LG","WM3250H*A",130,"Front-loading standard","Ordinaire à chargement frontal",44.984,"Household","Résidentiel","-","-",112.18,"No","Non","Adaptive","Adaptif",90.614,0.401,17633.728
+7917337,"LG","WM3050C*",130,"Front-loading standard","Ordinaire à chargement frontal",49.379,"Household","Résidentiel","-","-",111.97,"No","Non","Adaptive","Adaptif",75.606,0.441,19356.568
+8176266,"Danby","DWM17WDB",157,"Top-loading compact","Compacte à chargement par le haut",62.52,"Household","Résidentiel","-","-",41.68,"No","Non","Manual","Manuel",40,1.5,24507.84
+8274571,"LG","WT1701C*",155,"Top-loading standard","Ordinaire à chargement par le haut",64.275,"Household","Résidentiel","-","-",137.34,"No","Non","Adaptive","Adaptif",78.154,0.468,25195.8
+8333681,"LG","WM8500H**",150,"Front-loading standard","Ordinaire à chargement frontal",56.802,"Household","Résidentiel","-","-",146.398,"Yes","Oui","Adaptive","Adaptif",77.588,0.388,22266.384
+8770920,"Huebsch","HWNBE2SP112****",250,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","Coin","À pièce",92.3,"No","Non","Manual","Manuel",49.56,1.12,40523.392
+8917812,"LG","GCWP1069***",145,"Front-loading standard","Ordinaire à chargement frontal",50.881,"Commercial","Commerciale","-","-",102.79,"No","Non","Adaptive","Adaptif",73.624,0.495,19945.352
+8917814,"LG","TCW2013***",195,"Front-loading standard","Ordinaire à chargement frontal",78.779,"Commercial","Commerciale","-","-",147.25,"No","Non","Adaptive","Adaptif",67.96,0.535,30881.368
+8918391,"Samsung","WA45H72**A*",169,"Top-loading standard","Ordinaire à chargement par le haut",59.53,"Household","Résidentiel","-","-",126.66,"Yes","Oui","Adaptive","Adaptif",69.44,0.47,23335.76
+8918392,"Samsung","WA45H70**A*",169,"Top-loading standard","Ordinaire à chargement par le haut",59.53,"Household","Résidentiel","-","-",126.66,"Yes","Oui","Adaptive","Adaptif",69.44,0.47,23335.76
+8918394,"Samsung","WF42H55**A*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+8918395,"Samsung","WF42H52**A*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+8918396,"Samsung","WF42H51**A*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+8918397,"Samsung","WF42H50**A*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+8918398,"Samsung","WF42H57**A*",93,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.72,0.39,18009.264
+8918399,"Samsung","WF42H56**A*",93,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.72,0.39,18009.264
+8918401,"Samsung","WF45H61**A*",100,"Front-loading standard","Ordinaire à chargement frontal",49.335,"Household","Résidentiel","-","-",126.5,"Yes","Oui","Adaptive","Adaptif",90.64,0.39,19339.32
+8918402,"Samsung","WF45H63**A*",90,"Front-loading standard","Ordinaire à chargement frontal",45.54,"Household","Résidentiel","-","-",126.5,"Yes","Oui","Adaptive","Adaptif",96.96,0.36,17851.68
+8952674,"Samsung","WA56H90**A*",165,"Top-loading standard","Ordinaire à chargement par le haut",78.351,"Household","Résidentiel","-","-",159.9,"Yes","Oui","Adaptive","Adaptif",81.66,0.49,30713.592
+8952828,"Maytag","MLE20PDAY*+",145,"Front-loading standard","Ordinaire à chargement frontal",43.325,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.51,0.5,16983.4
+8952830,"Maytag","MLG20PDAW*+",145,"Front-loading standard","Ordinaire à chargement frontal",43.325,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.51,0.5,16983.4
+8952832,"Maytag","MLE20PDAZ*+",145,"Front-loading standard","Ordinaire à chargement frontal",43.325,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.51,0.5,16983.4
+8954036,"LG","WM3570H*A",127,"Front-loading standard","Ordinaire à chargement frontal",51.874,"Household","Résidentiel","-","-",121.2,"Yes","Oui","Adaptive","Adaptif",78.154,0.428,20334.608
+8974662,"Kenmore","592-4942*",94,"Front-loading standard","Ordinaire à chargement frontal",44.361,"Household","Résidentiel","-","-",100.82,"Yes","Oui","Adaptive","Adaptif",88.91,0.44,17389.512
+8974663,"Kenmore","592-4941*",94,"Front-loading standard","Ordinaire à chargement frontal",44.361,"Household","Résidentiel","-","-",100.82,"Yes","Oui","Adaptive","Adaptif",88.91,0.44,17389.512
+8974664,"Kenmore","592-4945*",93,"Front-loading standard","Ordinaire à chargement frontal",44.88,"Household","Résidentiel","-","-",112.2,"Yes","Oui","Adaptive","Adaptif",90.55,0.4,17592.96
+8974665,"Kenmore","592-4944*",93,"Front-loading standard","Ordinaire à chargement frontal",44.88,"Household","Résidentiel","-","-",112.2,"Yes","Oui","Adaptive","Adaptif",90.55,0.4,17592.96
+8974666,"Samsung","WF56H91**A*",100,"Front-loading standard","Ordinaire à chargement frontal",51.909,"Household","Résidentiel","-","-",157.3,"Yes","Oui","Adaptive","Adaptif",100.62,0.33,20348.328
+8974924,"LG","WM1377H*",101,"Front-loading standard","Ordinaire à chargement frontal",39.19,"Household","Résidentiel","-","-",65.1,"No","Non","Adaptive","Adaptif",67.96,0.602,15362.48
+8974945,"Whirlpool","WFW72HED*+",145,"Front-loading standard","Ordinaire à chargement frontal",47.35,"Household","Résidentiel","-","-",118.08,"No","Non","Adaptive","Adaptif",90.617,0.401,18561.2
+9004996,"LG","WT5270C*",150,"Top-loading standard","Ordinaire à chargement par le haut",64.275,"Household","Résidentiel","-","-",137.34,"No","Non","Adaptive","Adaptif",78.154,0.468,25195.8
+9032590,"Maytag","MXS20PNA*+",196,"Front-loading standard","Ordinaire à chargement frontal",55.154,"Commercial","Commerciale","Card","À carte",75.04,"No","Non","Adaptive","Adaptif",56.635,0.735,21620.368
+9032591,"Maytag","MXS20PDA*+",114,"Front-loading standard","Ordinaire à chargement frontal",45.174,"Commercial","Commerciale","Coin","À pièce",75.04,"No","Non","Adaptive","Adaptif",62.299,0.602,17708.208
+9032592,"Maytag","MXS25PDA*+",175,"Front-loading standard","Ordinaire à chargement frontal",63.24,"Commercial","Commerciale","Coin","À pièce",105.05,"No","Non","Adaptive","Adaptif",62.299,0.602,24790.08
+9032593,"Maytag","MXS30PDA*+",210,"Front-loading standard","Ordinaire à chargement frontal",81.312,"Commercial","Commerciale","Coin","À pièce",135.07,"No","Non","Adaptive","Adaptif",62.299,0.602,31874.304
+9032594,"Maytag","MHN30PDCW*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032595,"Maytag","MHN30PDCX*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032596,"Maytag","MHN30PRCW*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Card","À carte",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032597,"Maytag","MLE20PDCW*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032598,"Maytag","MLE20PDCZ*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032599,"Maytag","MLE20PRCY*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Card","À carte",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032600,"Maytag","MLE20PRCZ*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Card","À carte",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032601,"Maytag","MLG20PDCW*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9032602,"Maytag","MLG20PRCW*+",120,"Front-loading standard","Ordinaire à chargement frontal",45.318,"Commercial","Commerciale","Card","À carte",86.65,"No","Non","Adaptive","Adaptif",70.794,0.523,17764.656
+9054873,"Kenmore","592-2933*",165,"Top-loading standard","Ordinaire à chargement par le haut",68.796,"Household","Résidentiel","-","-",140.4,"Yes","Oui","Adaptive","Adaptif",76.59,0.49,26968.032
+9455049,"Whirlpool","CHW8990C*+",139,"Front-loading standard","Ordinaire à chargement frontal",46.704,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",66.83,0.539,18307.968
+9455050,"Whirlpool","CET8000C*+",139,"Front-loading standard","Ordinaire à chargement frontal",46.704,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",66.83,0.539,18307.968
+9455051,"Whirlpool","CGT8000C*+",139,"Front-loading standard","Ordinaire à chargement frontal",46.704,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",66.83,0.539,18307.968
+9572099,"Kenmore","592-4946*",90,"Front-loading standard","Ordinaire à chargement frontal",47.385,"Household","Résidentiel","-","-",121.5,"Yes","Oui","Adaptive","Adaptif",93.96,0.39,18574.92
+9572100,"Kenmore","592-4947*",90,"Front-loading standard","Ordinaire à chargement frontal",47.385,"Household","Résidentiel","-","-",121.5,"Yes","Oui","Adaptive","Adaptif",93.96,0.39,18574.92
+9572101,"Kenmore","592-4948*",90,"Front-loading standard","Ordinaire à chargement frontal",47.385,"Household","Résidentiel","-","-",121.5,"Yes","Oui","Adaptive","Adaptif",93.96,0.39,18574.92
+9572102,"Kenmore","592-4949*",90,"Front-loading standard","Ordinaire à chargement frontal",45.54,"Household","Résidentiel","-","-",126.5,"Yes","Oui","Adaptive","Adaptif",96.96,0.36,17851.68
+9737270,"Maytag","MVW18CSBW*+",118,"Top-loading standard","Ordinaire à chargement par le haut",56.581,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",56.635,0.689,22179.752
+9737271,"Maytag","MVW18MNBW*+",118,"Top-loading standard","Ordinaire à chargement par le haut",56.581,"Commercial","Commerciale","-","-",82.12,"No","Non","Adaptive","Adaptif",56.635,0.689,22179.752
+9737272,"Maytag","MVW18PDBW*+",118,"Top-loading standard","Ordinaire à chargement par le haut",56.581,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",56.635,0.689,22179.752
+9737273,"Maytag","MVW18PDBX*+",118,"Top-loading standard","Ordinaire à chargement par le haut",56.581,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",56.635,0.689,22179.752
+9737275,"Whirlpool","CAE2763C*+",117,"Top-loading standard","Ordinaire à chargement par le haut",65.86,"Commercial","Commerciale","Coin","À pièce",82.12,"No","Non","Adaptive","Adaptif",56.635,0.802,25817.12
+9737314,"LG","WT1801H*A",181,"Top-loading standard","Ordinaire à chargement par le haut",67.983,"Household","Résidentiel","-","-",137.34,"Yes","Oui","Adaptive","Adaptif",67.394,0.495,26649.336
+9737315,"LG","WT5480C*",157,"Top-loading standard","Ordinaire à chargement par le haut",66.526,"Household","Résidentiel","-","-",142.15,"No","Non","Adaptive","Adaptif",78.154,0.468,26078.192
+9737316,"LG","WM4270H*A",135,"Front-loading standard","Ordinaire à chargement frontal",54.399,"Household","Résidentiel","-","-",127.1,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21324.408
+9824306,"Kenmore","3146####",185,"Top-loading standard","Ordinaire à chargement par le haut",70.364,"Household","Résidentiel","-","-",142.15,"Yes","Oui","Adaptive","Adaptif",67.394,0.495,27582.688
+9824308,"Kenmore","3142####",155,"Top-loading standard","Ordinaire à chargement par le haut",64.275,"Household","Résidentiel","-","-",137.34,"No","Non","Adaptive","Adaptif",78.154,0.468,25195.8
+9874101,"LG","WM3370H*A",120,"Front-loading standard","Ordinaire à chargement frontal",51.874,"Household","Résidentiel","-","-",121.2,"Yes","Oui","Adaptive","Adaptif",78.154,0.428,20334.608
+9874102,"LG","WM3170C*",120,"Front-loading standard","Ordinaire à chargement frontal",47.061,"Household","Résidentiel","-","-",121.29,"No","Non","Adaptive","Adaptif",80.703,0.388,18447.912
+9875429,"Whirlpool","WTW5000D*+",300,"Top-loading standard","Ordinaire à chargement par le haut",158.585,"Household","Résidentiel","-","-",124.87,"No","Non","Adaptive","Adaptif",35.68,1.27,62165.32
+9875430,"Maytag","MVWC555D*+",300,"Top-loading standard","Ordinaire à chargement par le haut",158.585,"Household","Résidentiel","-","-",124.87,"No","Non","Adaptive","Adaptif",35.68,1.27,62165.32
+9875431,"Maytag","MVWX655D*+",300,"Top-loading standard","Ordinaire à chargement par le haut",158.585,"Household","Résidentiel","-","-",124.87,"No","Non","Adaptive","Adaptif",35.68,1.27,62165.32
+9875432,"Kenmore","2513*41+",300,"Top-loading standard","Ordinaire à chargement par le haut",158.585,"Household","Résidentiel","-","-",124.87,"No","Non","Adaptive","Adaptif",35.68,1.27,62165.32
+10012766,"LG","WT7700H*A",193,"Top-loading standard","Ordinaire à chargement par le haut",69.122,"Household","Résidentiel","-","-",161.5,"Yes","Oui","Adaptive","Adaptif",78.155,0.428,27095.824
+10013012,"Bosch","WAP24200UC",135,"Front-loading standard","Ordinaire à chargement frontal",35.228,"Household","Résidentiel","-","-",61.16,"Yes","Oui","Adaptive","Adaptif",65.7,0.576,13809.376
+10013013,"Bosch","WAP24201UC",135,"Front-loading standard","Ordinaire à chargement frontal",35.228,"Household","Résidentiel","-","-",61.16,"Yes","Oui","Adaptive","Adaptif",65.7,0.576,13809.376
+10013014,"Bosch","WAP24202UC",135,"Front-loading standard","Ordinaire à chargement frontal",35.228,"Household","Résidentiel","-","-",61.16,"Yes","Oui","Adaptive","Adaptif",65.7,0.576,13809.376
+10169236,"Maytag","MVW18PDAX*+",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","-","-",82.12,"No","Non","Adaptive","Adaptif",52.388,0.916,29487.024
+10169237,"Speed Queen","QCAE2733B*+",150,"Top-loading standard","Ordinaire à chargement par le haut",75.222,"Commercial","Commerciale","-","-",82.12,"No","Non","Adaptive","Adaptif",52.388,0.916,29487.024
+10208816,"Whirlpool","WTW8500D*+",272,"Top-loading standard","Ordinaire à chargement par le haut",123.083,"Household","Résidentiel","-","-",153.47,"No","Non","Adaptive","Adaptif",56.635,0.802,48248.536
+10208817,"Whirlpool","WTW8000D*+",272,"Top-loading standard","Ordinaire à chargement par le haut",123.083,"Household","Résidentiel","-","-",153.47,"No","Non","Adaptive","Adaptif",56.635,0.802,48248.536
+10302811,"GE","WSLP1500H***",257,"Top-loading standard","Ordinaire à chargement par le haut",78.3,"Household","Résidentiel","-","-",72.5,"No","Non","Adaptive","Adaptif",45.1,1.08,30693.6
+10302812,"GE","WSLS1500H***",257,"Top-loading standard","Ordinaire à chargement par le haut",78.3,"Household","Résidentiel","-","-",72.5,"No","Non","Adaptive","Adaptif",45.1,1.08,30693.6
+10990501,"Whirlpool","CHW9060A*+",140,"Front-loading standard","Ordinaire à chargement frontal",49.044,"Commercial","Commerciale","-","-",86.65,"No","Non","Adaptive","Adaptif",65.98,0.566,19225.248
+10990502,"Whirlpool","CHW9050A*+",140,"Front-loading standard","Ordinaire à chargement frontal",49.044,"Commercial","Commerciale","-","-",86.65,"No","Non","Adaptive","Adaptif",65.98,0.566,19225.248
+10990507,"Huebsch","ZWNE82SP113+",133,"Top-loading standard","Ordinaire à chargement par le haut",102.032,"Household","Résidentiel","-","-",91.1,"No","Non","Manual","Manuel",53.36,1.12,39996.544
+10990508,"Huebsch","YWNE52PP113+",133,"Top-loading standard","Ordinaire à chargement par le haut",102.032,"Household","Résidentiel","-","-",91.1,"No","Non","Manual","Manuel",53.36,1.12,39996.544
+10990509,"Huebsch","ZFNE9BSP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+10990510,"Huebsch","YFNE5BJP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+10990511,"Huebsch","YFNE5RSP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+10990512,"Unimac","UFNE5BJP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+10990513,"IPSO","BFNE6BJP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+10990516,"Huebsch","HWNN*2SP113+",217,"Top-loading standard","Ordinaire à chargement par le haut",97.838,"Commercial","Commerciale","-","-",92.3,"No","Non","Manual","Manuel",47.89,1.06,38352.496
+10990517,"Huebsch","HFNB*ASG113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990518,"Huebsch","HFNB*ASP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990519,"Huebsch","HFNB*RSP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990520,"Huebsch","HFNN*ASP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990521,"Huebsch","HFNN*RSP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990522,"Huebsch","HFNS*RSP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990523,"IPSO","BFNB*ASP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+10990526,"LG","WT901C*",190,"Top-loading standard","Ordinaire à chargement par le haut",104.304,"Household","Résidentiel","-","-",92.88,"No","Non","Adaptive","Adaptif",36.529,1.123,40887.168
+10990663,"Kenmore","2234*51+",204,"Top-loading standard","Ordinaire à chargement par le haut",133.058,"Household","Résidentiel","-","-",104.77,"No","Non","Adaptive","Adaptif",35.68,1.27,52158.736
+10990664,"Kenmore","2244*51+",204,"Top-loading standard","Ordinaire à chargement par le haut",133.058,"Household","Résidentiel","-","-",104.77,"No","Non","Adaptive","Adaptif",35.68,1.27,52158.736
+10990666,"Kenmore","2022*51+",245,"Top-loading standard","Ordinaire à chargement par le haut",119.748,"Household","Résidentiel","-","-",94.29,"No","Non","Adaptive","Adaptif",35.68,1.27,46941.216
+10990667,"Kenmore","514*51+",245,"Top-loading standard","Ordinaire à chargement par le haut",119.748,"Household","Résidentiel","-","-",94.29,"No","Non","Adaptive","Adaptif",35.68,1.27,46941.216
+10990668,"Kenmore","2233*51+",245,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+10990669,"Kenmore","2024*51+",245,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+10990670,"Amana","NTW4755E*+",245,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+10990671,"Whirlpool","WTW7000D*+",225,"Top-loading standard","Ordinaire à chargement par le haut",111.278,"Household","Résidentiel","-","-",138.75,"No","Non","Adaptive","Adaptif",56.635,0.802,43620.976
+10990673,"Whirlpool","WTW7300D*+",225,"Top-loading standard","Ordinaire à chargement par le haut",111.278,"Household","Résidentiel","-","-",138.75,"No","Non","Adaptive","Adaptif",56.635,0.802,43620.976
+10990677,"Avanti","TLW30W",450,"Top-loading standard","Ordinaire à chargement par le haut",105.84,"Household","Résidentiel","-","-",84,"No","Non","Manual","Manuel",37,1.26,41489.28
+10990678,"Avanti","TLW09W",33,"Top-loading standard","Ordinaire à chargement par le haut",79.355,"Household","Résidentiel","-","-",26.9,"No","Non","Manual","Manuel",52,2.95,31107.16
+11819060,"Frigidaire","FFLG4033***",220,"Top-loading standard","Ordinaire à chargement par le haut",63.484,"Household","Résidentiel","-","-",107.6,"No","Non","Adaptive","Adaptif",63.7,0.59,24885.728
+11819061,"Frigidaire","FFLG3911***",220,"Top-loading standard","Ordinaire à chargement par le haut",63.484,"Household","Résidentiel","-","-",107.6,"No","Non","Adaptive","Adaptif",63.7,0.59,24885.728
+12117895,"Kenmore","2813*41+",259,"Top-loading standard","Ordinaire à chargement par le haut",123.083,"Household","Résidentiel","-","-",153.47,"No","Non","Adaptive","Adaptif",56.635,0.802,48248.536
+12117896,"Kenmore","2913*41+",259,"Top-loading standard","Ordinaire à chargement par le haut",123.083,"Household","Résidentiel","-","-",153.47,"No","Non","Adaptive","Adaptif",56.635,0.802,48248.536
+12117897,"Kenmore","2613*41+",225,"Top-loading standard","Ordinaire à chargement par le haut",111.278,"Household","Résidentiel","-","-",138.75,"No","Non","Adaptive","Adaptif",56.635,0.802,43620.976
+12117898,"Kenmore","2713*41+",225,"Top-loading standard","Ordinaire à chargement par le haut",111.278,"Household","Résidentiel","-","-",138.75,"No","Non","Adaptive","Adaptif",56.635,0.802,43620.976
+12117904,"LG","WM3475H*A",120,"Front-loading standard","Ordinaire à chargement frontal",47.546,"Household","Résidentiel","-","-",121.29,"Yes","Oui","Adaptive","Adaptif",76.455,0.392,18638.032
+12117905,"LG","WM3175C*",120,"Front-loading standard","Ordinaire à chargement frontal",47.061,"Household","Résidentiel","-","-",121.29,"No","Non","Adaptive","Adaptif",80.703,0.388,18447.912
+12163974,"GE","GTW180S*J***",257,"Top-loading standard","Ordinaire à chargement par le haut",113.667,"Household","Résidentiel","-","-",100.59,"No","Non","Manual","Manuel",53.1,1.13,44557.464
+12592587,"Samsung","WA40J300*A*",350,"Top-loading standard","Ordinaire à chargement par le haut",133.952,"Household","Résidentiel","-","-",119.6,"No","Non","Adaptive","Adaptif",51.11,1.12,52509.184
+12592642,"Fisher & Paykel","WL4027P*",126,"Top-loading standard","Ordinaire à chargement par le haut",56,"Household","Résidentiel","-","-",112,"Yes","Oui","Adaptive","Adaptif",59.62,0.5,21952
+12592643,"Fisher & Paykel","WL4027J*",126,"Top-loading standard","Ordinaire à chargement par le haut",56,"Household","Résidentiel","-","-",112,"Yes","Oui","Adaptive","Adaptif",59.62,0.5,21952
+12593796,"Whirlpool","YWET4024E*+",621,"Top-loading compact","Compacte à chargement par le haut",83.391,"Household","Résidentiel","-","-",43.32,"No","Non","Adaptive","Adaptif",18.407,1.925,32689.272
+12593797,"Kenmore","C268143*51+",621,"Top-loading compact","Compacte à chargement par le haut",83.391,"Household","Résidentiel","-","-",43.32,"No","Non","Adaptive","Adaptif",18.407,1.925,32689.272
+12593798,"Whirlpool","YWET4027E*+",1092,"Top-loading standard","Ordinaire à chargement par le haut",91.338,"Household","Résidentiel","-","-",71.92,"No","Non","Adaptive","Adaptif",35.68,1.27,35804.496
+12593799,"Whirlpool","WGT4027E*+",1092,"Top-loading standard","Ordinaire à chargement par le haut",91.338,"Household","Résidentiel","-","-",71.92,"No","Non","Adaptive","Adaptif",35.68,1.27,35804.496
+12593800,"Amana","NFW5800D*+",145,"Front-loading standard","Ordinaire à chargement frontal",47.35,"Household","Résidentiel","-","-",118.08,"No","Non","Adaptive","Adaptif",90.617,0.401,18561.2
+12593801,"Maytag","MVWB755D*+",225,"Top-loading standard","Ordinaire à chargement par le haut",111.278,"Household","Résidentiel","-","-",138.75,"No","Non","Adaptive","Adaptif",56.635,0.802,43620.976
+12593802,"Maytag","MVWB835D*+",248,"Top-loading standard","Ordinaire à chargement par le haut",123.083,"Household","Résidentiel","-","-",153.47,"No","Non","Adaptive","Adaptif",56.635,0.802,48248.536
+12593803,"Maytag","MVWB855D*+",248,"Top-loading standard","Ordinaire à chargement par le haut",123.083,"Household","Résidentiel","-","-",153.47,"No","Non","Adaptive","Adaptif",56.635,0.802,48248.536
+12593804,"Maytag","MVWP475E*+",212,"Top-loading standard","Ordinaire à chargement par le haut",134.493,"Household","Résidentiel","-","-",105.9,"No","Non","Adaptive","Adaptif",35.68,1.27,52721.256
+12602018,"Electrolux","EIFLS20****",112,"Front-loading standard","Ordinaire à chargement frontal",34.4,"Household","Résidentiel","-","-",68.8,"Yes","Oui","Adaptive","Adaptif",76.45,0.5,13484.8
+12602097,"GE","WCVH4800****",122,"Front-loading standard","Ordinaire à chargement frontal",35.224,"Household","Résidentiel","-","-",62.9,"Yes","Oui","Adaptive","Adaptif",76.6,0.56,13807.808
+12602098,"GE","GFWN1100H***",120,"Front-loading standard","Ordinaire à chargement frontal",39.456,"Household","Résidentiel","-","-",101.17,"No","Non","Adaptive","Adaptif",85.8,0.39,15466.752
+12602099,"GE","GFWH1200H***",130,"Front-loading standard","Ordinaire à chargement frontal",39.456,"Household","Résidentiel","-","-",101.17,"Yes","Oui","Adaptive","Adaptif",83.2,0.39,15466.752
+12602100,"GE","GFWS1700H***",174,"Front-loading standard","Ordinaire à chargement frontal",42.746,"Household","Résidentiel","-","-",122.13,"Yes","Oui","Adaptive","Adaptif",86.2,0.35,16756.432
+12602101,"GE","GFWS1705H***",174,"Front-loading standard","Ordinaire à chargement frontal",42.746,"Household","Résidentiel","-","-",122.13,"Yes","Oui","Adaptive","Adaptif",86.2,0.35,16756.432
+12772174,"Whirlpool","WFC7500V*+",85,"Top-loading standard","Ordinaire à chargement par le haut",44.736,"Household","Résidentiel","-","-",55.78,"No","Non","Adaptive","Adaptif",56.635,0.802,17536.512
+12772175,"Maytag","MHWC7500Y*+",85,"Top-loading standard","Ordinaire à chargement par le haut",44.736,"Household","Résidentiel","-","-",55.78,"No","Non","Adaptive","Adaptif",56.635,0.802,17536.512
+12772385,"Frigidaire","FFFS5115***",133,"Front-loading standard","Ordinaire à chargement frontal",42.432,"Household","Résidentiel","-","-",108.8,"Yes","Oui","Adaptive","Adaptif",82.47,0.39,16633.344
+12772386,"Frigidaire","FFFW5100***",117,"Front-loading standard","Ordinaire à chargement frontal",43.64,"Household","Résidentiel","-","-",109.1,"No","Non","Adaptive","Adaptif",84.79,0.4,17106.88
+12772387,"Crosley","CFW7400***",117,"Front-loading standard","Ordinaire à chargement frontal",43.64,"Household","Résidentiel","-","-",109.1,"No","Non","Adaptive","Adaptif",84.79,0.4,17106.88
+12772388,"Frigidaire","FFFW5000***",117,"Front-loading standard","Ordinaire à chargement frontal",43.64,"Household","Résidentiel","-","-",109.1,"No","Non","Adaptive","Adaptif",84.79,0.4,17106.88
+12772389,"Kenmore","970L4845****",117,"Front-loading standard","Ordinaire à chargement frontal",43.64,"Household","Résidentiel","-","-",109.1,"No","Non","Adaptive","Adaptif",84.79,0.4,17106.88
+12772390,"Kenmore","970L4842****",117,"Front-loading standard","Ordinaire à chargement frontal",43.64,"Household","Résidentiel","-","-",109.1,"No","Non","Adaptive","Adaptif",84.79,0.4,17106.88
+12772391,"Electrolux","EIFLS60****",143,"Front-loading standard","Ordinaire à chargement frontal",60.6,"Household","Résidentiel","-","-",121.2,"Yes","Oui","Adaptive","Adaptif",74.96,0.5,23755.2
+12772394,"Frigidaire","FFLG2022***",239,"Top-loading standard","Ordinaire à chargement par le haut",82.08,"Household","Résidentiel","-","-",86.4,"No","Non","Adaptive","Adaptif",45.52,0.95,32175.36
+12772395,"Frigidaire","FAHE1011***",169,"Top-loading standard","Ordinaire à chargement par le haut",71.904,"Household","Résidentiel","-","-",85.6,"No","Non","Adaptive","Adaptif",51.49,0.84,28186.368
+12772882,"Fisher & Paykel","WA3927G*",147,"Top-loading standard","Ordinaire à chargement par le haut",87.2,"Household","Résidentiel","-","-",109,"Yes","Oui","Manual or adaptive","Manuel ou adaptif",48.23,0.8,34182.4
+12879582,"Ariston","ARWXF129WNA.1",96,"Front-loading standard","Ordinaire à chargement frontal",26.801,"Household","Résidentiel","-","-",51.54,"No","Non","Adaptive","Adaptif",73.5,0.52,10505.992
+12879583,"Ariston","ARWL129NA.1",96,"Front-loading standard","Ordinaire à chargement frontal",26.801,"Household","Résidentiel","-","-",51.54,"No","Non","Adaptive","Adaptif",73.5,0.52,10505.992
+12879584,"Ariston","ARWL129SNA.1",96,"Front-loading standard","Ordinaire à chargement frontal",26.801,"Household","Résidentiel","-","-",51.54,"No","Non","Adaptive","Adaptif",73.5,0.52,10505.992
+12988341,"Frigidaire","FFTW1001***",421,"Front-loading standard","Ordinaire à chargement frontal",108.367,"Household","Résidentiel","-","-",95.9,"No","Non","Adaptive","Adaptif",42.78,1.13,42479.864
+12988343,"Whirlpool","WTW4850B**",165,"Top-loading standard","Ordinaire à chargement par le haut",129.819,"Household","Résidentiel","-","-",102.22,"No","Non","Adaptive","Adaptif",35.68,1.27,50889.048
+12988344,"Maytag","2210*31*",161,"Top-loading standard","Ordinaire à chargement par le haut",129.819,"Household","Résidentiel","-","-",102.22,"No","Non","Adaptive","Adaptif",35.68,1.27,50889.048
+12988345,"Whirlpool","WTW8700E**",261,"Top-loading standard","Ordinaire à chargement par le haut",123.043,"Household","Résidentiel","-","-",153.42,"No","Non","Adaptive","Adaptif",56.635,0.802,48232.856
+13201537,"LG","WT1301C*",160,"Top-loading standard","Ordinaire à chargement par le haut",63.632,"Household","Résidentiel","-","-",128.55,"No","Non","Adaptive","Adaptif",67.394,0.495,24943.744
+13201541,"Bosch","WAT28400UC",110.77,"Front-loading standard","Ordinaire à chargement frontal",29.357,"Household","Résidentiel","-","-",61.16,"Yes","Oui","Adaptive","Adaptif",78.39,0.48,11507.944
+13201542,"Bosch","WAT28401UC",110.77,"Front-loading standard","Ordinaire à chargement frontal",29.357,"Household","Résidentiel","-","-",61.16,"Yes","Oui","Adaptive","Adaptif",78.39,0.48,11507.944
+13201543,"Bosch","WAT28402UC",110.77,"Front-loading standard","Ordinaire à chargement frontal",29.357,"Household","Résidentiel","-","-",61.16,"Yes","Oui","Adaptive","Adaptif",78.39,0.48,11507.944
+13201817,"Haier","HLP24E",271,"Top-loading compact","Compacte à chargement par le haut",48.025,"Household","Résidentiel","-","-",42.5,"No","Non","Manual","Manuel",34,1.13,18825.8
+13201818,"Haier","HLP21N",214,"Top-loading compact","Compacte à chargement par le haut",46.92,"Household","Résidentiel","-","-",27.6,"No","Non","Manual","Manuel",29.5,1.7,18392.64
+13202964,"Haier","HLTW500AXW",144,"Top-loading standard","Ordinaire à chargement par le haut",51.887,"Household","Résidentiel","-","-",97.9,"No","Non","Adaptive","Adaptif",115,0.53,20339.704
+13229152,"Electrolux","EIFLS55****",143,"Front-loading standard","Ordinaire à chargement frontal",59.5,"Household","Résidentiel","-","-",119,"Yes","Oui","Adaptive","Adaptif",74.96,0.5,23324
+13229153,"Electrolux","EIFLW50****",143,"Front-loading standard","Ordinaire à chargement frontal",59.6,"Household","Résidentiel","-","-",119.2,"Yes","Oui","Adaptive","Adaptif",74.96,0.5,23363.2
+13232962,"Frigidaire","FAHE4045***",234,"Top-loading standard","Ordinaire à chargement par le haut",96.096,"Household","Résidentiel","-","-",85.8,"No","Non","Manual or adaptive","Manuel ou adaptif",49.83,1.12,37669.632
+13347835,"Inglis","ITW4671E**",190,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+13347836,"Inglis","ITW4771E**",190,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+13347837,"Inglis","ITW4971E**",210,"Top-loading standard","Ordinaire à chargement par le haut",134.493,"Household","Résidentiel","-","-",105.9,"No","Non","Adaptive","Adaptif",35.68,1.27,52721.256
+13347840,"GE","GTW860S*J***",148,"Top-loading standard","Ordinaire à chargement par le haut",71.9,"Household","Résidentiel","-","-",143.8,"No","Non","Adaptive","Adaptif",94.25,0.5,28184.8
+13347841,"GE","GTW810S*J***",148,"Top-loading standard","Ordinaire à chargement par le haut",71.9,"Household","Résidentiel","-","-",143.8,"No","Non","Adaptive","Adaptif",94.25,0.5,28184.8
+13347845,"Blomberg","WM98400SX",82,"Front-loading standard","Ordinaire à chargement frontal",34.966,"Household","Résidentiel","-","-",71.36,"Yes","Oui","Adaptive","Adaptif",65.98,0.49,13706.672
+13347846,"Blomberg","WM98200SX",82,"Front-loading standard","Ordinaire à chargement frontal",34.966,"Household","Résidentiel","-","-",71.36,"Yes","Oui","Adaptive","Adaptif",65.98,0.49,13706.672
+13347847,"Beko","WMY10148C0",82,"Front-loading standard","Ordinaire à chargement frontal",34.966,"Household","Résidentiel","-","-",71.36,"Yes","Oui","Adaptive","Adaptif",65.98,0.49,13706.672
+13347848,"Beko","WMY10148W0",82,"Front-loading standard","Ordinaire à chargement frontal",34.966,"Household","Résidentiel","-","-",71.36,"Yes","Oui","Adaptive","Adaptif",65.98,0.49,13706.672
+13347849,"Blomberg","WM77120",67,"Front-loading compact","Compacte à chargement frontal",25.953,"Household","Résidentiel","-","-",55.22,"Yes","Oui","Adaptive","Adaptif",59.75,0.47,10173.576
+13347850,"Beko","WTE7604XLW0",67,"Front-loading standard","Ordinaire à chargement frontal",25.953,"Household","Résidentiel","-","-",55.22,"Yes","Oui","Adaptive","Adaptif",59.75,0.47,10173.576
+13547429,"GE","GFWN1600J***",126,"Front-loading standard","Ordinaire à chargement frontal",51.156,"Household","Résidentiel","-","-",121.8,"Yes","Oui","Adaptive","Adaptif",78.7,0.42,20053.152
+13967862,"Haier","HLPW028AXW",176,"Top-loading standard","Ordinaire à chargement par le haut",68.88,"Household","Résidentiel","-","-",61.5,"No","Non","Manual","Manuel",50,1.12,27000.96
+14082095,"GE","GFWN1300J***",109,"Front-loading standard","Ordinaire à chargement frontal",55.488,"Household","Résidentiel","-","-",115.6,"No","Non","Adaptive","Adaptif",87.05,0.48,21751.296
+14082101,"Samsung","WF36J40**A*",94,"Front-loading standard","Ordinaire à chargement frontal",40.328,"Household","Résidentiel","-","-",100.82,"Yes","Oui","Adaptive","Adaptif",88.61,0.4,15808.576
+14105605,"LG","WT1501C*",180,"Top-loading standard","Ordinaire à chargement par le haut",63.014,"Household","Résidentiel","-","-",127.3,"No","Non","Adaptive","Adaptif",67.394,0.495,24701.488
+14106064,"LG","WD100C*",80,"Top-loading compact","Compacte à chargement par le haut",54.247,"Household","Résidentiel","-","-",28.18,"No","Non","Adaptive","Adaptif",24.352,1.925,21264.824
+14106065,"LG","WD200C*",80,"Top-loading compact","Compacte à chargement par le haut",54.247,"Household","Résidentiel","-","-",28.18,"No","Non","Adaptive","Adaptif",24.352,1.925,21264.824
+14106066,"LG","WM9000H*A",150,"Front-loading standard","Ordinaire à chargement frontal",62.659,"Household","Résidentiel","-","-",146.4,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,24562.328
+14398464,"LG","WT7710H*A",193,"Top-loading standard","Ordinaire à chargement par le haut",69.122,"Household","Résidentiel","-","-",161.5,"Yes","Oui","Adaptive","Adaptif",78.155,0.428,27095.824
+14419377,"GE","GTW680BSJ***",174,"Top-loading standard","Ordinaire à chargement par le haut",66.708,"Household","Résidentiel","-","-",130.8,"No","Non","Adaptive","Adaptif",68.9,0.51,26149.536
+14419378,"GE","GTW485ASJ***",188,"Top-loading standard","Ordinaire à chargement par le haut",69.136,"Household","Résidentiel","-","-",119.2,"No","Non","Adaptive","Adaptif",67,0.58,27101.312
+14419379,"GE","GTW460ASJ***",359,"Top-loading standard","Ordinaire à chargement par le haut",112.236,"Household","Résidentiel","-","-",119.4,"No","Non","Manual or adaptive","Manuel ou adaptif",48,0.94,43996.512
+14419456,"LG","WM5000H*A",135,"Front-loading standard","Ordinaire à chargement frontal",53.932,"Household","Résidentiel","-","-",126.01,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21141.344
+14419457,"GE","GTW490ACJ***",162,"Top-loading standard","Ordinaire à chargement par le haut",70.281,"Household","Résidentiel","-","-",123.3,"No","Non","Adaptive","Adaptif",68.8,0.57,27550.152
+14644069,"Haier","HLTW600AXW",135,"Top-loading standard","Ordinaire à chargement par le haut",60.018,"Household","Résidentiel","-","-",115.42,"Yes","Oui","Adaptive","Adaptif",74.19,0.52,23527.056
+14647416,"Maytag","MVWC415E*+",233,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+14647417,"Amana","NTW4605E*+",252,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+14647418,"Amana","NTW4615E*+",252,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+14647420,"Amana","NTW4655E*+",252,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+14647421,"Amana","NTW4705E*+",252,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+14647423,"Whirlpool","WTW4815E*+",234,"Top-loading standard","Ordinaire à chargement par le haut",131.623,"Household","Résidentiel","-","-",103.64,"No","Non","Adaptive","Adaptif",35.68,1.27,51596.216
+14647425,"Whirlpool","WTW4915E*+",219,"Top-loading standard","Ordinaire à chargement par le haut",135.928,"Household","Résidentiel","-","-",107.03,"No","Non","Adaptive","Adaptif",35.68,1.27,53283.776
+14648620,"Frigidaire","CFW4900***",133,"Front-loading standard","Ordinaire à chargement frontal",42.432,"Household","Résidentiel","-","-",108.8,"Yes","Oui","Adaptive","Adaptif",82.47,0.39,16633.344
+14860427,"GE","GTW460AMJ***",359,"Top-loading standard","Ordinaire à chargement par le haut",112.236,"Household","Résidentiel","-","-",119.4,"No","Non","Manual or adaptive","Manuel ou adaptif",48,0.94,43996.512
+14861992,"Crosley","CFWH7300***",117,"Front-loading standard","Ordinaire à chargement frontal",43.64,"Household","Résidentiel","-","-",109.1,"No","Non","Adaptive","Adaptif",84.79,0.4,17106.88
+14977927,"Miele","W1753",129,"Front-loading standard","Ordinaire à chargement frontal",32.4,"Household","Résidentiel","-","-",54,"Yes","Oui","Adaptive","Adaptif",70,0.6,12700.8
+14977928,"Miele","W3048",158,"Front-loading standard","Ordinaire à chargement frontal",27,"Household","Résidentiel","-","-",54,"Yes","Oui","Adaptive","Adaptif",65,0.5,10584
+14977929,"Miele","PW6068",141,"Front-loading standard","Ordinaire à chargement frontal",34.8,"Household","Résidentiel","-","-",58,"Yes","Oui","Adaptive","Adaptif",71,0.6,13641.6
+14980688,"Maytag","MHN33PDCW**",110,"Front-loading standard","Ordinaire à chargement frontal",40.552,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",69.378,0.468,15896.384
+14980689,"Maytag","MHN33PRCW**",110,"Front-loading standard","Ordinaire à chargement frontal",40.552,"Commercial","Commerciale","Card","À carte",86.65,"No","Non","Adaptive","Adaptif",69.378,0.468,15896.384
+14980733,"Midea","US-FC70-DS12DSH/C0401E",105,"Front-loading standard","Ordinaire à chargement frontal",37.271,"Household","Résidentiel","-","-",57.34,"Yes","Oui","Adaptive","Adaptif",60,0.65,14610.232
+14980882,"Maytag","MVWB865F**",263,"Top-loading standard","Ordinaire à chargement par le haut",119.907,"Household","Résidentiel","-","-",149.51,"No","Non","Adaptive","Adaptif",56.635,0.802,47003.544
+14982108,"Whirlpool","WFW9290F**",87,"Front-loading standard","Ordinaire à chargement frontal",94.7,"Household","Résidentiel","-","-",118.08,"No","Non","Adaptive","Adaptif",56.635,0.802,37122.4
+14982109,"Whirlpool","WFW7590F**",63,"Front-loading standard","Ordinaire à chargement frontal",94.7,"Household","Résidentiel","-","-",118.08,"No","Non","Adaptive","Adaptif",56.635,0.802,37122.4
+15198694,"Electrolux","EWFLS70****",143,"Front-loading standard","Ordinaire à chargement frontal",61.4,"Household","Résidentiel","-","-",122.8,"Yes","Oui","Adaptive","Adaptif",74.96,0.5,24068.8
+15198695,"Primus","PFNE3BJP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+15198696,"Primus","PFNE3RSP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+15198697,"Huebsch","ZWN432SP113**04",137,"Top-loading standard","Ordinaire à chargement par le haut",81.99,"Household","Résidentiel","-","-",91.1,"No","Non","Manual","Manuel",55.01,0.9,32140.08
+15198698,"Huebsch","YWN432SP113**04",137,"Top-loading standard","Ordinaire à chargement par le haut",81.99,"Household","Résidentiel","-","-",91.1,"No","Non","Manual","Manuel",55.01,0.9,32140.08
+15198699,"EuroDesign","DWN432SP113**04",137,"Top-loading standard","Ordinaire à chargement par le haut",81.99,"Household","Résidentiel","-","-",91.1,"No","Non","Manual","Manuel",55.01,0.9,32140.08
+15198700,"Primus","PWNE32PP113+",133,"Top-loading standard","Ordinaire à chargement par le haut",102.032,"Household","Résidentiel","-","-",91.1,"No","Non","Manual","Manuel",53.36,1.12,39996.544
+15198701,"IPSO","BFNB*ASG113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+15198702,"Huebsch","HFNK*ASG113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+15198703,"Huebsch","HFNK*ASP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+15198704,"Huebsch","HFNN*BSP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+15198705,"Primus","PFNJXASG114+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+15198706,"Primus","PFNJXASP114+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+15198707,"Primus","PWNB*2PP112+",250,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","-","-",92.3,"No","Non","Manual","Manuel",49.56,1.12,40523.392
+15198708,"Whirlpool","WFW75HEF**",88,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.802,39703.72
+15198709,"Whirlpool","WFW7540F**",88,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.802,39703.72
+15198710,"Samsung","WA52J870*A*",214,"Top-loading standard","Ordinaire à chargement par le haut",72.118,"Household","Résidentiel","-","-",147.18,"Yes","Oui","Adaptive","Adaptif",75.08,0.49,28270.256
+15198711,"GE","WW22K680*A*",119,"Front-loading standard","Ordinaire à chargement frontal",32.13,"Household","Résidentiel","-","-",63,"Yes","Oui","Adaptive","Adaptif",80.79,0.51,12594.96
+15198712,"Samsung","WA50K86**A*",154,"Top-loading standard","Ordinaire à chargement par le haut",70.364,"Household","Résidentiel","-","-",143.6,"Yes","Oui","Adaptive","Adaptif",77.9,0.49,27582.688
+15198713,"Fisher & Paykel","WL4027G*",122,"Top-loading standard","Ordinaire à chargement par le haut",56,"Household","Résidentiel","-","-",112,"Yes","Oui","Adaptive","Adaptif",59.79,0.5,21952
+15198714,"Maytag","MHW5500F**",89,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"Yes","Oui","Adaptive","Adaptif",56.635,0.802,39703.72
+15198715,"Maytag","MHW8200F**",89,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"Yes","Oui","Adaptive","Adaptif",56.635,0.802,39703.72
+15198716,"Maytag","MHW3505F**",88,"Front-loading standard","Ordinaire à chargement frontal",99.015,"Household","Résidentiel","-","-",123.46,"No","Non","Adaptive","Adaptif",56.635,0.802,38813.88
+15198717,"Whirlpool","WFW90HEF**",89,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.802,39703.72
+15198718,"Whirlpool","WFW92HEF**",89,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.802,39703.72
+15198719,"Maytag","MHW3500F**",87,"Front-loading standard","Ordinaire à chargement frontal",101.285,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.802,39703.72
+15198720,"LG","WD205C*",80,"Top-loading compact","Compacte à chargement par le haut",54.247,"Household","Résidentiel","-","-",28.18,"No","Non","Adaptive","Adaptif",24.352,1.925,21264.824
+15297758,"Huebsch","HWNN*2AP113**04",190,"Top-loading standard","Ordinaire à chargement par le haut",72.248,"Commercial","Commerciale","-","-",82.1,"No","Non","Manual","Manuel",45.45,0.88,28321.216
+15297759,"Huebsch","HWNN*2AP113**17",190,"Top-loading standard","Ordinaire à chargement par le haut",72.248,"Commercial","Commerciale","-","-",82.1,"No","Non","Manual","Manuel",45.45,0.88,28321.216
+15297760,"Huebsch","HWNN*2HP113**04",190,"Top-loading standard","Ordinaire à chargement par le haut",72.248,"Commercial","Commerciale","-","-",82.1,"No","Non","Manual","Manuel",45.45,0.88,28321.216
+15297829,"Kenmore","3163*61*",385,"Top-loading standard","Ordinaire à chargement par le haut",100.458,"Household","Résidentiel","-","-",174.71,"No","Non","Adaptive","Adaptif",56.635,0.575,39379.536
+15799279,"LG","WT7600H*A",175,"Top-loading standard","Ordinaire à chargement par le haut",72.399,"Household","Résidentiel","-","-",146.26,"Yes","Oui","Adaptive","Adaptif",67.394,0.495,28380.408
+15799280,"LG","WT7500C*",175,"Top-loading standard","Ordinaire à chargement par le haut",72.216,"Household","Résidentiel","-","-",145.89,"No","Non","Adaptive","Adaptif",67.394,0.495,28308.672
+15799281,"LG","WM3575C*",120,"Front-loading standard","Ordinaire à chargement frontal",54.45,"Household","Résidentiel","-","-",127.22,"No","Non","Adaptive","Adaptif",82.685,0.428,21344.4
+15799282,"Kenmore","3142#",155,"Top-loading standard","Ordinaire à chargement par le haut",64.275,"Household","Résidentiel","-","-",137.34,"No","Non","Adaptive","Adaptif",78.154,0.468,25195.8
+15799283,"Kenmore","3146#",185,"Top-loading standard","Ordinaire à chargement par le haut",70.364,"Household","Résidentiel","-","-",142.15,"Yes","Oui","Adaptive","Adaptif",67.394,0.495,27582.688
+15799284,"Kenmore","5197#",80,"Top-loading compact","Compacte à chargement par le haut",54.247,"Household","Résidentiel","-","-",28.18,"No","Non","Adaptive","Adaptif",24.352,1.925,21264.824
+15799285,"Kenmore","5199#",80,"Top-loading compact","Compacte à chargement par le haut",54.247,"Household","Résidentiel","-","-",28.18,"No","Non","Adaptive","Adaptif",24.352,1.925,21264.824
+15799286,"LG","WM3770H*A",135,"Front-loading standard","Ordinaire à chargement frontal",54.399,"Household","Résidentiel","-","-",127.1,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21324.408
+15799287,"LG","WM3670H*A",130,"Front-loading standard","Ordinaire à chargement frontal",54.228,"Household","Résidentiel","-","-",126.7,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21257.376
+15799289,"Kenmore","4139#",120,"Front-loading standard","Ordinaire à chargement frontal",54.45,"Household","Résidentiel","-","-",127.22,"No","Non","Adaptive","Adaptif",82.685,0.428,21344.4
+15799290,"Kenmore","4126#",120,"Front-loading standard","Ordinaire à chargement frontal",54.228,"Household","Résidentiel","-","-",126.7,"No","Non","Adaptive","Adaptif",82.685,0.428,21257.376
+15799775,"Kenmore","592-4967*",95,"Front-loading standard","Ordinaire à chargement frontal",47.073,"Household","Résidentiel","-","-",120.7,"Yes","Oui","Adaptive","Adaptif",90.74,0.39,18452.616
+15799776,"Kenmore","592-4966*",95,"Front-loading standard","Ordinaire à chargement frontal",47.073,"Household","Résidentiel","-","-",120.7,"Yes","Oui","Adaptive","Adaptif",90.74,0.39,18452.616
+15799777,"Kenmore","592-4965*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+15799778,"Kenmore","592-4964*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+15799779,"Kenmore","592-4962*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+15799780,"Kenmore","592-4961*",95,"Front-loading standard","Ordinaire à chargement frontal",45.942,"Household","Résidentiel","-","-",117.8,"Yes","Oui","Adaptive","Adaptif",90.68,0.39,18009.264
+15799781,"Kenmore","592-4968*",90,"Front-loading standard","Ordinaire à chargement frontal",45.54,"Household","Résidentiel","-","-",126.5,"Yes","Oui","Adaptive","Adaptif",96.96,0.36,17851.68
+15799782,"Samsung","WA45K76**A*",160,"Top-loading standard","Ordinaire à chargement par le haut",72.219,"Household","Résidentiel","-","-",126.7,"Yes","Oui","Adaptive","Adaptif",68.88,0.57,28309.848
+15799783,"Samsung","WA45K71**A*",160,"Top-loading standard","Ordinaire à chargement par le haut",72.219,"Household","Résidentiel","-","-",126.7,"Yes","Oui","Adaptive","Adaptif",68.88,0.57,28309.848
+15799784,"Samsung","WF45K62**A*",95,"Front-loading standard","Ordinaire à chargement frontal",48.07,"Household","Résidentiel","-","-",126.5,"Yes","Oui","Adaptive","Adaptif",97.66,0.38,18843.44
+15799785,"Samsung","WF45K65**A*",127,"Front-loading standard","Ordinaire à chargement frontal",49.335,"Household","Résidentiel","-","-",126.5,"Yes","Oui","Adaptive","Adaptif",92.29,0.39,19339.32
+15799786,"Samsung","WF50K75**A*",135,"Front-loading standard","Ordinaire à chargement frontal",53.276,"Household","Résidentiel","-","-",140.2,"Yes","Oui","Adaptive","Adaptif",95.43,0.38,20884.192
+16103031,"Maytag","MHN33PDCX**",110,"Front-loading standard","Ordinaire à chargement frontal",40.552,"Commercial","Commerciale","Coin","À pièce",86.65,"No","Non","Adaptive","Adaptif",69.378,0.468,15896.384
+16293772,"GE","GTW330A*K***",235,"Top-loading standard","Ordinaire à chargement par le haut",117.284,"Household","Résidentiel","-","-",107.6,"No","Non","Manual","Manuel",53.1,1.09,45975.328
+16293773,"GE","GTW220A*K***",235,"Top-loading standard","Ordinaire à chargement par le haut",117.284,"Household","Résidentiel","-","-",107.6,"No","Non","Manual","Manuel",53.1,1.09,45975.328
+16301581,"Electrolux","EFLS617****",108,"Front-loading standard","Ordinaire à chargement frontal",53.148,"Household","Résidentiel","-","-",123.6,"Yes","Oui","Adaptive","Adaptif",96.8,0.43,20834.016
+16301582,"Electrolux","EFLS517****",108,"Front-loading standard","Ordinaire à chargement frontal",51.944,"Household","Résidentiel","-","-",120.8,"Yes","Oui","Adaptive","Adaptif",92,0.43,20362.048
+16303533,"Whirlpool","WTW4616F**",274,"Top-loading standard","Ordinaire à chargement par le haut",125.857,"Household","Résidentiel","-","-",99.1,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.27,49335.944
+16303534,"Whirlpool","WTW4816F**",274,"Top-loading standard","Ordinaire à chargement par le haut",125.857,"Household","Résidentiel","-","-",99.1,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.27,49335.944
+16303666,"Electrolux","EFLW417****",68,"Front-loading standard","Ordinaire à chargement frontal",50.862,"Household","Résidentiel","-","-",121.1,"No","Non","Adaptive","Adaptif",92.7,0.42,19937.904
+16304914,"Maytag","MVWB955F**",319,"Top-loading standard","Ordinaire à chargement par le haut",86.481,"Household","Résidentiel","-","-",174.71,"No","Non","Adaptive","Adaptif",56.635,0.495,33900.552
+16305045,"LG","WM1388H*",101,"Front-loading standard","Ordinaire à chargement frontal",36.521,"Household","Résidentiel","-","-",65.1,"Yes","Oui","Adaptive","Adaptif",58.61,0.561,14316.232
+16305046,"LG","WM8100H*A",150,"Front-loading standard","Ordinaire à chargement frontal",62.659,"Household","Résidentiel","-","-",146.4,"Yes","Oui","Adaptive","Adaptif",82.69,0.428,24562.328
+16592497,"Kenmore","4148#",120,"Front-loading standard","Ordinaire à chargement frontal",54.45,"Household","Résidentiel","-","-",127.22,"No","Non","Adaptive","Adaptif",80.137,0.428,21344.4
+16592498,"Kenmore","4138#",120,"Front-loading standard","Ordinaire à chargement frontal",51.874,"Household","Résidentiel","-","-",121.2,"Yes","Oui","Adaptive","Adaptif",78.154,0.428,20334.608
+16593991,"Amana","NTW4516F**",274,"Top-loading standard","Ordinaire à chargement par le haut",115.108,"Household","Résidentiel","-","-",102.5,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,45122.336
+16593992,"Roper","RTW4516F**",274,"Top-loading standard","Ordinaire à chargement par le haut",115.108,"Household","Résidentiel","-","-",102.5,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,45122.336
+16593993,"Inglis","ITW4871F**",274,"Top-loading standard","Ordinaire à chargement par le haut",115.108,"Household","Résidentiel","-","-",102.5,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,45122.336
+16593994,"Kenmore","2235*51*",377,"Top-loading standard","Ordinaire à chargement par le haut",136.096,"Household","Résidentiel","-","-",121.19,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,53349.632
+16593995,"Maytag","MVWC565F**",374,"Top-loading standard","Ordinaire à chargement par le haut",136.096,"Household","Résidentiel","-","-",121.19,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,53349.632
+16681816,"Kenmore","4107#",150,"Front-loading standard","Ordinaire à chargement frontal",62.659,"Household","Résidentiel","-","-",146.4,"Yes","Oui","Adaptive","Adaptif",82.69,0.428,24562.328
+16681817,"LG","WM9500H*A",150,"Front-loading standard","Ordinaire à chargement frontal",69.892,"Household","Résidentiel","-","-",163.3,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,27397.664
+16682046,"Kenmore","4196#",130,"Front-loading standard","Ordinaire à chargement frontal",62.659,"Household","Résidentiel","-","-",146.4,"No","Non","Adaptive","Adaptif",82.69,0.428,24562.328
+16682047,"Kenmore","4116#",120,"Front-loading standard","Ordinaire à chargement frontal",47.061,"Household","Résidentiel","-","-",121.29,"No","Non","Adaptive","Adaptif",80.703,0.388,18447.912
+16682048,"Kenmore","4158#",135,"Front-loading standard","Ordinaire à chargement frontal",54.399,"Household","Résidentiel","-","-",127.1,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21324.408
+16682057,"Insignia","NS-TWM09WH7-C",35,"Top-loading compact","Compacte à chargement par le haut",50.573,"Household","Résidentiel","-","-",26.34,"No","Non","Manual","Manuel",35.7,1.92,19824.616
+16682058,"Insignia","NS-TWM16WH7-C",128,"Top-loading standard","Ordinaire à chargement par le haut",53.675,"Household","Résidentiel","-","-",47.5,"No","Non","Manual","Manuel",37.1,1.13,21040.6
+16682059,"Whirlpool","WFW85HEF**",115,"Front-loading standard","Ordinaire à chargement frontal",54.052,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.428,21188.384
+16682060,"Whirlpool","WFW8540F**",115,"Front-loading standard","Ordinaire à chargement frontal",54.052,"Household","Résidentiel","-","-",126.29,"No","Non","Adaptive","Adaptif",56.635,0.428,21188.384
+16682063,"Haier","HLPW028BXW",176,"Top-loading standard","Ordinaire à chargement par le haut",67.2,"Household","Résidentiel","-","-",60,"No","Non","Manual","Manuel",50,1.12,26342.4
+16682064,"Haier","HLPW024BXW",42,"Top-loading compact","Compacte à chargement par le haut",48.18,"Household","Résidentiel","-","-",43.8,"No","Non","Manual","Manuel",55,1.1,18886.56
+16682065,"LG","WT5275C*",180,"Top-loading standard","Ordinaire à chargement par le haut",63.014,"Household","Résidentiel","-","-",127.3,"No","Non","Adaptive","Adaptif",67.394,0.495,24701.488
+16682066,"LG","WT1150C*",180,"Top-loading standard","Ordinaire à chargement par le haut",63.014,"Household","Résidentiel","-","-",127.3,"No","Non","Adaptive","Adaptif",67.394,0.495,24701.488
+16682079,"GE","GFW400S*K***",179,"Front-loading standard","Ordinaire à chargement frontal",52.245,"Household","Résidentiel","-","-",116.1,"No","Non","Adaptive","Adaptif",76.72,0.45,20480.04
+16682080,"GE","GFW450S*K***",166,"Front-loading standard","Ordinaire à chargement frontal",47.138,"Household","Résidentiel","-","-",127.4,"Yes","Oui","Adaptive","Adaptif",86.42,0.37,18478.096
+16683398,"Kenmore","3155#",175,"Top-loading standard","Ordinaire à chargement par le haut",72.399,"Household","Résidentiel","-","-",146.26,"Yes","Oui","Adaptive","Adaptif",67.394,0.495,28380.408
+16683399,"LG","WM3075C*",120,"Front-loading standard","Ordinaire à chargement frontal",47.061,"Household","Résidentiel","-","-",121.29,"No","Non","Adaptive","Adaptif",80.703,0.388,18447.912
+16703413,"LG","WM4370H*A",135,"Front-loading standard","Ordinaire à chargement frontal",54.399,"Household","Résidentiel","-","-",127.1,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21324.408
+16703414,"Kenmore","4168#",135,"Front-loading standard","Ordinaire à chargement frontal",54.399,"Household","Résidentiel","-","-",127.1,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21324.408
+16703415,"Kenmore","4130#",135,"Front-loading standard","Ordinaire à chargement frontal",54.399,"Household","Résidentiel","-","-",127.1,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21324.408
+16771419,"Haier","HLTW400BXW",234,"Top-loading standard","Ordinaire à chargement par le haut",108.12,"Household","Résidentiel","-","-",102,"No","Non","Manual","Manuel",53.19,1.06,42383.04
+17034331,"Whirlpool","WFW3090G**",51,"Front-loading standard","Ordinaire à chargement frontal",27.611,"Household","Résidentiel","-","-",55.78,"No","Non","Adaptive","Adaptif",56.635,0.495,10823.512
+17080888,"Primus","PFNJCASP114+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+17080889,"Primus","PFNJCASG114+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+17080890,"Huebsch","HWNS*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080891,"Huebsch","HWNS*2SP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080892,"Huebsch","HWNM*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080893,"Huebsch","HWNM*2SP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080894,"Huebsch","HWNB*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.1,1.14,41247.024
+17080895,"Huebsch","HWNB*2SP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.1,1.14,41247.024
+17080896,"IPSO","BWNS*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080897,"IPSO","BWNM*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080898,"IPSO","BWNB*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.1,1.14,41247.024
+17080899,"Primus","PWNB*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.1,1.14,41247.024
+17080900,"Unimac","UWNM*2SP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080901,"Econ-O-Wash","KWNS*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080902,"Econ-O-Wash","KWNM*2PP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17080903,"Huebsch","HFND*ASP113+",66,"Front-loading standard","Ordinaire à chargement frontal",46.464,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",78.16,0.48,18213.888
+17080904,"Huebsch","HFND*AJP113+",66,"Front-loading standard","Ordinaire à chargement frontal",46.464,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",78.16,0.48,18213.888
+17080905,"Huebsch","HFND*ASG113+",66,"Front-loading standard","Ordinaire à chargement frontal",46.464,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",78.16,0.48,18213.888
+17081000,"Huebsch","HWNB*2PP112+",250,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",49.56,1.12,40523.392
+17081001,"Huebsch","HWNM*2PP112+",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",46.73,1.12,40523.392
+17081002,"Huebsch","HWNS*2PP112+",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",46.73,1.12,40523.392
+17081003,"GE","GTW220BMK***",250,"Top-loading standard","Ordinaire à chargement par le haut",95.965,"Household","Résidentiel","-","-",109.3,"No","Non","Manual","Manuel",55.8,0.878,37618.28
+17081004,"Hotpoint","HTW220BMK***",250,"Top-loading standard","Ordinaire à chargement par le haut",95.965,"Household","Résidentiel","-","-",109.3,"No","Non","Manual","Manuel",55.8,0.878,37618.28
+17081005,"Moffat","MTW200BMK***",250,"Top-loading standard","Ordinaire à chargement par le haut",95.965,"Household","Résidentiel","-","-",109.3,"No","Non","Manual","Manuel",55.8,0.878,37618.28
+17081006,"GE","GTW330BMK***",250,"Top-loading standard","Ordinaire à chargement par le haut",95.965,"Household","Résidentiel","-","-",109.3,"No","Non","Manual","Manuel",55.8,0.878,37618.28
+17081007,"GE","GTW460BMK***",360,"Top-loading standard","Ordinaire à chargement par le haut",101.082,"Household","Résidentiel","-","-",119.2,"No","Non","Manual or adaptive","Manuel ou adaptif",52.5,0.848,39624.144
+17081008,"GE","GTW465BMK***",360,"Top-loading standard","Ordinaire à chargement par le haut",101.082,"Household","Résidentiel","-","-",119.2,"No","Non","Manual or adaptive","Manuel ou adaptif",52.5,0.848,39624.144
+17081009,"GE","GTW485BMK***",200,"Top-loading standard","Ordinaire à chargement par le haut",104.658,"Household","Résidentiel","-","-",119.2,"No","Non","Adaptive","Adaptif",70.8,0.878,41025.936
+17081010,"GE","GTW680BMK***",215,"Top-loading standard","Ordinaire à chargement par le haut",59.423,"Household","Résidentiel","-","-",130.6,"No","Non","Adaptive","Adaptif",70.4,0.455,23293.816
+17137274,"LG","WM3270C*",120,"Front-loading standard","Ordinaire à chargement frontal",54.228,"Household","Résidentiel","-","-",126.7,"No","Non","Adaptive","Adaptif",82.685,0.428,21257.376
+17137275,"LG","WM3275C*",120,"Front-loading standard","Ordinaire à chargement frontal",54.228,"Household","Résidentiel","-","-",126.7,"No","Non","Adaptive","Adaptif",82.685,0.428,21257.376
+17313177,"Maytag","MVWC416F**",344,"Top-loading standard","Ordinaire à chargement par le haut",114.479,"Household","Résidentiel","-","-",101.94,"No","Non","Manual or adaptive","Manuel ou adaptif",36.53,1.123,44875.768
+17313178,"Kenmore","2224*51*",344,"Top-loading standard","Ordinaire à chargement par le haut",114.479,"Household","Résidentiel","-","-",101.94,"No","Non","Manual or adaptive","Manuel ou adaptif",36.53,1.123,44875.768
+17599004,"Maytag","MVWB765F**",473,"Top-loading standard","Ordinaire à chargement par le haut",147.877,"Household","Résidentiel","-","-",131.68,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,57967.784
+17599005,"Maytag","MVWB766F**",473,"Top-loading standard","Ordinaire à chargement par le haut",147.877,"Household","Résidentiel","-","-",131.68,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,57967.784
+17599008,"Kenmore","2253*51*",274,"Top-loading standard","Ordinaire à chargement par le haut",111.615,"Household","Résidentiel","-","-",99.39,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.123,43753.08
+17687781,"Speed Queen","AWN432SP113**04",137,"Top-loading standard","Ordinaire à chargement par le haut",82.062,"Household","Résidentiel","-","-",91.18,"No","Non","Manual","Manuel",55.01,0.9,32168.304
+17687782,"Speed Queen","AWNE82SP113+",133,"Top-loading standard","Ordinaire à chargement par le haut",102.122,"Household","Résidentiel","-","-",91.18,"No","Non","Manual","Manuel",53.36,1.12,40031.824
+17687783,"Speed Queen","AFNE9BSP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+17687784,"Speed Queen","LWN432SP113**04",137,"Top-loading standard","Ordinaire à chargement par le haut",82.062,"Household","Résidentiel","-","-",91.18,"No","Non","Manual","Manuel",55.01,0.9,32168.304
+17687785,"Speed Queen","LWNE52SP113+",133,"Top-loading standard","Ordinaire à chargement par le haut",102.122,"Household","Résidentiel","-","-",91.18,"No","Non","Manual","Manuel",53.36,1.12,40031.824
+17687786,"Speed Queen","LFNE5BJP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+17687787,"Speed Queen","LFNE5BSP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+17687788,"Speed Queen","LFNE5RSP113+",90,"Front-loading standard","Ordinaire à chargement frontal",48.4,"Household","Résidentiel","-","-",96.8,"No","Non","Adaptive","Adaptif",82.29,0.5,18972.8
+17687789,"Speed Queen","SWNN*2SP113+",217,"Top-loading standard","Ordinaire à chargement par le haut",97.838,"Commercial","Commerciale","-","-",92.3,"No","Non","Manual","Manuel",47.89,1.06,38352.496
+17687790,"Speed Queen","SWNM*2SP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17687791,"Speed Queen","SWNS*2SP113+",238,"Top-loading standard","Ordinaire à chargement par le haut",105.222,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",45.51,1.14,41247.024
+17687792,"Speed Queen","SWNN*2HP113**15",190,"Top-loading standard","Ordinaire à chargement par le haut",72.248,"Commercial","Commerciale","-","-",82.1,"No","Non","Manual","Manuel",45.45,0.88,28321.216
+17687793,"Speed Queen","SWNN*2HP113**04",190,"Top-loading standard","Ordinaire à chargement par le haut",72.248,"Commercial","Commerciale","-","-",82.1,"No","Non","Manual","Manuel",45.45,0.88,28321.216
+17687794,"Speed Queen","SFNN*ASP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+17687795,"Speed Queen","SFNN*AJP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+17687796,"Speed Queen","SFNN*RSP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+17687797,"Speed Queen","SFNS*RSP113+",68,"Front-loading standard","Ordinaire à chargement frontal",50.336,"Commercial","Commerciale","-","-",96.8,"No","Non","Adaptive","Adaptif",84.48,0.52,19731.712
+17687798,"Speed Queen","SWNS*2SP112+",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",46.73,1.12,40523.392
+17687799,"Speed Queen","SWNM*2SP112+",259,"Top-loading standard","Ordinaire à chargement par le haut",103.376,"Commercial","Commerciale","-","-",92.3,"No","Non","Adaptive","Adaptif",46.73,1.12,40523.392
+17687800,"LG","GCWF1069**#",130,"Front-loading standard","Ordinaire à chargement frontal",52.252,"Commercial","Commerciale","-","-",105.56,"No","Non","Adaptive","Adaptif",84.951,0.495,20482.784
+17692801,"Whirlpool","WGLTV27F**",182,"Top-loading standard","Ordinaire à chargement par le haut",78.227,"Household","Résidentiel","-","-",69.659,"No","Non","Adaptive","Adaptif",35.68,1.123,30664.984
+17788848,"Danby","DWM045WDB",157,"Front-loading compact","Compacte à chargement frontal",62.52,"Household","Résidentiel","-","-",41.68,"Yes","Oui","Adaptive","Adaptif",40,1.5,24507.84
+17967583,"Avanti","TLW16D0W",290,"Top-loading standard","Ordinaire à chargement par le haut",52.059,"Household","Résidentiel","-","-",46.07,"No","Non","Manual","Manuel",38,1.13,20407.128
+17967584,"Avanti","TLW21D2P",330,"Top-loading standard","Ordinaire à chargement par le haut",64.862,"Household","Résidentiel","-","-",57.4,"No","Non","Manual","Manuel",40,1.13,25425.904
+17967585,"Whirlpool","WFW5090G**",67,"Front-loading standard","Ordinaire à chargement frontal",32.799,"Household","Résidentiel","-","-",66.26,"No","Non","Adaptive","Adaptif",56.635,0.495,12857.208
+19248094,"Crosley","CFWH4084G**",113,"Front-loading standard","Ordinaire à chargement frontal",94.7,"Household","Résidentiel","-","-",118.08,"No","Non","Adaptive","Adaptif",56.635,0.802,37122.4
+19248438,"LG","WT7200C*",175,"Top-loading standard","Ordinaire à chargement par le haut",70.374,"Household","Résidentiel","-","-",142.17,"No","Non","Adaptive","Adaptif",67.394,0.495,27586.608
+19248439,"LG","WM5005H*A",135,"Front-loading standard","Ordinaire à chargement frontal",53.932,"Household","Résidentiel","-","-",126.01,"Yes","Oui","Adaptive","Adaptif",82.685,0.428,21141.344
+19248440,"LG","WM3085C*",120,"Front-loading standard","Ordinaire à chargement frontal",54.228,"Household","Résidentiel","-","-",126.7,"No","Non","Adaptive","Adaptif",82.685,0.428,21257.376
+19248441,"LG","WT1901C*",175,"Top-loading standard","Ordinaire à chargement par le haut",70.374,"Household","Résidentiel","-","-",142.17,"No","Non","Adaptive","Adaptif",67.394,0.495,27586.608
+19376789,"Crosley","CAW42114G**",374,"Top-loading standard","Ordinaire à chargement par le haut",149.238,"Household","Résidentiel","-","-",117.51,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.27,58501.296
+19376790,"Crosley","CAW35114G**",284,"Top-loading standard","Ordinaire à chargement par le haut",125.857,"Household","Résidentiel","-","-",99.1,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.27,49335.944
+19376791,"Conservator","VAW3584G**",277,"Top-loading standard","Ordinaire à chargement par le haut",124.778,"Household","Résidentiel","-","-",98.25,"No","Non","Manual or adaptive","Manuel ou adaptif",35.68,1.27,48912.976
+19376874,"Kenmore","4198#",170,"Front-loading standard","Ordinaire à chargement frontal",62.788,"Household","Résidentiel","-","-",146.7,"Yes","Oui","Adaptive","Adaptif",78.154,0.428,24612.896
+19376889,"Blomberg","WM77120NBL01",67,"Front-loading standard","Ordinaire à chargement frontal",25.953,"Household","Résidentiel","-","-",55.22,"Yes","Oui","Adaptive","Adaptif",59.75,0.47,10173.576
+19382806,"Electrolux","EFLW317****",80,"Front-loading standard","Ordinaire à chargement frontal",59.339,"Household","Résidentiel","-","-",121.1,"No","Non","Adaptive","Adaptif",80.1,0.49,23260.888
+19453781,"LG","LUWD1C*",50,"Top-loading compact","Compacte à chargement par le haut",37.076,"Household","Résidentiel","-","-",19.26,"No","Non","Adaptive","Adaptif",24.352,1.925,14533.792
+19453803,"Frigidaire","FFTW4120***",135,"Top-loading standard","Ordinaire à chargement par le haut",100.224,"Household","Résidentiel","-","-",115.2,"No","Non","Adaptive","Adaptif",44.46,0.87,39287.808
+19725664,"Kenmore","2023*71*",255,"Top-loading standard","Ordinaire à chargement par le haut",125.146,"Household","Résidentiel","-","-",98.54,"No","Non","Adaptive","Adaptif",35.68,1.27,49057.232

@@ -1,0 +1,13 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+ENERGY_CONSUMPT,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+ENERGY_FACTOR,NUMBER 3dp,Energy Factor (kg/kWh),Facteur énergétique (kg/kWh),-
+TYPE_LABEL_EN,CHARACTER (100),Size,Taille,English
+TYPE_LABEL_FR,CHARACTER (100),Size,Taille,Français
+VOLTAGE_LABEL_EN,CHARACTER (100),Voltage,Tension,English
+VOLTAGE_LABEL_FR,CHARACTER (100),Voltage,Tension,Français
+CAPACITY,NUMBER 3dp,Drum Capacity (litres),Capacité du tambour (litres),-
+DRY_CONTROL_LABEL_EN,CHARACTER (100),Dryer Control,Contrôleur de séchage,English
+DRY_CONTROL_LABEL_FR,CHARACTER (100),Dryer Control,Contrôleur de séchage,Français

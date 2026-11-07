@@ -1,0 +1,20 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+BRAND_NAME,CHARACTER (60),Model,Modèle,-
+MODEL_NUM_1,CHARACTER (60),Brand,Marque,-
+MOD_J1_AEC,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+TYPE_LABEL_EN,CHARACTER (100),Loading and Size,Chargement et taille,English
+TYPE_LABEL_FR,CHARACTER (100),Loading and Size,Chargement et taille,Français
+AVG_L_PER_CYCLE,NUMBER 3dp,Water Consumption per Load (litres),Consommation d'eau par brassée (litres),-
+PROD_CLASS_LABEL_EN,CHARACTER (100),Type,Type,English
+PROD_CLASS_LABEL_FR,CHARACTER (100),Type,Type,Français
+PAYMENT_MECH_LABEL_EN,CHARACTER (100),Payment Mechanism,Mécanisme de payement,English
+PAYMENT_MECH_LABEL_FR,CHARACTER (100),Payment Mechanism,Mécanisme de payement,Français
+CAPACITY,NUMBER 3dp,Tub Capacity (litres),Capacité de la cuve (litres),-
+MAX_WASH_TEMP_AVAIL_LABEL_EN,CHARACTER (100),Internal Water Heater,Chauffe-eau intégral,English
+MAX_WASH_TEMP_AVAIL_LABEL_FR,CHARACTER (100),Internal Water Heater,Chauffe-eau intégral,Français
+WATER_LEVELS_CONTROL_LABEL_EN,CHARACTER (100),Water Level Control Mechanism,Système de contrôle de niveau d'eau,English
+WATER_LEVELS_CONTROL_LABEL_FR,CHARACTER (100),Water Level Control Mechanism,Système de contrôle de niveau d'eau,Français
+MOD_J1_EF_LIT,NUMBER 3dp,Modified Energy Factor (L/kWh/cycle),Facteur énergétique modifié (L/kWh/cycle),-
+WATER_CON_FACTOR,NUMBER 3dp,Water Consumption Factor (L/cycle/L),Facteur de consommation d'eau (L/cycle/L),-
+ANNUAL_WATER_CON_L,NUMBER 3dp,Annual Water Consumption (litres/year),Consommation d'eau annuelle (litres/an),-

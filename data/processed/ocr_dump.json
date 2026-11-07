@@ -1,0 +1,14 @@
+[
+  {
+    "image_path": "data\\samples\\airconditioner_label.png",
+    "raw_text": "#\nAW\ni\n| :\n‘ a\n|\nMe,\nPROD = NXABZOGKAIOO\nMODEL NXAGB3OGKA10@\nMETERING TRY NA\nDEVICE INDOOR OUTDOOR\nFACTORY CHARGED R410A\nGio Leenks 3509 56\nINDOOR TXY SUB COOLING 1OsasF\nPOWER SUPPLY 299-23@ VOLTS AC\n1 PH G@- Hz\nPERMISSIBLE VOLTAGE AT UNIT 5\noS) lait 1 We\nSUITABLE FOR OUTDOOR USE\nCOMPRESSOR 998/230 VOLTS AC\n1 PH Bor He\nvets] 64.6 LRA\nFAN MOTOR 3998/7230 VOLTS Ac\n1 PH 6@ 12\n1716 HP Glarommaee\nDESIGN/TEST PRESSURE GAGE\nHI 45@ PsI 3163 ~ KPA\nLo 25@ PSI 1724 KPA\nMAX DESIGN/?WORKING PRESSURE\n7 OGiee ancle 4826 KPA\nMINIMUM CIRCUIT AMPS 16.8\nMax FUSE |MAX CKT-BKR(*) @5 A\ne5A\nShort Circuit Current:5kA rms, symmetrical, 230 V\nFOLNOUTUULATUUM\nMODEL NUMBER NXAG3@\nGN\nSERIAL NUMBER 302785\nDATE OF Dee rtEe Toe 2614\nCar ¢(UL)us LISTED\ncnn CMOS\nENERGY STAR CENTRAL COOLING AIR CONDITIONER\n3R38\nASSES CERTIFIED»\nMee yw _AHRIDIRECTORY.ORG\nUnitary Small AC\nAHRI Standard 210/240\nCertification applies only when the complete\nsystem is listed with AHRE\ninternatid al Comfort Progucts 337129-4903\nst 3709 SA",
+    "confidence": 0.69,
+    "backend": "tesseract",
+    "preprocessing": [
+      "grayscale",
+      "autocontrast",
+      "resize x0.88 (3750x5000)"
+    ],
+    "word_count": 173
+  }
+]

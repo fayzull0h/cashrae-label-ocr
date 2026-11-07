@@ -1,0 +1,25 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+ENERGY_CONSUMPT,NUMBER 3dp,Washer-Dryer Annual Energy Consumption (kWh/year),Le duo en total - Consommation d`énergie annuelle (kWh/an),-
+MOD_J1_AEC,NUMBER 3dp,Washer Annual Energy Consumption (kWh/year),Laveuse - Consommation d`énergie annuelle (kWh/an),-
+DRYER_AEC,NUMBER 3dp,Dryer Annual Energy Consumption (kWh/year),Sécheuse - Consommation d`énergie annuelle (kWh/an),-
+PROD_DESC_LABEL_EN,CHARACTER (100),Type,Type,English
+PROD_DESC_LABEL_FR,CHARACTER (100),Type,Type,Français
+WASHER_TYPE_LABEL_EN,CHARACTER (100),Washer Loading and Size,Laveuse - Chargement et Taille,English
+WASHER_TYPE_LABEL_FR,CHARACTER (100),Washer Loading and Size,Laveuse - Chargement et Taille,Français
+AVG_L_PER_CYCLE,NUMBER 3dp,Water Consumption per Wash Load (litres),Consommation d'eau par brassée (litres),-
+VOLTAGE_LABEL_EN,CHARACTER (100),Voltage,Tension,English
+VOLTAGE_LABEL_FR,CHARACTER (100),Voltage,Tension,Français
+WASHER_CAPACITY,NUMBER 3dp,Washer Tub Capacity (litres),Laveuse - Capacité de la cuve (litres),-
+WATER_LEVELS_CONTROL_LABEL_EN,CHARACTER (100),Washer Water Level Control Mechanism,Laveuse - Système de contrôle de niveau d'eau,English
+WATER_LEVELS_CONTROL_LABEL_FR,CHARACTER (100),Washer Water Level Control Mechanism,Laveuse - Système de contrôle de niveau d'eau,Français
+MOD_J1_EF_LIT,NUMBER 3dp,Washer Modified Energy Factor (L/kWh/cycle),Laveuse - Facteur énergétique modifié (L/kWh/cycle),-
+WATER_CON_FACTOR,NUMBER 3dp,Water Consumption Factor (L/cycle/L),Facteur de consommation d'eau (L/cycle/L),-
+ANNUAL_WATER_CON_L,NUMBER 3dp,Washer Annual Water Consumption (litres/year),Laveuse - Consommation d'eau annuelle (litres/an),-
+DRYER_TYPE_LABEL_EN,CHARACTER (100),Dryer Size,Sécheuse - Taille,English
+DRYER_TYPE_LABEL_FR,CHARACTER (100),Dryer Size,Sécheuse - Taille,Français
+DRYER_CAPACITY,NUMBER 3dp,Dryer Drum Capacity (litres),Sécheuse - Capacité du tambour (litres),-
+DRYER_CONTROL_LABEL_EN,CHARACTER (100),Dryer Control,Contrôleur de séchage,English
+DRYER_CONTROL_LABEL_FR,CHARACTER (100),Dryer Control,Contrôleur de séchage,Français

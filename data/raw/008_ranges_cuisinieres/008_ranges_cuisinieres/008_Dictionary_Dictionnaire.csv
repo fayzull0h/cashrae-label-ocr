@@ -1,0 +1,19 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+AEC_03,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+RANGE_TYPE_LABEL_EN,CHARACTER (100),Type,Type,English
+RANGE_TYPE_LABEL_FR,CHARACTER (100),Type,Type,Français
+COOKTOP_TYPE_LABEL_EN,CHARACTER (100),Cooktop,Surface de cuisson,English
+COOKTOP_TYPE_LABEL_FR,CHARACTER (100),Cooktop,Surface de cuisson,Français
+OVEN_EQUIP_TYPE_LABEL_EN,CHARACTER (100),Ovens,Fours,English
+OVEN_EQUIP_TYPE_LABEL_FR,CHARACTER (100),Ovens,Fours,Français
+OVEN_TYPE_LABEL_EN,CHARACTER (100),Self Cleaning,Autonettoyants,English
+OVEN_TYPE_LABEL_FR,CHARACTER (100),Self Cleaning,Autonettoyants,Français
+OVEN_COOK_METH_LABEL_EN,CHARACTER (100),Oven Cooking Method,Modes de cuisson du four,English
+OVEN_COOK_METH_LABEL_FR,CHARACTER (100),Oven Cooking Method,Modes de cuisson du four,Français
+USE_OVEN_SPACE_LOWER,NUMBER 3dp,Second or Lower Oven Space (litres),Deuxième four ou inférieur espace (litres),-
+USE_OVEN_SPACE_UPPER,NUMBER 3dp,Single or Upper Oven Space (litres),Four simple ou supérieur espace (litres),-
+NOMINAL_WIDTH_LABEL_EN,CHARACTER (100),Width (in),Largeur (po),English
+NOMINAL_WIDTH_LABEL_FR,CHARACTER (100),Width (in),Largeur (po),Français

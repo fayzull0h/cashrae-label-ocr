@@ -1,0 +1,13 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+TAEC_C373_04,NUMBER 3dp,Total Annual Energy Consumption (kWh/year),Consommation d énergie annuelle totale maximum (kWh/an),-
+MAX_H20_FACTOR_L_PER_CYCLE,NUMBER 3dp,Maximum Water Factor (L/cycles),Facteur hydrique maximal (L/cycle),-
+MAX_H20_FACTOR_G_PER_CYCLE,NUMBER 3dp,Maximum Water Factor (gal/cycles),Facteur hydrique maximal (gal/cycle),-
+DWSIZE_LABEL_EN,CHARACTER (100),Size,Taille,English
+DWSIZE_LABEL_FR,CHARACTER (100),Size,Taille,Français
+TYPE_LABEL_EN,CHARACTER (100),Type,Type,English
+TYPE_LABEL_FR,CHARACTER (100),Type,Type,Français
+EF_C373_04,NUMBER 3dp,Energy Factor,Facteur énergétique,-
+HW_CONSUMPT,NUMBER 3dp,Average Hot Water Consumption per Load,Consommation d'eau chaude par brassée,-

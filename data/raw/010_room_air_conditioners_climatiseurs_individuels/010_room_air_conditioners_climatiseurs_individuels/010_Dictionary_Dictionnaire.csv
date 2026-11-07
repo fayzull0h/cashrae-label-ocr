@@ -1,0 +1,18 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+EE_RATIO,NUMBER 3dp,EER,EER,-
+COOL_CAP_KW,NUMBER 3dp,Cooling Capacity (kW),Capacité de refroidissement (kW),-
+COOL_CAP_BTU,NUMBER 3dp,Cooling capacity (Btu/h),Capacité de refroidissement (Btu/h),-
+PROD_CLASS_LABEL_EN,CHARACTER (100),Type,Type,English
+PROD_CLASS_LABEL_FR,CHARACTER (100),Type,Type,Français
+HEAT_ELEMENT_LABEL_EN,CHARACTER (100),Heating,Mode de chauffage,English
+HEAT_ELEMENT_LABEL_FR,CHARACTER (100),Heating,Mode de chauffage,Français
+VOLTAGE_LABEL_EN,CHARACTER (100),Voltage,Tension,English
+VOLTAGE_LABEL_FR,CHARACTER (100),Voltage,Tension,Français
+ENERGUIDE_LABEL_EN,CHARACTER (100),Energuide Label,Étiquette EnerGuide,English
+ENERGUIDE_LABEL_FR,CHARACTER (100),Energuide Label,Étiquette EnerGuide,Français
+REVERSE_CYCLES_LABEL_EN,CHARACTER (100),Reverse Cycle,Cycle réversible,English
+REVERSE_CYCLES_LABEL_FR,CHARACTER (100),Reverse Cycle,Cycle réversible,Français
+AMPS,NUMBER 3dp,Amperage (amps),Intensité de courant électrique (amps),-

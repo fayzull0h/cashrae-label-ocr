@@ -1,0 +1,20 @@
+Field Name / Nom du champ,Type / Type,English Label / Étiquette - anglais,French Label / Étiquette - français,Language / Langue
+REC_REF_KEY,NUMBER 0dp,NRCan Reference,Référence RNCan,-
+MODEL_NUM_1,CHARACTER (60),Model,Modèle,-
+BRAND_NAME,CHARACTER (60),Brand,Marque,-
+ENERGY_CONSUMPT,NUMBER 3dp,Annual Energy Consumption (kWh/year),Consommation d`énergie annuelle (kWh/an),-
+TYPE_LABEL_EN,CHARACTER (100),Type,Type,English
+TYPE_LABEL_FR,CHARACTER (100),Type,Type,Français
+EG_WEB_DEFROST_LABEL_EN,CHARACTER (100),Defrost Mechanism,Fonctionnement du dégivrage,English
+EG_WEB_DEFROST_LABEL_FR,CHARACTER (100),Defrost Mechanism,Fonctionnement du dégivrage,Français
+EG_WEB_FREEZER_LOC_LABEL_EN,CHARACTER (100),Freezer Location,Emplacement du congélateur,English
+EG_WEB_FREEZER_LOC_LABEL_FR,CHARACTER (100),Freezer Location,Emplacement du congélateur,Français
+TOTAL_VOL_LIT,NUMBER 3dp,Total Volume (litres),Volume total (litres),-
+TOTAL_VOL_CUB,NUMBER 3dp,Total Volume (ft³),Volume total (pi³),-
+SIZE_CATEGORY,NUMBER 3dp,Size Category on EnerGuide Label,Catégorie dimensionnelle sur l'étiquette ÉnerGuide,-
+EG_WEB_TTD_ICE_LABEL_EN,CHARACTER (100),Through the Door Ice Service,Distributeur de glaçons,English
+EG_WEB_TTD_ICE_LABEL_FR,CHARACTER (100),Through the Door Ice Service,Distributeur de glaçons,Français
+FRESH_VOL_LIT,NUMBER 3dp,Refrigerator Volume (litres),Volume du compartiment réfrigéré (litres),-
+FRESH_VOL_CUB,NUMBER 3dp,Refrigerator Volume (ft³),Volume du compartiment réfrigéré (pi³),-
+FREEZER_VOL_LIT,NUMBER 3dp,Freezer Volume (litres),Volume du compartiment de congélation (litres),-
+FREEZER_VOL_CUB,NUMBER 3dp,Freezer Volume (ft³),Volume du compartiment de congélation (pi³),-
