@@ -16,7 +16,7 @@ The remaining fixtures are large (5–12 MB each) and are **not stored in git**.
 Download them from the shared Google Drive folder and place them in
 `data/samples/external/`:
 
-> **TODO:** add the Google Drive link here.
+https://drive.google.com/drive/u/0/folders/1mGQXoMa8pCl9rR90ublxbyHG-HMSmsUx
 
 Expected filenames (the comparison harness matches them to `ground_truth.json`
 by basename, and `find_images()` searches subdirectories automatically):
