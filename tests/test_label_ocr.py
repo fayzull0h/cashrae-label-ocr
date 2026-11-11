@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from contextlib import redirect_stdout
-from io import StringIO
+from io import BytesIO, StringIO, TextIOWrapper
 from pathlib import Path
 import json
 import os
@@ -207,7 +207,7 @@ class TestOcrIntegration(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = make_label_image(Path(tmp) / "label.png")
 
-            result = extract_text(path)
+            result = extract_text(path, backend=TesseractBackend())
 
             self.assertEqual(result["backend"], "tesseract")
             self.assertGreater(result["word_count"], 0)
@@ -220,7 +220,7 @@ class TestOcrIntegration(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = make_label_image(Path(tmp) / "label.png")
 
-            result = extract_text(path, preprocess=False)
+            result = extract_text(path, backend=TesseractBackend(), preprocess=False)
 
             self.assertEqual(result["preprocessing"], [])
             self.assertIn("MODEL", result["raw_text"])
@@ -231,7 +231,7 @@ class TestOcrIntegration(unittest.TestCase):
             path = make_label_image(root / "label.png")
             debug_dir = root / "processed"
 
-            result = extract_text(path, debug_dir=debug_dir)
+            result = extract_text(path, backend=TesseractBackend(), debug_dir=debug_dir)
 
             saved = Path(result["preprocessed_image"])
             self.assertTrue(saved.is_file())
@@ -243,7 +243,7 @@ class TestOcrIntegration(unittest.TestCase):
             make_label_image(root / "one.png")
             make_label_image(root / "two.png")
 
-            results = extract_directory(root)
+            results = extract_directory(root, backend=TesseractBackend())
 
             self.assertEqual(len(results), 2)
             self.assertTrue(all("raw_text" in result for result in results))
@@ -254,7 +254,7 @@ class TestOcrIntegration(unittest.TestCase):
             make_label_image(root / "good.png")
             (root / "broken.png").write_bytes(b"not really a png")
 
-            results = extract_directory(root)
+            results = extract_directory(root, backend=TesseractBackend())
 
             self.assertEqual(len(results), 2)
             self.assertTrue(any("error" in result for result in results))
@@ -266,7 +266,7 @@ class TestOcrIntegration(unittest.TestCase):
             buffer = StringIO()
 
             with redirect_stdout(buffer):
-                exit_code = label_ocr.main(["--image", str(path), "--json"])
+                exit_code = label_ocr.main(["--image", str(path), "--json", "--engine", "tesseract"])
 
             self.assertEqual(exit_code, 0)
             payload = json.loads(buffer.getvalue())
@@ -282,8 +282,30 @@ class TestOcrIntegration(unittest.TestCase):
         images = find_images(SAMPLES_DIR)
         if not images:
             self.skipTest("no real photos in data/samples/")
-        result = extract_text(images[0])
+        result = extract_text(images[0], backend=TesseractBackend())
         self.assertTrue(result["raw_text"].strip())
+
+
+class TestCliEncoding(unittest.TestCase):
+    def test_cli_json_survives_non_ascii_on_cp1252_stdout(self):
+        """Redirected Windows stdout is cp1252; non-ASCII OCR text must not crash."""
+        from scripts import ocr_backends
+
+        backend = mock.Mock()
+        backend.name = "paddleocr"
+        backend.extract.return_value = ("MODEL 25A 米", 0.9)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = make_label_image(Path(tmp) / "label.png")
+            raw = BytesIO()
+            stream = TextIOWrapper(raw, encoding="cp1252")
+            with mock.patch.object(ocr_backends, "get_backend", return_value=backend), redirect_stdout(stream):
+                exit_code = label_ocr.main(["--image", str(path), "--json"])
+            stream.flush()
+            payload = json.loads(raw.getvalue().decode("utf-8"))
+
+        self.assertEqual(exit_code, 0)
+        self.assertIn("米", payload["raw_text"])
 
 
 if __name__ == "__main__":

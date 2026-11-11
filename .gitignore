@@ -11,6 +11,9 @@ __pycache__/
 # PaddleOCR model caches (only if redirected into the repo)
 .paddlex/
 
+# External label photos (large, obtained from the shared drive; see data/samples/README.md)
+data/samples/external/
+
 # Generated outputs (ocr_dump.json is a deliberate, tracked fixture)
 data/processed/*
 !data/processed/ocr_dump.json

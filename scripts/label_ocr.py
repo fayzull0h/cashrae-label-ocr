@@ -1,7 +1,8 @@
 """Appliance label OCR foundation (Phase 2).
 
-Extracts raw text from appliance rating-plate photographs using Tesseract,
-with Pillow-based preprocessing and a small pluggable backend interface.
+Extracts raw text from appliance rating-plate photographs using PaddleOCR by
+default, with automatic fallback to Tesseract, plus Pillow-based preprocessing
+and a small pluggable backend interface.
 
 The output is intentionally *raw*: this module performs no field parsing.
 Parsing lives in ``scripts/label_parse.py`` (a later stage) so the OCR layer
@@ -17,7 +18,7 @@ Typical usage::
 CLI::
 
     python scripts/label_ocr.py --image data/samples/fridge.jpg
-    python scripts/label_ocr.py --dir data/samples --json
+    python scripts/label_ocr.py --dir data/samples --json --engine tesseract
 """
 
 from __future__ import annotations
@@ -43,7 +44,14 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_SAMPLES_DIR = PROJECT_ROOT / "data" / "samples"
 DEFAULT_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 
+# Allow direct execution as ``python scripts/label_ocr.py``.
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 SUPPORTED_EXTENSIONS = {".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff", ".webp"}
+
+#: Engine names accepted by the CLI and :func:`scripts.ocr_backends.get_backend`.
+SUPPORTED_OCR_ENGINES = ("auto", "paddleocr", "tesseract")
 
 # Common install locations on Windows (the project's primary platform).
 WINDOWS_DEFAULT_PATHS = [
@@ -313,8 +321,12 @@ def extract_text(
     if not path.is_file():
         raise FileNotFoundError(f"Image not found: {path}")
 
-    engine = backend or TesseractBackend()
-    opts = options or PreprocessOptions()
+    if backend is None or options is None:
+        # Imported lazily: ocr_backends imports this module at the top level.
+        from scripts.ocr_backends import default_options_for, get_backend
+
+    engine = backend or get_backend()
+    opts = options or default_options_for(engine)
 
     image = _load_image(path)
     steps: list[str] = []
@@ -365,7 +377,10 @@ def extract_directory(
     Individual failures are captured as ``{"image_path": ..., "error": ...}``
     entries so one bad file does not abort a batch.
     """
-    engine = backend or TesseractBackend()
+    if backend is None:
+        from scripts.ocr_backends import get_backend
+
+    engine = backend or get_backend()
     results: list[dict[str, Any]] = []
     for path in find_images(directory):
         try:
@@ -414,14 +429,38 @@ def _print_result(result: dict[str, Any]) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Redirected Windows stdout uses the locale codec (often cp1252), which cannot
+    # encode non-ASCII OCR output. Force UTF-8 with replacement instead of crashing.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):  # StringIO in tests, or a wrapped stream
+            pass
+
     parser = argparse.ArgumentParser(description="Extract raw text from appliance label images")
     parser.add_argument("--image", help="Path to a single image")
     parser.add_argument("--dir", help="Directory of images to process (batch mode)")
     parser.add_argument("--json", action="store_true", help="Emit JSON instead of a text report")
     parser.add_argument("--debug", action="store_true", help="Save preprocessed images to data/processed/")
     parser.add_argument("--no-preprocess", action="store_true", help="Send the original image to OCR")
-    parser.add_argument("--lang", default="eng", help="Tesseract language code (default: eng)")
-    parser.add_argument("--psm", type=int, default=3, help="Tesseract page segmentation mode (default: 3)")
+    parser.add_argument(
+        "--engine",
+        choices=SUPPORTED_OCR_ENGINES,
+        default="auto",
+        help="OCR engine: auto (Paddle if available, else Tesseract), paddleocr, or tesseract",
+    )
+    parser.add_argument(
+        "--lang",
+        default=None,
+        help="Language code (default: en for PaddleOCR, eng for Tesseract)",
+    )
+    parser.add_argument("--psm", type=int, default=3, help="Tesseract page segmentation mode (Tesseract only)")
+    parser.add_argument("--device", help="Paddle device, e.g. cpu or gpu:0 (Paddle only; default: auto)")
+    parser.add_argument(
+        "--accurate",
+        action="store_true",
+        help="Use PP-OCRv6 medium instead of the fast PP-OCRv5 mobile profile (Paddle only; much slower)",
+    )
     parser.add_argument("--output", help="Write JSON results to this file")
     args = parser.parse_args(argv)
 
@@ -431,7 +470,15 @@ def main(argv: list[str] | None = None) -> int:
     debug_dir = DEFAULT_PROCESSED_DIR if args.debug else None
 
     try:
-        backend = TesseractBackend(lang=args.lang, psm=args.psm)
+        from scripts.ocr_backends import get_backend
+
+        backend = get_backend(
+            args.engine,
+            lang=args.lang,
+            psm=args.psm,
+            device=args.device,
+            accurate=args.accurate,
+        )
         if args.dir:
             results = extract_directory(
                 args.dir,

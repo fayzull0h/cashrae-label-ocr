@@ -22,7 +22,8 @@ in a structured database using the extracted manufacturer and model number.
 | **5** | User interface, reporting, final integration | ⬜ Not started |
 
 **Current position:** Phase 2, Stage 1 of 6 complete. The Phase 1 backend is functional and
-tested, and raw text can now be extracted from real label photos. Field parsing
+tested. Raw text extraction now uses PaddleOCR by default (with automatic Tesseract
+fallback) and has been evaluated on six verified rating plates. Field parsing
 (brand/model/serial) is the next stage.
 
 ---
@@ -47,9 +48,11 @@ tested, and raw text can now be extracted from real label photos. Field parsing
 - **Source provenance** — every result includes the database, table, source file, and
   `REC_REF_KEY`.
 - **CLI demo + interactive mode** and a **12-test suite** covering the Phase 1 requirements.
-- **OCR foundation (Phase 2)** — Tesseract + Pillow pipeline with size-aware preprocessing,
-  a pluggable backend interface, single-image and batch CLI modes, and OCR confidence
-  reporting. Verified on a real room-AC rating plate.
+- **OCR foundation (Phase 2)** — PaddleOCR (tuned PP-OCRv5 mobile profile) is the default
+  engine, with automatic fallback to Tesseract when Paddle is unavailable. Pillow
+  preprocessing, a pluggable backend interface, single-image and batch CLI modes, and
+  OCR confidence reporting. Evaluated on six verified rating plates: PaddleOCR reached
+  100% field recall versus 33% for Tesseract at lower CPU latency.
 
 ---
 
@@ -57,24 +60,37 @@ tested, and raw text can now be extracted from real label photos. Field parsing
 
 ```
 appliance-energy-tool/
+├── .venv/                         # Main Python environment (Python 3.13, includes OCR extras)
+├── .venv-paddle/                  # Optional isolated environment for OCR experiments
+├── .gitignore                     # Venvs, bytecode, external photos, generated outputs
 ├── data/
 │   ├── raw/                       # NRCan source data (001_ to 010_)
 │   │   ├── 001_.../               # .zip archives + nested extracted folders
 │   │   └── ...                    # Each holds *_Data_*.csv, *_Dictionary_*.csv, *_Information.csv
-│   ├── samples/                   # Real appliance label photos for OCR testing
-│   └── processed/                 # Debug images and derived outputs
+│   ├── samples/                   # Bundled photo + ground truth; external/ is gitignored
+│   │   └── README.md              # Where to download the external photo bundle
+│   └── processed/                 # Debug images and generated comparison outputs
 ├── database/
 │   └── appliances.db              # SQLite: 10 appliance tables + 2 metadata tables
+├── docs/
+│   └── paddleocr-experiment.md    # OCR engine evaluation and adoption record
 ├── scripts/
 │   ├── import_datasets.py         # CSV ingestion pipeline into SQLite
 │   ├── verify_import.py           # Database inspection / sanity check
 │   ├── appliance_lookup.py        # Retrieval engine (normalization, exact/fuzzy search)
-│   ├── label_ocr.py               # Phase 2: preprocessing + Tesseract OCR backend
+│   ├── label_ocr.py               # Phase 2: preprocessing + OCR entry point (Paddle default)
+│   ├── ocr_backends.py            # Engine selection and per-engine preprocessing defaults
+│   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
+│   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demo, interactive mode, ad-hoc lookups
 ├── tests/
 │   ├── test_lookup.py             # 12 integration tests for the retrieval engine
-│   └── test_label_ocr.py          # 23 tests for the OCR foundation
-├── requirements.txt               # pandas, Pillow, pytesseract
+│   ├── test_label_ocr.py          # OCR foundation tests
+│   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
+│   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
+│   └── test_ocr_backends.py       # Engine selection and fallback tests
+├── requirements.txt               # pandas, Pillow, pytesseract (Tesseract fallback)
+├── requirements-paddle.txt        # PaddleOCR dependencies (default engine)
 ├── AGENTS.md                      # Agent context and conventions
 └── handoff-prompt.md              # Project background and requirements
 ```
@@ -123,8 +139,9 @@ NRCan uses different column names across datasets:
 
 - Python 3.13+
 - `pandas` — database import and inspection
-- `Pillow` + `pytesseract` — image preprocessing and OCR
-- **Tesseract OCR 5.x** binary (external, not a Python package)
+- `Pillow` + `pytesseract` — image preprocessing and Tesseract fallback
+- `paddlepaddle` + `paddleocr` — default OCR engine (see the pin note below)
+- **Tesseract OCR 5.x** binary (external, not a Python package; fallback engine)
 - SQLite 3 (bundled with Python)
 
 The project virtual environment is at `.venv/` and targets Windows.
@@ -132,12 +149,18 @@ The project virtual environment is at `.venv/` and targets Windows.
 ### Install dependencies
 
 ```bash
-# Python packages
+# Python packages (base + default OCR engine)
 .venv/Scripts/python.exe -m pip install -r requirements.txt
+.venv/Scripts/python.exe -m pip install -r requirements-paddle.txt
 
-# Tesseract binary (Windows)
+# Tesseract binary (Windows) — fallback engine
 winget install --id UB-Mannheim.TesseractOCR -e
 ```
+
+`paddlepaddle` is pinned to `3.2.2`: version `3.3.1` crashes on Windows CPU in the
+oneDNN/PIR executor. The Paddle install plus model cache is roughly 1.1 GB. If Paddle
+is not installed, `label_ocr.py` automatically falls back to Tesseract and reports
+`"backend": "tesseract"` in its output.
 
 If Tesseract is not on `PATH` after installation, set `TESSERACT_CMD` to the full path of
 `tesseract.exe` (for example `C:\Program Files\Tesseract-OCR\tesseract.exe`). The OCR module
@@ -177,7 +200,7 @@ python scripts/verify_import.py
 ### Run the test suite
 
 ```bash
-# Everything (Phase 1 + OCR foundation)
+# Everything (Phase 1 + OCR foundation + experiment tests)
 .venv/Scripts/python.exe -m unittest discover -s tests
 
 # Just the retrieval engine
@@ -187,23 +210,56 @@ python scripts/verify_import.py
 .venv/Scripts/python.exe -m unittest tests/test_label_ocr.py
 ```
 
-Expected result: `Ran 35 tests ... OK` for the full suite.
+Expected result: `Ran 71 tests ... OK` for the full suite. The PaddleOCR integration
+test runs when PaddleOCR is installed (the default setup) and is skipped otherwise.
 
 ### Extract text from a label photo (Phase 2)
 
+PaddleOCR is the default engine. `--engine tesseract` forces the fallback; `--engine auto`
+(the default) uses Paddle when installed.
+
 ```bash
-# Single image
+# Single image (PaddleOCR fast profile by default)
 .venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png
+
+# Force the Tesseract fallback
+.venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --engine tesseract
 
 # JSON output
 .venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --json
 
-# Batch over a directory
+# Batch over a directory (recurses into data/samples/external/)
 .venv/Scripts/python.exe scripts/label_ocr.py --dir data/samples
 
 # Save preprocessed images for inspection
 .venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --debug
 ```
+
+Preprocessing defaults differ by engine: PaddleOCR gets grayscale + autocontrast with no
+resize (it already caps detection at 960 px), while Tesseract keeps the size-aware resize
+pipeline.
+
+### OCR engine evaluation and comparison
+
+The six-photo evaluation that selected PaddleOCR is reproducible with:
+
+```bash
+# Default: Tesseract vs the tuned PaddleOCR fast profile
+.venv/Scripts/python.exe scripts/compare_ocr.py \
+  --dir data/samples \
+  --ground-truth data/samples/ground_truth.json
+
+# Include the slow PP-OCRv6 medium model for reference (~25x slower on CPU)
+.venv/Scripts/python.exe scripts/compare_ocr.py \
+  --dir data/samples \
+  --ground-truth data/samples/ground_truth.json \
+  --backends tesseract,paddleocr,paddleocr-fast
+```
+
+Results are written to `data/processed/ocr_comparison.json` and
+`data/processed/ocr_comparison.md` (both gitignored). See
+`docs/paddleocr-experiment.md` for methodology, measured results, and the adoption
+decision, and `data/samples/README.md` for the external photo bundle.
 
 ### Try the CLI
 
@@ -264,10 +320,12 @@ When a manufacturer is omitted, an exact model-only match still succeeds but inc
   (up to 3,021 for refrigerators). Fine at current scale, not indexed.
 - **OCR is raw text only** — `scripts/label_ocr.py` does not yet parse brand/model fields;
   that is the next Phase 2 stage. OCR output on dense rating plates is noisy (confidence
-  ~0.4–0.8), which is why parsing and error-tolerant matching are separate stages.
-- **Tesseract accuracy varies** — stylized or low-contrast plates may need better
-  preprocessing, a different `--psm`, or a VLM backend. The `OCRBackend` interface keeps
-  that swappable.
+  ~0.4–0.8), and confidence does not reliably separate correct from incorrect text.
+- **PaddleOCR is CPU-tuned** — the default profile uses up to 16 CPU threads and is
+  benchmarked on a 22-thread desktop CPU. A low-core laptop will be slower (about 5.7 s
+  per large plate at 4 threads); set `PADDLE_PDX_CPU_NUM_THREADS` to match the machine.
+  Tesseract remains available via `--engine tesseract` for comparison or as an automatic
+  fallback.
 - **Records without an AEC value** return `None` with `energy_consumption_available: False`
   rather than an estimate.
 - **No web interface** — interaction is CLI / Python only.

@@ -1,0 +1,11 @@
+# PaddleOCR dependencies — the default OCR engine.
+# Install into the main environment (see README):
+#   .venv/Scripts/python.exe -m pip install -r requirements-paddle.txt
+# An isolated .venv-paddle is only needed for engine experiments.
+#
+# paddlepaddle is pinned to 3.2.2: 3.3.1 crashes on Windows CPU in the
+# oneDNN/PIR executor (ConvertPirAttribute2RuntimeAttribute).
+Pillow>=10.0
+pytesseract>=0.3.10
+paddlepaddle==3.2.2
+paddleocr==3.7.0
