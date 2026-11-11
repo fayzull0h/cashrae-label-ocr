@@ -318,6 +318,106 @@ def _search_fuzzy(
     return candidates
 
 
+# ---------------------------------------------------------------------------
+# Exact-only lookups
+# ---------------------------------------------------------------------------
+# ``lookup_appliance`` falls through to the fuzzy stage, which is the right
+# behaviour for retrieval but the wrong signal for candidate validation: a fuzzy
+# hit does not mean "this corrected model exists". The helpers below expose the
+# exact stage on its own and never run SequenceMatcher.
+
+
+def find_exact_matches(
+    model_number: str,
+    manufacturer: str | None = None,
+    category: str | None = None,
+    db_path: Path | str = DEFAULT_DB_PATH,
+) -> list[dict[str, Any]]:
+    """Return exact normalized matches only (no fuzzy fallback).
+
+    Mirrors Stage A of :func:`lookup_appliance`. Returns an empty list for an
+    empty model number; raises ``ValueError`` for an unknown category.
+    """
+    norm_model = normalize_model_number(model_number)
+    if not norm_model:
+        return []
+
+    norm_category = normalize_category(category)
+    target_tables = [norm_category] if norm_category else ALL_APPLIANCE_TABLES
+    norm_mfg = normalize_manufacturer(manufacturer)
+    db_path_obj = Path(db_path)
+
+    conn = get_db_connection(db_path_obj)
+    try:
+        return _search_exact(conn, target_tables, norm_mfg, norm_model, db_path_obj.name)
+    finally:
+        conn.close()
+
+
+def find_exact_matches_batch(
+    model_numbers: list[str] | tuple[str, ...] | set[str],
+    manufacturer: str | None = None,
+    category: str | None = None,
+    db_path: Path | str = DEFAULT_DB_PATH,
+) -> dict[str, list[dict[str, Any]]]:
+    """Exact-match many model numbers in one pass, keyed by normalized model.
+
+    Every requested normalized model is present in the result, mapped to an
+    (often empty) list of matching records. Useful for validating a batch of
+    OCR-error candidates without opening a connection per candidate.
+    """
+    normalized: dict[str, list[dict[str, Any]]] = {}
+    for model in model_numbers:
+        norm_model = normalize_model_number(model)
+        if norm_model:
+            normalized.setdefault(norm_model, [])
+
+    if not normalized:
+        return {}
+
+    norm_category = normalize_category(category)
+    target_tables = [norm_category] if norm_category else ALL_APPLIANCE_TABLES
+    norm_mfg = normalize_manufacturer(manufacturer)
+    db_path_obj = Path(db_path)
+
+    placeholders = ", ".join("?" for _ in normalized)
+    conn = get_db_connection(db_path_obj)
+    try:
+        for table in target_tables:
+            # Two-phase lookup: find matching rowids first (narrow scan), then
+            # fetch the full rows. ``SELECT *`` combined with a NORMALIZE()
+            # predicate scans wide NRCan tables far more slowly.
+            key_query = f'SELECT rowid FROM "{table}" WHERE NORMALIZE(MODEL_NUM_1) IN ({placeholders})'
+            params: list[Any] = list(normalized)
+            if norm_mfg:
+                key_query += " AND NORMALIZE(BRAND_NAME) = ?"
+                params.append(norm_mfg)
+
+            rowids = [row[0] for row in conn.execute(key_query, params)]
+            if not rowids:
+                continue
+
+            match_type = "exact" if norm_mfg else "exact_model_only"
+            for start in range(0, len(rowids), 900):
+                chunk = rowids[start : start + 900]
+                row_placeholders = ", ".join("?" for _ in chunk)
+                rows = conn.execute(
+                    f'SELECT * FROM "{table}" WHERE rowid IN ({row_placeholders})',
+                    chunk,
+                )
+                for row in rows:
+                    row_dict = dict(row)
+                    key = normalize_alphanum(row_dict.get("MODEL_NUM_1"))
+                    if key in normalized:
+                        normalized[key].append(
+                            _format_candidate(row, table, 1.0, match_type, db_path_obj.name)
+                        )
+    finally:
+        conn.close()
+
+    return normalized
+
+
 def lookup_appliance(
     manufacturer: str | None = None,
     model_number: str = "",
