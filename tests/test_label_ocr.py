@@ -286,6 +286,30 @@ class TestOcrIntegration(unittest.TestCase):
         self.assertTrue(result["raw_text"].strip())
 
 
+class TestParseFlag(unittest.TestCase):
+    def test_parse_flag_adds_structured_fields(self):
+        from scripts import ocr_backends
+
+        backend = mock.Mock()
+        backend.name = "paddleocr"
+        backend.extract.return_value = (
+            "ACME APPLIANCES INC.\nMODEL NO: ABC-123\nSERIAL NO: SN98765",
+            0.9,
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = make_label_image(Path(tmp) / "label.png")
+            buffer = StringIO()
+            with mock.patch.object(ocr_backends, "get_backend", return_value=backend), \
+                    redirect_stdout(buffer):
+                exit_code = label_ocr.main(["--image", str(path), "--json", "--parse"])
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(buffer.getvalue())
+        self.assertEqual(payload["parsed"]["model_number"]["value"], "ABC-123")
+        self.assertEqual(payload["parsed"]["serial_number"]["value"], "SN98765")
+
+
 class TestCliEncoding(unittest.TestCase):
     def test_cli_json_survives_non_ascii_on_cp1252_stdout(self):
         """Redirected Windows stdout is cp1252; non-ASCII OCR text must not crash."""

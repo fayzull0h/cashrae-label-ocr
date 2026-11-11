@@ -30,7 +30,8 @@ This document provides context, architecture details, conventions, and operation
    - **Phase 1B (Implemented & Verified):** Build normalization, exact matching, and fuzzy matching retrieval engine for model numbers and manufacturers across heterogeneous energy columns.
 2. **Phase 2: Appliance Label Recognition and Information Extraction (In Progress)**
    - **Stage 1 (Complete):** OCR foundation in `scripts/label_ocr.py` — Pillow preprocessing, PaddleOCR default engine with Tesseract fallback, batch CLI, confidence reporting. Evaluated on six verified rating plates.
-   - **Remaining stages:** field parsing, OCR-error candidate generation, extraction → retrieval bridge, CLI polish, evaluation on more real photos.
+   - **Stage 2 (Complete):** Rule-based field parsing in `scripts/label_parse.py` — brand, model number, and serial number from raw OCR text using anchors, adjacent-line lookups, and token heuristics. Live evaluation: 6/6 brand, 6/6 model, 6/6 serial (prefix-tolerant) on the six verified plates.
+   - **Remaining stages:** OCR-error candidate generation, extraction → retrieval bridge, CLI polish, evaluation on more real photos.
    - Image preprocessing, OCR / Vision-Language Model (VLM) extraction of brand, model number, serial number, and electrical specs.
 3. **Phase 3: Integration of Image Recognition and Retrieval**
    - Connect OCR extraction pipeline to the Phase 1 retrieval engine with confidence scoring and manual fallback/correction mechanisms.
@@ -82,12 +83,16 @@ appliance-energy-tool/
 │   ├── label_ocr.py               # Phase 2: preprocessing + OCR entry point (Paddle default)
 │   ├── ocr_backends.py            # Engine selection and per-engine preprocessing defaults
 │   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
+│   ├── label_parse.py             # Phase 2: brand/model/serial parser (anchors + heuristics)
+│   ├── evaluate_parse.py          # Per-field parsing accuracy over data/samples
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demonstration tool with interactive & demo modes
 ├── tests/
 │   ├── test_lookup.py             # Integration test suite (12 unit tests covering Phase 1)
 │   ├── test_label_ocr.py          # OCR foundation tests
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
+│   ├── test_label_parse.py        # Field parsing tests (synthetic + six verified plates)
+│   ├── test_evaluate_parse.py     # Evaluation helper tests
 │   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
 │   └── test_ocr_backends.py       # Engine selection and fallback tests
 ├── docs/
@@ -160,13 +165,25 @@ NRCan uses different column names for annual energy consumption across appliance
 ### Phase 2 OCR Conventions (`scripts/label_ocr.py`, `scripts/ocr_backends.py`)
 
 - **Default engine:** PaddleOCR with the tuned PP-OCRv5 mobile profile (`fast_profile_kwargs()`). Tesseract is an automatic fallback used when Paddle is not installed or cannot be initialised. `get_backend("auto"|"paddleocr"|"tesseract")` in `scripts/ocr_backends.py` is the single selection point; `auto` warns once and falls back.
-- **Preprocessing is engine-specific:** PaddleOCR gets grayscale + autocontrast with **no resize** (it already caps detection at 960 px). Tesseract keeps the size-aware pipeline: images below `upscale_threshold` (1600 px) are upscaled, very large photos are clamped to `max_dimension` (5000 px), defaults grayscale + autocontrast, no sharpening, `psm=3`. Sharpening and aggressive downscaling measurably hurt dense rating plates.
+- **Preprocessing is engine-specific:** PaddleOCR gets grayscale + autocontrast with **no upscaling** (photos longer than 5000 px are still clamped to `max_dimension`; Paddle caps detection at 960 px). Tesseract keeps the size-aware pipeline: images below `upscale_threshold` (1600 px) are upscaled, very large photos are clamped to `max_dimension` (5000 px), defaults grayscale + autocontrast, no sharpening, `psm=3`. Sharpening and aggressive downscaling measurably hurt dense rating plates.
 - **Tesseract resolution:** The binary is resolved from `TESSERACT_CMD` → `PATH` → common Windows install locations; failures raise `OCRUnavailableError` with install instructions.
 - **Pluggable engines:** `OCRBackend` protocol with `extract(image) -> (text, confidence)`. Keep new engines (e.g. a VLM) behind this interface so parsing/matching code does not change.
-- **Raw text only:** `extract_text()` returns `{image_path, raw_text, confidence (0–1), backend, preprocessing, word_count}`. Field parsing belongs in a later module, not here.
+- **Raw text by default:** `extract_text()` returns `{image_path, raw_text, confidence (0–1), backend, preprocessing, word_count}`. The `--parse` CLI flag attaches a `parsed` block via `scripts.label_parse.py`; the OCR layer itself still does no field parsing.
 - **Batch safety:** `extract_directory()` records per-file errors instead of aborting the batch.
 - **PaddleOCR packaging:** `scripts/label_ocr_paddle.py` implements the `OCRBackend` protocol. Paddle dependencies live in `requirements-paddle.txt` (installed into `.venv` per the README) and are kept out of `requirements.txt` so the base install stays light. `.venv-paddle/` is only for isolated experiments. `paddlepaddle` must stay pinned to `3.2.2` on Windows (3.3.1 crashes with oneDNN). `PADDLE_PDX_CPU_NUM_THREADS` overrides the thread count; `--accurate` switches to PP-OCRv6 medium.
 - **Confidence is not an accuracy gate:** measured cases show correct text at lower confidence than incorrect text, so do not threshold on confidence alone.
+
+### Phase 2 Field Parsing Conventions (`scripts/label_parse.py`)
+
+- **Entry points:** `parse_fields(raw_text)` returns `{brand, model_number, serial_number, unparsed_lines}`. Each field is `{value, normalized, confidence, source_line, method}`. `parse_ocr_result(result)` adds `image_path` and an `ocr` provenance block (`backend`, `confidence`, `preprocessing`).
+- **Normalization:** every value is normalized with `normalize_alphanum()` from `scripts/appliance_lookup.py`, so parsed fields can be passed directly to the retrieval engine.
+- **Extraction order:** explicit anchors (`MODEL`/`MODÈLE`/`MOD`, `SERIAL`/`SÉRIE`/`S/N`/`SER`/`SN`, `BRAND`/`MANUFACTURER`/`MARQUE`/`MFG`) → same-line value after the anchor → same-line value before the anchor → adjacent lines (forward, then backward for serials; backward only as a last resort for models) → heuristic token scoring. Brands also use a known-brand list (longest match wins) and a company-suffix fallback.
+- **Scoring:** `model_score()` and `serial_score()` reject noise substrings (voltage, pressure, refrigerant, etc.), dates, and tokens lacking letters or digits where appropriate. `MODEL_MIN_SCORE = 0.95`, `SERIAL_MIN_SCORE = 0.9`. Model and serial values must never be identical; the serial is dropped when it equals the model.
+- **Confidence is rule-based per field**, keyed by extraction method (`label_anchor` 0.9, `label_anchor_before` 0.85, `adjacent_line` 0.8, `known_brand` 0.8, `company_suffix`/`glued_anchor` 0.7, heuristics 0.5–0.6). Do not use aggregate OCR confidence as a gate.
+- **Bilingual by default:** anchors and noise handling cover English and French (Canadian) labels.
+- **Scope:** parsing stops at brand/model/serial. OCR-error candidate generation (`0`/`O`, `1`/`I`, `8`/`B`) and the retrieval bridge belong to later stages; do not silently "correct" tokens here.
+- **Evaluation:** `scripts/evaluate_parse.py` runs OCR + parsing over `data/samples` and reports per-field accuracy. Serial comparison is prefix-tolerant (a leading letter may be absent from ground truth).
+- **Fixtures:** `data/processed/ocr_dump.json` is a tracked fixture containing the PaddleOCR raw text for all six verified plates; `tests/test_label_parse.py` uses it so parser tests run without the external photos.
 
 ---
 
@@ -190,6 +207,10 @@ Run all commands using the project `.venv` from the repository root:
   ```bash
   .venv\Scripts\python.exe -m unittest tests/test_label_ocr.py
   ```
+- **Run the field-parsing test suite:**
+  ```bash
+  .venv\Scripts\python.exe -m unittest tests/test_label_parse.py
+  ```
 - **Run OCR on a label photo (PaddleOCR default):**
   ```bash
   .venv\Scripts\python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png
@@ -201,6 +222,18 @@ Run all commands using the project `.venv` from the repository root:
 - **Run OCR over a directory (recurses into `data/samples/external/`):**
   ```bash
   .venv\Scripts\python.exe scripts/label_ocr.py --dir data/samples --json
+  ```
+- **Parse fields from a label photo (OCR + parser):**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_parse.py --image data/samples/airconditioner_label.png
+  ```
+- **Attach parsed fields to the OCR CLI output:**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --parse
+  ```
+- **Measure per-field parsing accuracy on the verified plates:**
+  ```bash
+  .venv\Scripts\python.exe scripts/evaluate_parse.py
   ```
 - **Run the PaddleOCR backend directly (isolated venv):**
   ```bash
@@ -249,7 +282,7 @@ Run all commands using the project `.venv` from the repository root:
 - `database/appliances.db` — reproducible build artifact, kept for zero-setup runs.
 - `data/raw/**` — authoritative NRCan source CSVs; do not edit or regenerate.
 - `data/samples/*` — the bundled air-conditioner photo, `ground_truth.json`, and `README.md`.
-- `data/processed/ocr_dump.json` — deliberate OCR fixture for parser development.
+- `data/processed/ocr_dump.json` — tracked fixture: PaddleOCR raw text for the six verified plates, used by parser tests.
 
 ### What must never be committed
 
