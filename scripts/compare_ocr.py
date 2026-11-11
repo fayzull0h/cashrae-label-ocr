@@ -9,11 +9,15 @@ brand / model / serial strings that are expected to appear on the plate.
 
 Usage::
 
-    .venv-paddle/Scripts/python.exe scripts/compare_ocr.py \
+    .venv/Scripts/python.exe scripts/compare_ocr.py \
         --dir data/samples \
         --ground-truth data/samples/ground_truth.json \
         --output data/processed/ocr_comparison.json \
         --markdown data/processed/ocr_comparison.md
+
+By default it runs Tesseract and the tuned ``paddleocr-fast`` profile. Add
+``paddleocr`` to ``--backends`` to include the slow PP-OCRv6 medium model.
+Photos under ``data/samples/external/`` are picked up automatically.
 
 The output files live under ``data/processed/`` and are gitignored.
 """
@@ -275,7 +279,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--ground-truth", default="data/samples/ground_truth.json", help="Ground-truth JSON")
     parser.add_argument("--output", default=str(DEFAULT_PROCESSED_DIR / "ocr_comparison.json"))
     parser.add_argument("--markdown", default=str(DEFAULT_PROCESSED_DIR / "ocr_comparison.md"))
-    parser.add_argument("--backends", default="tesseract,paddleocr,paddleocr-fast", help="Comma-separated engine list")
+    parser.add_argument("--backends", default="tesseract,paddleocr-fast", help="Comma-separated engine list")
     parser.add_argument("--variants", default=",".join(VARIANTS), help="Comma-separated preprocessing variants")
     parser.add_argument("--limit", type=int, default=0, help="Only process the first N images")
     args = parser.parse_args(argv)

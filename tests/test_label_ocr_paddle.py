@@ -8,6 +8,7 @@ without Paddle installed. The integration test is skipped unless the
 from __future__ import annotations
 
 from pathlib import Path
+import os
 import tempfile
 import unittest
 from unittest import mock
@@ -99,6 +100,16 @@ class TestBackendAvailability(unittest.TestCase):
         self.assertEqual(kwargs["ocr_version"], "PP-OCRv5")
         self.assertIn("mobile", kwargs["text_detection_model_name"])
         self.assertIn("mobile", kwargs["text_recognition_model_name"])
+        self.assertGreaterEqual(kwargs["cpu_threads"], 1)
+        self.assertLessEqual(kwargs["cpu_threads"], 16)
+
+    def test_fast_profile_respects_thread_override(self):
+        with mock.patch.dict(os.environ, {"PADDLE_PDX_CPU_NUM_THREADS": "4"}):
+            self.assertEqual(fast_profile_kwargs()["cpu_threads"], 4)
+
+    def test_fast_profile_ignores_invalid_thread_override(self):
+        with mock.patch.dict(os.environ, {"PADDLE_PDX_CPU_NUM_THREADS": "many"}):
+            kwargs = fast_profile_kwargs()
         self.assertGreaterEqual(kwargs["cpu_threads"], 1)
         self.assertLessEqual(kwargs["cpu_threads"], 16)
 

@@ -1,11 +1,11 @@
-"""PaddleOCR backend for appliance labels (experimental).
+"""PaddleOCR backend for appliance labels (default OCR engine).
 
-This module is the PaddleOCR counterpart to ``scripts/label_ocr.py``. It adds a
-second :class:`~scripts.label_ocr.OCRBackend` implementation without touching the
-Tesseract pipeline, so the two engines can be compared side by side.
+This module implements the project's default :class:`~scripts.label_ocr.OCRBackend`.
+Tesseract remains available as a fallback and for comparison; see
+``scripts/ocr_backends.py`` for engine selection.
 
-``paddleocr`` is imported lazily: this module imports cleanly in the main
-``.venv`` (where Paddle is not installed) and raises
+``paddleocr`` is imported lazily: this module imports cleanly in environments
+where Paddle is not installed and raises
 :class:`~scripts.label_ocr.OCRUnavailableError` only when the backend is actually
 constructed.
 
@@ -47,10 +47,9 @@ from scripts.label_ocr import (  # noqa: E402
 )
 
 PADDLE_INSTALL_HINT = (
-    "PaddleOCR is not installed in this environment. Create the experimental venv:\n"
-    "  python -m venv .venv-paddle\n"
-    "  .venv-paddle/Scripts/python.exe -m pip install -r requirements-paddle.txt\n"
-    "Then run this script with .venv-paddle/Scripts/python.exe."
+    "PaddleOCR is not installed in this environment. Install the OCR extras:\n"
+    "  .venv/Scripts/python.exe -m pip install -r requirements-paddle.txt\n"
+    "PaddleOCR is the default engine; without it, label_ocr.py falls back to Tesseract."
 )
 
 
@@ -78,13 +77,19 @@ def fast_profile_kwargs() -> dict[str, Any]:
 
     Measured on a 22-thread Windows CPU: ~2.9 s per 4284x5712 label photo with
     100% field recall, versus ~74 s for the default PP-OCRv6 medium models.
-    ``cpu_threads`` is capped at 16 to avoid oversubscribing small machines.
+    ``cpu_threads`` defaults to the core count, capped at 16, and can be
+    overridden with ``PADDLE_PDX_CPU_NUM_THREADS`` for low-core machines.
     """
+    configured = os.environ.get("PADDLE_PDX_CPU_NUM_THREADS")
+    try:
+        threads = int(configured) if configured else (os.cpu_count() or 8)
+    except ValueError:
+        threads = os.cpu_count() or 8
     return {
         "ocr_version": "PP-OCRv5",
         "text_detection_model_name": "PP-OCRv5_mobile_det",
         "text_recognition_model_name": "PP-OCRv5_mobile_rec",
-        "cpu_threads": max(1, min(os.cpu_count() or 8, 16)),
+        "cpu_threads": max(1, min(threads, 16)),
         "text_recognition_batch_size": 32,
         "text_det_limit_side_len": 960,
         "text_det_limit_type": "max",
@@ -238,7 +243,7 @@ def _print_result(result: dict[str, Any]) -> None:
     confidence = result.get("confidence")
     confidence_text = "n/a" if confidence is None else f"{confidence:.2f}"
     print("=" * 65)
-    print("Appliance Label OCR (PaddleOCR, experimental)")
+    print("Appliance Label OCR (PaddleOCR)")
     print("=" * 65)
     print(f"Image:         {result['image_path']}")
     print(f"Backend:       {result['backend']}")
@@ -251,12 +256,19 @@ def _print_result(result: dict[str, Any]) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Extract raw text with PaddleOCR (experimental)")
+    # See scripts/label_ocr.py: keep non-ASCII OCR text from crashing on cp1252.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+    parser = argparse.ArgumentParser(description="Extract raw text with PaddleOCR")
     parser.add_argument("--image", help="Path to a single image")
     parser.add_argument("--dir", help="Directory of images to process (batch mode)")
     parser.add_argument("--json", action="store_true", help="Emit JSON instead of a text report")
-    parser.add_argument("--preprocess", action="store_true", help="Apply the Pillow preprocessing pipeline")
-    parser.add_argument("--accurate", action="store_true", help="Use PP-OCRv6 medium (slower, marginally higher accuracy)")
+    parser.add_argument("--preprocess", action="store_true", help="Apply grayscale/autocontrast preprocessing (off by default here)")
+    parser.add_argument("--accurate", action="store_true", help="Use PP-OCRv6 medium (experimental; ~25x slower on CPU)")
     parser.add_argument("--no-mkldnn", action="store_true", help="Disable oneDNN acceleration (slower; use with paddlepaddle 3.3.x)")
     parser.add_argument("--debug", action="store_true", help="Save preprocessed images to data/processed/")
     parser.add_argument("--lang", default="en", help="PaddleOCR language code (default: en)")
