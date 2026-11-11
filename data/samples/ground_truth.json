@@ -6,5 +6,45 @@
     "serial_number": "140302785",
     "verified": true,
     "notes": "Model confirmed against ICP/Arcoaire documentation (NXA630GKA100, 16 SEER). Plate manufacturer is International Comfort Products. Serial may carry an E/F prefix; the prefix is not scored."
+  },
+  "dishwasher_label.png": {
+    "category": "dishwashers",
+    "brand": "KitchenAid",
+    "model_number": "KUDC10FXSS7",
+    "serial_number": "F34203222",
+    "verified": true,
+    "notes": ""
+  },
+  "dryer_label.png": {
+    "category": "clothes_dryers",
+    "brand": "LG",
+    "model_number": "DLE8400WE",
+    "serial_number": "503KWVQ6K991",
+    "verified": true,
+    "notes": ""
+  },
+  "garage_fridge_label.png": {
+    "category": "refrigerators",
+    "brand": "General Electric Company",
+    "model_number": "GTH17GBTZRWW",
+    "serial_number": "GT773225",
+    "verified": true,
+    "notes": ""
+  },
+  "garage_minifridge_label.png": {
+    "category": "refrigerators",
+    "brand": "Danby Products Ltd",
+    "model_number": "DAR044A4WDD-6",
+    "serial_number": "4322043058424",
+    "verified": true,
+    "notes": ""
+  },
+  "washer_label.png": {
+    "category": "clothes_washers",
+    "brand": "LG",
+    "model_number": "WT8400CW",
+    "serial_number": "502TWJU6A052",
+    "verified": true,
+    "notes": ""
   }
 }

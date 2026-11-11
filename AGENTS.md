@@ -29,8 +29,8 @@ This document provides context, architecture details, conventions, and operation
    - **Phase 1A (Complete):** Acquire NRCan CSV datasets, extract schemas, preserve field dictionaries, and construct a structured SQLite database.
    - **Phase 1B (Implemented & Verified):** Build normalization, exact matching, and fuzzy matching retrieval engine for model numbers and manufacturers across heterogeneous energy columns.
 2. **Phase 2: Appliance Label Recognition and Information Extraction (In Progress)**
-   - **Stage 1 (Complete):** OCR foundation in `scripts/label_ocr.py` — Pillow preprocessing, Tesseract backend, batch CLI, confidence reporting.
-   - **Remaining stages:** field parsing, OCR-error candidate generation, extraction → retrieval bridge, CLI polish, evaluation on real photos.
+   - **Stage 1 (Complete):** OCR foundation in `scripts/label_ocr.py` — Pillow preprocessing, PaddleOCR default engine with Tesseract fallback, batch CLI, confidence reporting. Evaluated on six verified rating plates.
+   - **Remaining stages:** field parsing, OCR-error candidate generation, extraction → retrieval bridge, CLI polish, evaluation on more real photos.
    - Image preprocessing, OCR / Vision-Language Model (VLM) extraction of brand, model number, serial number, and electrical specs.
 3. **Phase 3: Integration of Image Recognition and Retrieval**
    - Connect OCR extraction pipeline to the Phase 1 retrieval engine with confidence scoring and manual fallback/correction mechanisms.
@@ -45,8 +45,8 @@ This document provides context, architecture details, conventions, and operation
 
 - **Language:** Python 3.13+
 - **Database:** SQLite3 (`database/appliances.db`)
-- **Core Libraries:** `pandas`, `Pillow`, `pytesseract`, `sqlite3` (standard library), `difflib` (standard library), `unittest` (standard library)
-- **External Tool:** Tesseract OCR 5.x (required for Phase 2; install via `winget install --id UB-Mannheim.TesseractOCR -e`)
+- **Core Libraries:** `pandas`, `Pillow`, `paddlepaddle` + `paddleocr` (default OCR engine), `pytesseract` (fallback OCR engine), `sqlite3` (standard library), `difflib` (standard library), `unittest` (standard library)
+- **External Tool:** Tesseract OCR 5.x (fallback engine; install via `winget install --id UB-Mannheim.TesseractOCR -e`). PaddleOCR is a Python package and needs no external binary.
 - **Platform:** Windows
 - **Virtual Environment:** Located in `.venv/`
   - Activate in PowerShell: `.venv\Scripts\Activate.ps1`
@@ -63,14 +63,15 @@ This document provides context, architecture details, conventions, and operation
 
 ```
 appliance-energy-tool/
-├── .venv/                         # Python virtual environment (Python 3.13)
-├── .venv-paddle/                  # Optional experimental venv for PaddleOCR (gitignored)
-├── .gitignore                     # Root ignore rules (venvs, caches, generated outputs)
+├── .venv/                         # Main virtual environment (Python 3.13, includes OCR extras)
+├── .venv-paddle/                  # Optional isolated venv for OCR experiments (gitignored)
+├── .gitignore                     # Root ignore rules (venvs, caches, external photos, generated outputs)
 ├── data/
 │   ├── raw/                       # NRCan source data (001_ to 010_)
 │   │   ├── 001_.../               # .zip archives + nested extracted folders per category
 │   │   └── ...                    # Each folder holds *_Data_*.csv, *_Dictionary_*.csv, *_Information.csv
-│   ├── samples/                   # Real appliance label photos for OCR testing
+│   ├── samples/                   # Bundled photo + ground truth; external/ is gitignored
+│   │   └── README.md              # Where to download the external photo bundle
 │   └── processed/                 # Debug images and derived outputs
 ├── database/
 │   └── appliances.db              # SQLite database (10 appliance tables + 2 metadata tables)
@@ -78,19 +79,21 @@ appliance-energy-tool/
 │   ├── import_datasets.py         # CSV ingestion pipeline into SQLite
 │   ├── verify_import.py           # Database verification & sanity check script
 │   ├── appliance_lookup.py        # Core retrieval engine (normalization, exact/fuzzy search)
-│   ├── label_ocr.py               # Phase 2: preprocessing + Tesseract OCR backend
-│   ├── label_ocr_paddle.py        # Experimental PaddleOCR backend (same OCRBackend protocol)
+│   ├── label_ocr.py               # Phase 2: preprocessing + OCR entry point (Paddle default)
+│   ├── ocr_backends.py            # Engine selection and per-engine preprocessing defaults
+│   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demonstration tool with interactive & demo modes
 ├── tests/
 │   ├── test_lookup.py             # Integration test suite (12 unit tests covering Phase 1)
-│   ├── test_label_ocr.py          # OCR foundation tests (23 tests)
+│   ├── test_label_ocr.py          # OCR foundation tests
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
-│   └── test_compare_ocr.py        # Comparison metrics and reporting tests
+│   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
+│   └── test_ocr_backends.py       # Engine selection and fallback tests
 ├── docs/
-│   └── paddleocr-experiment.md    # PaddleOCR experiment methodology and results
-├── requirements.txt               # pandas, Pillow, pytesseract
-├── requirements-paddle.txt        # Experimental PaddleOCR dependencies (isolated venv)
+│   └── paddleocr-experiment.md    # OCR engine evaluation and adoption record
+├── requirements.txt               # pandas, Pillow, pytesseract (Tesseract fallback)
+├── requirements-paddle.txt        # PaddleOCR dependencies (default engine)
 ├── AGENTS.md                      # Agent context and reference document (this file)
 ├── README.md                      # Project overview, status, setup, usage, and limitations
 └── handoff-prompt.md              # Detailed project requirements and background specification
@@ -154,14 +157,16 @@ NRCan uses different column names for annual energy consumption across appliance
 - **Honest Energy Handling:**
   - Never fabricate or infer missing energy numbers. If a record lacks AEC (or the category reports EER like room ACs), return `annual_energy_consumption: None`, `energy_consumption_available: False`, and explanatory notes.
 
-### Phase 2 OCR Conventions (`scripts/label_ocr.py`)
+### Phase 2 OCR Conventions (`scripts/label_ocr.py`, `scripts/ocr_backends.py`)
 
-- **Backend:** Tesseract via `pytesseract`. The binary is resolved from `TESSERACT_CMD` → `PATH` → common Windows install locations; failures raise `OCRUnavailableError` with install instructions.
-- **Preprocessing is size-aware:** images below `upscale_threshold` (1600 px) are upscaled; very large photos are clamped to `max_dimension` (5000 px). Defaults: grayscale + autocontrast, no sharpening, `psm=3`. Sharpening and aggressive downscaling measurably hurt dense rating plates.
+- **Default engine:** PaddleOCR with the tuned PP-OCRv5 mobile profile (`fast_profile_kwargs()`). Tesseract is an automatic fallback used when Paddle is not installed or cannot be initialised. `get_backend("auto"|"paddleocr"|"tesseract")` in `scripts/ocr_backends.py` is the single selection point; `auto` warns once and falls back.
+- **Preprocessing is engine-specific:** PaddleOCR gets grayscale + autocontrast with **no resize** (it already caps detection at 960 px). Tesseract keeps the size-aware pipeline: images below `upscale_threshold` (1600 px) are upscaled, very large photos are clamped to `max_dimension` (5000 px), defaults grayscale + autocontrast, no sharpening, `psm=3`. Sharpening and aggressive downscaling measurably hurt dense rating plates.
+- **Tesseract resolution:** The binary is resolved from `TESSERACT_CMD` → `PATH` → common Windows install locations; failures raise `OCRUnavailableError` with install instructions.
 - **Pluggable engines:** `OCRBackend` protocol with `extract(image) -> (text, confidence)`. Keep new engines (e.g. a VLM) behind this interface so parsing/matching code does not change.
 - **Raw text only:** `extract_text()` returns `{image_path, raw_text, confidence (0–1), backend, preprocessing, word_count}`. Field parsing belongs in a later module, not here.
 - **Batch safety:** `extract_directory()` records per-file errors instead of aborting the batch.
-- **Experimental PaddleOCR:** `scripts/label_ocr_paddle.py` implements the same `OCRBackend` protocol and must only be installed in `.venv-paddle/` via `requirements-paddle.txt`. Never add Paddle to `requirements.txt` or make it the default unless the experiment in `docs/paddleocr-experiment.md` meets its decision criteria and the change is merged deliberately. The default CLI profile is tuned PP-OCRv5 mobile (`fast_profile_kwargs()`); `--accurate` switches to PP-OCRv6 medium. `paddlepaddle` must stay pinned to `3.2.2` on Windows.
+- **PaddleOCR packaging:** `scripts/label_ocr_paddle.py` implements the `OCRBackend` protocol. Paddle dependencies live in `requirements-paddle.txt` (installed into `.venv` per the README) and are kept out of `requirements.txt` so the base install stays light. `.venv-paddle/` is only for isolated experiments. `paddlepaddle` must stay pinned to `3.2.2` on Windows (3.3.1 crashes with oneDNN). `PADDLE_PDX_CPU_NUM_THREADS` overrides the thread count; `--accurate` switches to PP-OCRv6 medium.
+- **Confidence is not an accuracy gate:** measured cases show correct text at lower confidence than incorrect text, so do not threshold on confidence alone.
 
 ---
 
@@ -185,21 +190,25 @@ Run all commands using the project `.venv` from the repository root:
   ```bash
   .venv\Scripts\python.exe -m unittest tests/test_label_ocr.py
   ```
-- **Run OCR on a label photo:**
+- **Run OCR on a label photo (PaddleOCR default):**
   ```bash
   .venv\Scripts\python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png
   ```
-- **Run OCR over a directory:**
+- **Force the Tesseract fallback:**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --engine tesseract
+  ```
+- **Run OCR over a directory (recurses into `data/samples/external/`):**
   ```bash
   .venv\Scripts\python.exe scripts/label_ocr.py --dir data/samples --json
   ```
-- **Run the experimental PaddleOCR backend (isolated venv):**
+- **Run the PaddleOCR backend directly (isolated venv):**
   ```bash
   .venv-paddle\Scripts\python.exe scripts/label_ocr_paddle.py --image data/samples/airconditioner_label.png
   ```
-- **Compare Tesseract vs PaddleOCR:**
+- **Compare Tesseract vs PaddleOCR (default: Tesseract + tuned fast profile):**
   ```bash
-  .venv-paddle\Scripts\python.exe scripts/compare_ocr.py --dir data/samples --ground-truth data/samples/ground_truth.json
+  .venv\Scripts\python.exe scripts/compare_ocr.py --dir data/samples --ground-truth data/samples/ground_truth.json
   ```
 - **Run CLI demo:**
   ```bash
@@ -239,12 +248,13 @@ Run all commands using the project `.venv` from the repository root:
 
 - `database/appliances.db` — reproducible build artifact, kept for zero-setup runs.
 - `data/raw/**` — authoritative NRCan source CSVs; do not edit or regenerate.
-- `data/samples/*` — real label photos used as OCR fixtures (currently ~6 MB).
+- `data/samples/*` — the bundled air-conditioner photo, `ground_truth.json`, and `README.md`.
 - `data/processed/ocr_dump.json` — deliberate OCR fixture for parser development.
 
 ### What must never be committed
 
 - `.venv/`, `.venv-paddle/`, `__pycache__/`, `*.pyc`, `.pytest_cache/`
+- `data/samples/external/**` — large label photos (5–12 MB each) pulled from the shared drive; see `data/samples/README.md`.
 - New files in `data/processed/` (debug images, comparison dumps) unless deliberately promoted to fixtures.
 - PaddleOCR model caches (`~/.paddlex` or any `PADDLE_PDX_CACHE_HOME` inside the repo).
 - Files larger than 10 MB without discussing them first.

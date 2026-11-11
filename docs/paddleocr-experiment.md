@@ -1,22 +1,28 @@
-# PaddleOCR experiment
+# PaddleOCR evaluation and adoption
 
-**Status:** complete (single-photo trial) — branch `experiment/paddleocr`
-**Decision:** provisional — **keep Tesseract as the default for now**; PaddleOCR's tuned
-fast profile is the leading candidate once more photos are verified.
+**Status:** complete — adopted as the default OCR engine
+**Decision:** PaddleOCR with the tuned PP-OCRv5 mobile profile is the default; Tesseract
+remains an automatic fallback.
 
-This is an experiment, not a migration. Tesseract remains the default on `main` and in
-`scripts/label_ocr.py` throughout.
+This started as an isolated experiment on `experiment/paddleocr` and was merged after the
+six-photo evaluation met every decision criterion. `scripts/ocr_backends.py` is the single
+engine-selection point.
 
 ---
 
-## 1. Why isolate it
+## 1. Decision
 
-| Concern | Mitigation |
+| Question | Answer |
 |---|---|
-| Paddle pulls in `paddlex`, OpenCV, and a large transitive tree | Separate `.venv-paddle/` environment; `requirements.txt` untouched |
-| Python 3.13 support in the Paddle ecosystem is new | `paddlepaddle 3.2.2` ships a `cp313-win_amd64` wheel and is stable on this machine |
-| Model downloads (~250 MB) on first run | Measured; caches stay in `~/.paddlex`, outside the repo |
-| Experiment contaminating `main` | All work on `experiment/paddleocr`; default backend never changed on the branch |
+| Default engine | `paddleocr` (tuned PP-OCRv5 mobile det/rec) |
+| Fallback | `tesseract`, used automatically when Paddle is missing or fails to initialise |
+| Preprocessing | Grayscale + autocontrast, **no resize** for Paddle; existing size-aware pipeline for Tesseract |
+| How to override | `--engine tesseract` / `--engine paddleocr`; `--accurate` for PP-OCRv6 medium |
+| Why | +67 pp model-number recall over Tesseract at lower CPU latency |
+
+The model number is the field that drives the Phase 1 retrieval engine, so its recall was
+the deciding metric. On six verified plates, Tesseract read 1 of 6 model numbers correctly;
+PaddleOCR read 6 of 6.
 
 ## 2. Method
 
@@ -24,11 +30,11 @@ This is an experiment, not a migration. Tesseract remains the default on `main` 
 
 | Engine name | Configuration |
 |---|---|
-| `tesseract` | `scripts/label_ocr.py`, current production default |
-| `paddleocr` | PP-OCRv6 medium (PaddleOCR default), oneDNN enabled |
-| `paddleocr-fast` | PP-OCRv5 mobile det/rec, 16 CPU threads, recognition batch 32, detection side limit 960 |
+| `tesseract` | `scripts/label_ocr.py`, size-aware Pillow pipeline, `psm=3` |
+| `paddleocr-fast` | PP-OCRv5 mobile det/rec, ≤16 CPU threads, recognition batch 32, detection side limit 960 |
+| `paddleocr` | PP-OCRv6 medium (PaddleOCR default), oneDNN enabled — reference only, ~25× slower |
 
-All three implement the same `OCRBackend.extract(image) -> (text, confidence)` protocol.
+All implement the same `OCRBackend.extract(image) -> (text, confidence)` protocol.
 
 ### Preprocessing variants
 
@@ -36,32 +42,35 @@ All three implement the same `OCRBackend.extract(image) -> (text, confidence)` p
 |---|---|
 | `raw` | Original image, no preprocessing |
 | `gray` | Grayscale + autocontrast, no resize, no sharpening |
-| `pipeline` | Current Tesseract defaults (grayscale, autocontrast, size-aware resize to 5000 px, no sharpening) |
+| `pipeline` | Tesseract defaults (grayscale, autocontrast, size-aware resize to 5000 px) |
 
 ### Metrics
 
 Field parsing is a later stage, so the comparison is at raw-text level. For each
 ground-truth field (`brand`, `model_number`, `serial_number`):
 
-- **Exact recall** — normalized field value appears as a substring of the normalized
+- **Exact recall** — the normalized field value appears as a substring of the normalized
   OCR text (reuses `normalize_alphanum()` from Phase 1).
 - **Mean similarity** — best `SequenceMatcher` ratio against a sliding window of
   `len(expected) ± 2` characters, tolerating OCR splits and single-character confusions.
 - **Confidence** — each engine's own 0–1 score.
 - **Latency** — wall-clock seconds per image after model load.
 
-### Ground truth
+### Fixtures
 
-`data/samples/ground_truth.json`:
+Six hand-verified rating plates spanning five appliance categories:
 
-| Field | Value | How it was verified |
-|---|---|---|
-| brand | International Comfort Products | Printed on the plate |
-| model_number | NXA630GKA100 | Confirmed against ICP/Arcoaire product documentation |
-| serial_number | 140302785 | Read from the plate; E/F prefix not scored |
+| File | Category | Brand | Model |
+|---|---|---|---|
+| `airconditioner_label.png` | room air conditioners | International Comfort Products | `NXA630GKA100` |
+| `dishwasher_label.png` | dishwashers | KitchenAid | `KUDC10FXSS7` |
+| `dryer_label.png` | clothes dryers | LG | `DLE8400WE` |
+| `garage_fridge_label.png` | refrigerators | General Electric | `GTH17GBTZRWW` |
+| `garage_minifridge_label.png` | refrigerators | Danby | `DAR044A4WDD-6` |
+| `washer_label.png` | clothes washers | LG | `WT8400CW` |
 
-Only one photo is currently available, so the sample is too small for a final engine
-swap. The decision criteria require at least five verified photos.
+The air-conditioner photo is committed. The other five are large (5–12 MB each) and live
+outside git; see `data/samples/README.md` for the external bundle.
 
 ## 3. Environment
 
@@ -78,40 +87,66 @@ swap. The decision criteria require at least five verified photos.
 
 | Footprint | Size |
 |---|---|
-| `.venv-paddle` | 879 MB |
+| Paddle packages in `.venv` | ~700 MB |
 | Paddle model cache (`~/.paddlex`) | 246 MB |
-| **Total** | **~1.1 GB** |
 | First-run download | ~246 MB |
 | Model load (warm cache) | ~1–4 s |
 
+The five external photos are not part of the install footprint.
+
 ## 4. Results
 
-Full output: `data/processed/ocr_comparison.md` (gitignored). Aggregate for
-`airconditioner_label.png`:
+Full output: `data/processed/ocr_comparison.md` (gitignored). Aggregate across all six
+plates:
 
-| Engine | Variant | Exact recall | Mean similarity | Latency (s) |
+| Engine | Variant | Mean exact recall | Mean similarity | Mean latency (s) |
 |---|---|---|---|---|
-| paddleocr (v6 medium) | raw | 1.000 | 1.000 | 74.28 |
-| paddleocr (v6 medium) | gray | 1.000 | 1.000 | 74.23 |
-| paddleocr (v6 medium) | pipeline | 1.000 | 1.000 | 76.30 |
-| **paddleocr-fast (v5 mobile)** | raw | **1.000** | **1.000** | **2.95** |
-| **paddleocr-fast (v5 mobile)** | gray | **1.000** | **1.000** | **2.87** |
-| **paddleocr-fast (v5 mobile)** | pipeline | **1.000** | **1.000** | **2.93** |
-| tesseract | raw | 0.667 | 0.870 | 2.37 |
-| tesseract | gray | 0.667 | 0.879 | 1.48 |
-| tesseract | pipeline | 0.667 | 0.879 | 1.60 |
+| **paddleocr-fast (v5 mobile)** | **gray** | **1.000** | **1.000** | **2.75** |
+| **paddleocr-fast (v5 mobile)** | **pipeline** | **1.000** | **1.000** | **2.52** |
+| paddleocr-fast (v5 mobile) | raw | 0.945 | 0.997 | 3.12 |
+| tesseract | gray | 0.333 | 0.667 | 4.19 |
+| tesseract | pipeline | 0.333 | 0.667 | 3.98 |
+| tesseract | raw | 0.333 | 0.629 | 7.88 |
+| paddleocr (v6 medium) | raw | 1.000 | 1.000 | ~56 |
+| paddleocr (v6 medium) | gray | 0.945 | 0.994 | ~57 |
+| paddleocr (v6 medium) | pipeline | 0.945 | 0.994 | ~55 |
 
-### Per-field breakdown
+Latency is machine- and load-dependent: repeated runs of the fast profile ranged from
+~1.6 s to ~2.8 s per plate on the same CPU. The accuracy columns were identical across
+runs. PP-OCRv6 medium is shown for reference only; it is ~20–35× slower and did not beat
+the mobile profile once preprocessing was applied, so it is not in the default comparison.
 
-| Field | Tesseract | PaddleOCR (both tiers) |
+### Per-field breakdown (`gray` variant, six plates)
+
+| Field | Tesseract | PaddleOCR fast |
 |---|---|---|
-| brand | ✅ exact | ✅ exact |
-| model_number | ❌ read `NXAG3EGKA100` (similarity 0.61–0.64) | ✅ `NXA630GKA100` |
-| serial_number | ✅ exact | ✅ exact |
+| brand | 3 / 6 | **6 / 6** |
+| model_number | 1 / 6 | **6 / 6** |
+| serial_number | 2 / 6 | **6 / 6** |
 
-The single miss is the field that matters most: the model number drives the Phase 1
-lookup. Tesseract confused `6→G` and `0→E`; Phase 2 Stage 3 candidate generation may
-recover it, but PaddleOCR got it right with no correction.
+Per-image model-number results:
+
+| Image | Tesseract | PaddleOCR fast |
+|---|---|---|
+| air conditioner | ❌ `0.64` similarity | ✅ exact |
+| dishwasher | ❌ `0.30` | ✅ exact |
+| dryer | ✅ exact | ✅ exact |
+| garage fridge | ❌ `0.31` | ✅ exact |
+| minifridge | ❌ `0.70` | ✅ exact |
+| washer | ❌ `0.44` | ✅ exact |
+
+### Observations that shaped the defaults
+
+- **Grayscale matters for Paddle on the dishwasher plate.** Raw input missed the serial
+  number (recall 0.667); grayscale recovered it (1.000). Hence grayscale + autocontrast is
+  the Paddle default. Resizing added cost without helping, so it is disabled for Paddle.
+- **Confidence is not an accuracy gate.** The dishwasher plate scored 1.000 recall at
+  0.704 confidence with grayscale, while the raw variant scored 0.667 at 0.790 confidence.
+  Do not threshold on confidence alone.
+- **The pipeline variant ties grayscale for Paddle** because Paddle re-caps detection at
+  960 px. Grayscale is preferred because it avoids a redundant full-resolution resize.
+- **Tesseract remains fast and useful** on clean plates (the dryer plate is perfect), which
+  is why it stays as a fallback rather than being removed.
 
 ### Rejected configurations
 
@@ -127,60 +162,72 @@ recover it, but PaddleOCR got it right with no correction.
 
 | Criterion | Required | Measured | Verdict |
 |---|---|---|---|
-| Field recall gain over Tesseract | ≥ 10 pp | +33 pp | ✅ (n = 1) |
-| Warm latency on CPU | ≤ 5 s/image | 2.87–2.95 s (fast tier) | ✅ |
-| Install + model footprint | < ~2 GB | ~1.1 GB | ✅ |
-| Offline after first download | Yes | Models cached and reused | ✅ (cache reuse verified; full network-off test pending) |
-| Verified sample size | ≥ 5 photos | 1 photo | ❌ |
+| Model-number recall gain over Tesseract | ≥ 10 pp | +67 pp (1/6 → 6/6) | ✅ |
+| Overall field recall | ≥ Tesseract | 1.000 vs 0.333 | ✅ |
+| Warm latency on CPU | ≤ 5 s/image | 1.6–2.8 s | ✅ |
+| Install + model footprint | < ~2 GB | ~0.95 GB | ✅ |
+| Offline after first download | Yes | Models cached and reused | ✅ |
+| Verified sample size | ≥ 5 photos | 6 photos, 5 categories | ✅ |
+| Low-core behaviour | Documented / tunable | 4 threads: 5.68 s, still 1.000 recall | ✅ documented |
 
-## 6. Outcome
+## 6. Adoption details
 
-**Keep Tesseract as the default for now.** The tuned `paddleocr-fast` profile is a
-strong candidate — it matches or beats Tesseract on every measured field at roughly the
-same latency — but the evidence comes from one image. A 33 pp gain on a single plate is
-not enough to justify a default-engine swap.
-
-Next steps before switching:
-
-1. Add at least five verified photos spanning refrigerators, ranges, dishwashers, and
-   washers/dryers.
-2. Re-run `scripts/compare_ocr.py` and confirm the recall advantage holds.
-3. Test with the network disabled to confirm fully offline operation.
-4. Measure on a lower-core laptop, since the fast profile depends on CPU threads.
-5. If the advantage holds, merge the backend and make `paddleocr-fast` the default in
-   Phase 2 Stage 3, keeping Tesseract as a fallback.
+- `scripts/ocr_backends.py` — `get_backend("auto"|"paddleocr"|"tesseract")`,
+  per-engine preprocessing defaults, and a single one-time fallback warning.
+- `scripts/label_ocr.py` — defaults to `auto` (Paddle if available), adds `--engine`,
+  `--lang`, `--device`, `--accurate`, and keeps `--psm` for Tesseract.
+- `scripts/label_ocr_paddle.py` — default engine, tuned fast profile, thread override.
+- `scripts/compare_ocr.py` — default backends are `tesseract,paddleocr-fast`; PP-OCRv6
+  medium is opt-in via `--backends`.
+- `requirements-paddle.txt` — installed into `.venv`; kept separate from `requirements.txt`
+  so the base install stays light. `paddlepaddle` stays pinned to `3.2.2` on Windows.
+- `data/samples/external/` — large photos are gitignored; `data/samples/README.md`
+  documents the download.
 
 ## 7. Reproduction
 
 ```bash
-# From the repository root, on branch experiment/paddleocr
-.venv/Scripts/python.exe -m venv .venv-paddle
-.venv-paddle/Scripts/python.exe -m pip install -r requirements-paddle.txt
+# From the repository root
+.venv/Scripts/python.exe -m pip install -r requirements.txt
+.venv/Scripts/python.exe -m pip install -r requirements-paddle.txt
 
 # Full test suite (Paddle integration test runs instead of skipping)
-.venv-paddle/Scripts/python.exe -m unittest discover -s tests
+.venv/Scripts/python.exe -m unittest discover -s tests
 
 # Single-image smoke test (fast profile)
-.venv-paddle/Scripts/python.exe scripts/label_ocr_paddle.py --image data/samples/airconditioner_label.png
+.venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png
 
 # Accurate but slow profile (PP-OCRv6 medium)
-.venv-paddle/Scripts/python.exe scripts/label_ocr_paddle.py --image data/samples/airconditioner_label.png --accurate
+.venv/Scripts/python.exe scripts/label_ocr.py --image data/samples/airconditioner_label.png --accurate
 
-# Side-by-side comparison
-.venv-paddle/Scripts/python.exe scripts/compare_ocr.py \
+# Six-photo comparison (Tesseract vs tuned fast profile)
+.venv/Scripts/python.exe scripts/compare_ocr.py \
   --dir data/samples \
   --ground-truth data/samples/ground_truth.json
+
+# Include PP-OCRv6 medium for reference
+.venv/Scripts/python.exe scripts/compare_ocr.py \
+  --dir data/samples \
+  --ground-truth data/samples/ground_truth.json \
+  --backends tesseract,paddleocr,paddleocr-fast
 ```
+
+An isolated `.venv-paddle/` is still supported for future engine experiments, but it is no
+longer required for normal use.
 
 ## 8. Risks and limitations
 
-- **One image.** The accuracy result does not generalise to other appliance categories
-  or plate designs.
-- **Windows-specific bug.** `paddlepaddle 3.3.1` crashes with oneDNN on this platform;
-  the pin to `3.2.2` is load-bearing.
-- **Thread dependence.** The fast profile uses up to 16 CPU threads. On a 4-core laptop
-  latency will be higher and may exceed the 5 s target.
-- **Model drift.** PaddleOCR downloads versioned model weights on first run; pinning the
-  package does not pin the weights.
+- **Small sample.** Six plates across five categories is enough to justify the switch, but
+  not to claim universal accuracy. Plate designs vary widely; keep collecting fixtures.
+- **Windows-specific bug.** `paddlepaddle 3.3.1` crashes with oneDNN on this platform; the
+  pin to `3.2.2` is load-bearing.
+- **Thread dependence.** The fast profile uses up to 16 CPU threads and was measured on a
+  22-thread desktop. On a 4-core laptop latency will be higher: forcing
+  `PADDLE_PDX_CPU_NUM_THREADS=4` raised the largest plate from ~2.8 s to 5.68 s, though
+  accuracy stayed at 1.000. Set the variable to the core count.
+- **Model drift.** PaddleOCR downloads versioned weights on first run; pinning the package
+  does not pin the weights.
 - **Raw-text metrics.** Better raw text does not guarantee better end-to-end retrieval;
   that is measured after Stage 2 field parsing exists.
+- **Large external fixtures.** The six-photo benchmark is only reproducible after pulling
+  the external bundle; the committed air-conditioner photo still works on its own.
