@@ -234,7 +234,40 @@ structured extraction; it does not yet prove the extraction → retrieval bridge
 .venv/Scripts/python.exe scripts/evaluate_parse.py
 ```
 
-## 9. Risks and limitations
+## 9. Stage 3 OCR-error candidates (downstream check)
+
+`scripts/label_candidates.py` turns a parsed model number into ranked corrections for the
+confusions this engine actually produces. Because none of the six verified models exist in
+the NRCan data, the candidates cannot be database-confirmed there, so recall is measured on
+string ranking over every single-character corruption of each verified model:
+
+| Metric (corrections only) | Result |
+|---|---|
+| recall@1 | 9 / 49 (18.4%) |
+| recall@5 | 43 / 49 (87.8%) |
+| recall@10 | 49 / 49 (100.0%) |
+| MRR | 0.4454 |
+
+The low recall@1 is expected without a dictionary: `L` and `I` are genuinely ambiguous in a
+letter run, and only a database hit can disambiguate them. That is what validation is for.
+Sampling 40 real NRCan models and corrupting them the same way gives a very different
+picture, because the true model is present in the database:
+
+| Metric (265 cases, exact validation) | Result |
+|---|---|
+| true model confirmed | 265 / 265 (100.0%) |
+| true model is top DB-confirmed candidate | 265 / 265 (100.0%) |
+| only one DB-confirmed candidate | 265 / 265 (100.0%) |
+| MRR | 1.0000 |
+
+So the pipeline for Stage 4 is: try the parsed model, then the ranked corrections, and let
+the exact NRCan lookup decide. Candidate generation never rewrites the parsed value.
+
+```bash
+.venv/Scripts/python.exe scripts/evaluate_candidates.py
+```
+
+## 10. Risks and limitations
 
 - **Small sample.** Six plates across five categories is enough to justify the switch, but
   not to claim universal accuracy. Plate designs vary widely; keep collecting fixtures.
@@ -248,5 +281,9 @@ structured extraction; it does not yet prove the extraction → retrieval bridge
   does not pin the weights.
 - **Raw-text metrics → parsing.** Stage 2 parsing now reaches 6/6 on the verified plates,
   but end-to-end retrieval accuracy is still unmeasured; that is the Phase 3 bridge.
+- **Candidates are substitution-only.** Stage 3 generates single-character confusion swaps
+  (two edits are opt-in) and does not model insertions, deletions, or merged characters.
+  Validation confirms exact normalized matches only, so a correction that is not in NRCan
+  remains unconfirmed rather than being guessed.
 - **Large external fixtures.** The six-photo benchmark is only reproducible after pulling
   the external bundle; the committed air-conditioner photo still works on its own.
