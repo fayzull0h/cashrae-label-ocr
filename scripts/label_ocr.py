@@ -19,6 +19,7 @@ CLI::
 
     python scripts/label_ocr.py --image data/samples/fridge.jpg
     python scripts/label_ocr.py --dir data/samples --json --engine tesseract
+    python scripts/label_ocr.py --image data/samples/fridge.jpg --parse
 """
 
 from __future__ import annotations
@@ -423,6 +424,20 @@ def _print_result(result: dict[str, Any]) -> None:
     print(f"Words:         {result['word_count']}")
     if result.get("preprocessed_image"):
         print(f"Debug image:   {result['preprocessed_image']}")
+
+    parsed = result.get("parsed")
+    if parsed:
+        print("\n--- Parsed fields ---")
+        for key in ("brand", "model_number", "serial_number"):
+            field = parsed[key]
+            value = field["value"] if field["value"] is not None else "(not found)"
+            print(f"{key:14} {value}")
+            if field["value"] is not None:
+                print(
+                    f"{'':14} confidence {field['confidence']:.2f} · "
+                    f"{field['method']} · {field['source_line']!r}"
+                )
+
     print("\n--- Raw text ---")
     print(result.get("raw_text") or "(no text detected)")
     print()
@@ -441,6 +456,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--image", help="Path to a single image")
     parser.add_argument("--dir", help="Directory of images to process (batch mode)")
     parser.add_argument("--json", action="store_true", help="Emit JSON instead of a text report")
+    parser.add_argument(
+        "--parse",
+        action="store_true",
+        help="Also parse brand/model/serial fields (Phase 2 Stage 2)",
+    )
     parser.add_argument("--debug", action="store_true", help="Save preprocessed images to data/processed/")
     parser.add_argument("--no-preprocess", action="store_true", help="Send the original image to OCR")
     parser.add_argument(
@@ -501,6 +521,14 @@ def main(argv: list[str] | None = None) -> int:
     except FileNotFoundError as exc:
         print(str(exc), file=sys.stderr)
         return 1
+
+    if args.parse:
+        from scripts.label_parse import parse_ocr_result
+
+        results = [
+            {**result, "parsed": parse_ocr_result(result)} if "raw_text" in result else result
+            for result in results
+        ]
 
     payload: Any = results if args.dir else results[0]
 

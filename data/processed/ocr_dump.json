@@ -1,14 +1,71 @@
 [
   {
-    "image_path": "data\\samples\\airconditioner_label.png",
-    "raw_text": "#\nAW\ni\n| :\n‘ a\n|\nMe,\nPROD = NXABZOGKAIOO\nMODEL NXAGB3OGKA10@\nMETERING TRY NA\nDEVICE INDOOR OUTDOOR\nFACTORY CHARGED R410A\nGio Leenks 3509 56\nINDOOR TXY SUB COOLING 1OsasF\nPOWER SUPPLY 299-23@ VOLTS AC\n1 PH G@- Hz\nPERMISSIBLE VOLTAGE AT UNIT 5\noS) lait 1 We\nSUITABLE FOR OUTDOOR USE\nCOMPRESSOR 998/230 VOLTS AC\n1 PH Bor He\nvets] 64.6 LRA\nFAN MOTOR 3998/7230 VOLTS Ac\n1 PH 6@ 12\n1716 HP Glarommaee\nDESIGN/TEST PRESSURE GAGE\nHI 45@ PsI 3163 ~ KPA\nLo 25@ PSI 1724 KPA\nMAX DESIGN/?WORKING PRESSURE\n7 OGiee ancle 4826 KPA\nMINIMUM CIRCUIT AMPS 16.8\nMax FUSE |MAX CKT-BKR(*) @5 A\ne5A\nShort Circuit Current:5kA rms, symmetrical, 230 V\nFOLNOUTUULATUUM\nMODEL NUMBER NXAG3@\nGN\nSERIAL NUMBER 302785\nDATE OF Dee rtEe Toe 2614\nCar ¢(UL)us LISTED\ncnn CMOS\nENERGY STAR CENTRAL COOLING AIR CONDITIONER\n3R38\nASSES CERTIFIED»\nMee yw _AHRIDIRECTORY.ORG\nUnitary Small AC\nAHRI Standard 210/240\nCertification applies only when the complete\nsystem is listed with AHRE\ninternatid al Comfort Progucts 337129-4903\nst 3709 SA",
-    "confidence": 0.69,
-    "backend": "tesseract",
+    "image_path": "data/samples/airconditioner_label.png",
+    "raw_text": "E140302785\nSERIAL\nPROD\nNXA630GKA100\nMODEL\nNXA630GKA100\nMETERING\nTXU\nNA\nDEUICE\nINDOOR\nOUTDOOR\nFACTORY CHARGED\nR410A\n6.81LBS\n3.09 KG\n10 °F\nINDOOR TXU SUB COOLING\nPOWER SUPPLY\n208-230 VOLTS AC\n60\nHZ\n1\nPH\nPERMISSIBLE UOLTAGE AT UNIT\n253\nMAX\n197\nMIN\nSUITABLE FOR OUTDOOR USE\nCOMPRESSOR\n208/230VOLTS AC\n1\nPH\n60\nHZ\n12.8\nRLA\n64.0\nLRA\n208/230UOLTS AC\nFAN MOTOR\nPH\n60\nHZ\n1\n1/10\nHP\n0.75\nFLA\nDESIGN/TEST PRESSURE GAGE\n450\n3103\nKPA\nHI\nPSI\nLo\n250\nPSI\n1724\nKPA\nMAX DESIGN/WORKING PRESSURE\n4826 KPA\n700\nPSIG\nMINIMUM CIRCUIT AMPS\n16.8\nMAX CKT-BKR(米)\n25A\nMAX FUSE\n25A\nShort Circuit Current:5kA rms,symmetrical, 23e u\nMODEL NUMBER\nNXA630GKA100\nE140302785\nSERIAL NUMBER\nDATE OF MANUFACTURE JAN 2014\nUS LISTED\nenergy\nENERGY STAR\nCENTRAL COOLING AIR CONDITIONER\n3R39\n1\nG\nCERTIFIEDTM\nWWW.AHRIDIRECTORY.ORG\nUnitary Small AC\nAHRI Standard 210/240\nCertificatian applies only when the complete\nsystem is listed with AHRl.\nInternational Comfort Products\n337120-4803\nLewisburg, TN 37091 U.S.A.",
+    "confidence": 0.9452,
+    "backend": "paddleocr",
+    "preprocessing": [
+      "grayscale",
+      "autocontrast"
+    ],
+    "word_count": 154
+  },
+  {
+    "image_path": "data/samples/dishwasher_label.png",
+    "raw_text": "TYPE: 577-1\nKitchenAidMOD\nF34203222\nSER\nKUDC10FXSS7\n2\n80H12AO9\nVerified\nEnergy\nyh\nVL\n10300926\n品\nC",
+    "confidence": 0.7038,
+    "backend": "paddleocr",
+    "preprocessing": [
+      "grayscale",
+      "autocontrast"
+    ],
+    "word_count": 15
+  },
+  {
+    "image_path": "data/samples/dryer_label.png",
+    "raw_text": "MODEL:DLE8400WE\nS/No.:503KWVQ6K991\nMODELE\nPatented Us patent numbers\nat www.lg.com/us/patent\n厦\n回\n(USA only/Etats-Unis seulement)\nenergy\nUSA:1-800-243-0000\nLG ThinQ\nENERGY STAR\nCANADA:1-888-542-2623",
+    "confidence": 0.861,
+    "backend": "paddleocr",
     "preprocessing": [
       "grayscale",
       "autocontrast",
       "resize x0.88 (3750x5000)"
     ],
-    "word_count": 173
+    "word_count": 21
+  },
+  {
+    "image_path": "data/samples/garage_fridge_label.png",
+    "raw_text": "GENERALELECTRIC COMPANY\nAPPLIANCE PARK LOUISVILLE, KY40225\nMODEL NO\nwww.GEAppliances.com\nGTH17GBTZRWW\nSERIAL NO.\n心\nGT773225\nC\n®\nUS\n182A\nLISTED HOUSEHOLD REFRIGERATOR/FREEZER\nVERIFIED\nMINIMUM INSTALLATION CLEARANCES\nRENDEMENT\nTOP1.0IN. BACK1.0IN.SIDES.75IN.\nCSA\nVERIFIE\n100VAC 50 HZ 110-127 VAC 60HZ. AMPS6.5\nREFRIGERANT R134a CF CH F CHARGE 4.625 OZ.197D3935P010",
+    "confidence": 0.8891,
+    "backend": "paddleocr",
+    "preprocessing": [
+      "grayscale",
+      "autocontrast",
+      "resize x0.88 (3750x5000)"
+    ],
+    "word_count": 45
+  },
+  {
+    "image_path": "data/samples/garage_minifridge_label.png",
+    "raw_text": "6763802020\nDanby Refrigerator/Refrigérateur\nCude defaricatin 1\n;Build code\n6\n0\nMODEL/MODELE:DAR044A48D0-622/04/02\nDANBYPRODUCTSLTD.\nModel/Modèle:DAR044A4WDD-6\nGUELPH ONTARIO CANADA N1H 6Z9\nFINDLAY,OHIO,U.S.A.45840\nSPECIFICATIONS\nCARACTERISTIQUES\nSERIAL/SERIE#4322043058424\nDIAGRAMME ÉLECTRIQUE\nHIGH SIDE\n1.1MPa\nCIRCUIT DIAGRAM\nCOTEREFOULEMENT\n160PSI\nTHERMOSTAT\nLOWSIDE\n0.47MPa\nTHERMOSTAT\nCOTEASPIRATION\n68PSI\n年\nREFRIGFRANT/AMOUNT\nR600a/22g\nrouge\nR600a/0,780z\nPROTECTEUR\nREFRIC\nNTEQUANTITE\nOVERLOAD\nVOLTAGE\n115V\n8\nX\nPROTECTOR\n电\nvert LAMPE\njaunelvert\nOMPRESSEUR\nFREQUENCY\nFREQUENCE\n60Hz\naune/vert\n雪\nCURRENT\n1.0A\nCOURANTÉLECTRIQUE\nLAMP POWER\n15W\nbland\nDÉMARREURDUPTC\nLAPUISSANCE DE FEU\nPTC STARTER\nMANUFACTURED\nMANUFACTURÉ\n2022.04\nMADE IN CHINA/FABRIQUE EN CHINE\nFREE-STANDING INSTALLATION ONLY\nSF\nVernne Pour Energie\nINSTALLATION NON ENCASTREE SEULEMENT\nSeulement",
+    "confidence": 0.8973,
+    "backend": "paddleocr",
+    "preprocessing": [
+      "grayscale",
+      "autocontrast"
+    ],
+    "word_count": 94
+  },
+  {
+    "image_path": "data/samples/washer_label.png",
+    "raw_text": "MODEL/MODELE:WT8400CW\nS/NO.:502TWJU6A052\n房\nLG ThinQ\nLGUS:1-800-243-0000\nLG CANADA:1-888-542-2623\nPatented Us patent numbers at www.lg.com/us/patent (UsA Only/Etats-Unis seulement)",
+    "confidence": 0.853,
+    "backend": "paddleocr",
+    "preprocessing": [
+      "grayscale",
+      "autocontrast",
+      "resize x0.88 (3750x5000)"
+    ],
+    "word_count": 17
   }
 ]

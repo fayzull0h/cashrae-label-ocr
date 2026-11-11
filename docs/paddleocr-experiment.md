@@ -215,7 +215,26 @@ Per-image model-number results:
 An isolated `.venv-paddle/` is still supported for future engine experiments, but it is no
 longer required for normal use.
 
-## 8. Risks and limitations
+## 8. Stage 2 field parsing (downstream check)
+
+The parser in `scripts/label_parse.py` was evaluated end-to-end on the same six plates with
+the default PaddleOCR fast profile (`scripts/evaluate_parse.py`):
+
+| Field | Correct | Notes |
+|---|---|---|
+| brand | 6 / 6 | canonical names from the known-brand list |
+| model_number | 6 / 6 | exact after `normalize_alphanum()` |
+| serial_number | 6 / 6 | prefix-tolerant; the air-conditioner serial keeps its `E` prefix |
+
+All six plates also pass the "all three fields" check. Per-image latency was 1.5–4.5 s,
+including OCR. This confirms that the raw-text advantage measured above carries through to
+structured extraction; it does not yet prove the extraction → retrieval bridge (Phase 3).
+
+```bash
+.venv/Scripts/python.exe scripts/evaluate_parse.py
+```
+
+## 9. Risks and limitations
 
 - **Small sample.** Six plates across five categories is enough to justify the switch, but
   not to claim universal accuracy. Plate designs vary widely; keep collecting fixtures.
@@ -227,7 +246,7 @@ longer required for normal use.
   accuracy stayed at 1.000. Set the variable to the core count.
 - **Model drift.** PaddleOCR downloads versioned weights on first run; pinning the package
   does not pin the weights.
-- **Raw-text metrics.** Better raw text does not guarantee better end-to-end retrieval;
-  that is measured after Stage 2 field parsing exists.
+- **Raw-text metrics → parsing.** Stage 2 parsing now reaches 6/6 on the verified plates,
+  but end-to-end retrieval accuracy is still unmeasured; that is the Phase 3 bridge.
 - **Large external fixtures.** The six-photo benchmark is only reproducible after pulling
   the external bundle; the committed air-conditioner photo still works on its own.
