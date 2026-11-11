@@ -21,10 +21,11 @@ in a structured database using the extracted manufacturer and model number.
 | **4** | Expanded data sources (manuals, other datasets, APIs) | ⬜ Not started |
 | **5** | User interface, reporting, final integration | ⬜ Not started |
 
-**Current position:** Phase 2, Stage 2 of 6 complete. The Phase 1 backend is functional and
+**Current position:** Phase 2, Stage 3 of 6 complete. The Phase 1 backend is functional and
 tested. Raw text extraction uses PaddleOCR by default (with automatic Tesseract fallback),
-and a rule-based parser extracts brand, model number, and serial number from the OCR text.
-OCR-error candidate generation and the extraction → retrieval bridge are next.
+a rule-based parser extracts brand, model number, and serial number from the OCR text, and
+the parser's model number can be expanded into ranked OCR-error candidates validated
+against the NRCan database. The extraction → retrieval bridge is next.
 
 ---
 
@@ -58,6 +59,13 @@ OCR-error candidate generation and the extraction → retrieval bridge are next.
   and heuristic token scoring. Per-field rule-based confidence, bilingual (EN/FR) anchors,
   and `normalize_alphanum()` output ready for the retrieval engine. Live evaluation on the
   six verified plates: **6/6 brand, 6/6 model, 6/6 serial** (serial prefixes not scored).
+- **OCR-error candidates (Phase 2)** — `scripts/label_candidates.py` expands a parsed model
+  number into plausible corrections for the character swaps OCR actually makes (`0`/`O`,
+  `1`/`I`/`L`, `5`/`S`, `8`/`B`, …). The original value always ranks first and is never
+  rewritten. One substitution by default, capped at 64 candidates, with an explainable
+  `plausibility` score and optional exact-only NRCan validation. On 265 synthetic
+  single-character corruptions of real NRCan models, exact validation put the true model
+  first among database-confirmed candidates in **265/265** cases.
 
 ---
 
@@ -87,7 +95,9 @@ appliance-energy-tool/
 │   ├── ocr_backends.py            # Engine selection and per-engine preprocessing defaults
 │   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
 │   ├── label_parse.py             # Phase 2: brand/model/serial parser (anchors + heuristics)
+│   ├── label_candidates.py        # Phase 2: OCR-error candidates for model numbers
 │   ├── evaluate_parse.py          # Per-field parsing accuracy over data/samples
+│   ├── evaluate_candidates.py     # Candidate recall on synthetic OCR corruptions
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demo, interactive mode, ad-hoc lookups
 ├── tests/
@@ -95,6 +105,7 @@ appliance-energy-tool/
 │   ├── test_label_ocr.py          # OCR foundation tests
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
 │   ├── test_label_parse.py        # Field parsing tests (synthetic + six verified plates)
+│   ├── test_label_candidates.py   # Candidate generation, ranking, and CLI tests
 │   ├── test_evaluate_parse.py     # Evaluation helper tests
 │   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
 │   └── test_ocr_backends.py       # Engine selection and fallback tests
@@ -220,9 +231,12 @@ python scripts/verify_import.py
 
 # Just field parsing
 .venv/Scripts/python.exe -m unittest tests/test_label_parse.py
+
+# Just OCR-error candidate generation
+.venv/Scripts/python.exe -m unittest tests/test_label_candidates.py
 ```
 
-Expected result: `Ran 105 tests ... OK` for the full suite. The PaddleOCR integration
+Expected result: `Ran 143 tests ... OK` for the full suite. The PaddleOCR integration
 test runs when PaddleOCR is installed (the default setup) and is skipped otherwise.
 
 ### Extract text from a label photo (Phase 2)
@@ -289,6 +303,50 @@ that produced it (`label_anchor`, `label_anchor_before`, `adjacent_line`, `known
 The harness prints per-image pass/fail, per-field accuracy, OCR confidence, and latency.
 Serial numbers are compared prefix-tolerantly because the verified plates sometimes omit a
 leading letter (for example `E140302785` vs `140302785`).
+
+### Generate OCR-error candidates for a model number (Phase 2, Stage 3)
+
+`scripts/label_candidates.py` expands a parsed model number into the corrections OCR
+engines actually need (`0`/`O`, `1`/`I`/`L`, `5`/`S`, `8`/`B`, and a few more). The parsed
+value is always returned first and is never rewritten; corrections are suggestions for the
+next stage.
+
+```bash
+# Default: one substitution, exact NRCan validation on
+.venv/Scripts/python.exe scripts/label_candidates.py --model "PCKS433ET" --brand GE
+
+# Restrict validation to one category
+.venv/Scripts/python.exe scripts/label_candidates.py --model "PCKS433ET" --category clothes_dryers
+
+# Pure string ranking, no database access
+.venv/Scripts/python.exe scripts/label_candidates.py --model "PCKS433ET" --no-validate --json
+
+# Allow two substitutions (noisier, larger lists)
+.venv/Scripts/python.exe scripts/label_candidates.py --model "DLE8400WE" --max-edits 2
+```
+
+Each candidate carries its `edit_count`, the exact `edits` (`position`, `from`, `to`,
+`class_fit`), a `plausibility` score, and `db_match` / `db_categories` from the exact-only
+NRCan lookup. Ranking order is: original → database-confirmed → fewer edits → higher
+plausibility → alphabetical. `db_match` is `null` when `--no-validate` is used, so
+"not checked" is distinguishable from "checked and absent".
+
+### Measure candidate-generation recall
+
+```bash
+# Ground-truth plates + 40 sampled NRCan models (default)
+.venv/Scripts/python.exe scripts/evaluate_candidates.py
+
+# Ground-truth only, no database section
+.venv/Scripts/python.exe scripts/evaluate_candidates.py --no-db
+
+# JSON output
+.venv/Scripts/python.exe scripts/evaluate_candidates.py --json
+```
+
+The harness corrupts each model with every single confusion substitution at every position
+and reports recall@1/@5/@10 and MRR for corrections (the original always ranks first), plus
+the exact-validation rates for real NRCan models.
 
 ### OCR engine evaluation and comparison
 
@@ -361,6 +419,25 @@ print(result["source"])                     # database, table, source_file, rec_
 When a manufacturer is omitted, an exact model-only match still succeeds but includes a
 `warning` noting that the match was made on model number alone.
 
+### OCR-error candidates
+
+```python
+from scripts.label_candidates import candidates_from_parse, generate_candidates, rank_candidates
+from scripts.label_parse import parse_fields
+
+parsed = parse_fields(raw_ocr_text)
+result = candidates_from_parse(parsed, category="clothes_dryers")
+
+result["original"]        # {value, normalized, confidence, method} — never rewritten
+result["candidates"][0]   # the original, is_original=True
+result["candidates"][1]   # best correction, with edits and db_match
+```
+
+Lower-level building blocks are also public: `generate_candidates(model_number, max_edits=1,
+max_candidates=64)` and `rank_candidates(candidates, manufacturer=..., category=...,
+validate=True)`. Exact-only lookups (no fuzzy fallback) are available as
+`find_exact_matches()` and `find_exact_matches_batch()` in `scripts/appliance_lookup.py`.
+
 ---
 
 ## Known Limitations
@@ -372,9 +449,17 @@ When a manufacturer is omitted, an exact model-only match still succeeds but inc
 - **OCR output is noisy** — on dense rating plates confidence is ~0.4–0.9, and confidence
   does not reliably separate correct from incorrect text.
 - **Field parsing is rule-based** — it handles the six verified plates and common bilingual
-  labels, but it does not yet generate or rank OCR-error candidates (`0`/`O`, `1`/`I`,
-  `8`/`B`), and unusual layouts may need new anchors. Parsed values are not yet
-  cross-checked against the NRCan database.
+  labels, but unusual layouts may need new anchors. Parsed values are not yet
+  cross-checked against the NRCan database in the parsing layer itself.
+- **Candidates cover substitutions only** — `scripts/label_candidates.py` handles
+  single-character confusion swaps (and optionally two), not insertions, deletions, or
+  merged/split characters. The six verified models are not present in the NRCan data, so
+  their candidates cannot be database-confirmed; string ranking reaches recall@5 87.8% and
+  recall@10 100% on synthetic single-character corruptions, while exact validation on
+  database-resident models picks the true model first in 265/265 sampled cases.
+- **OCR confidence is aggregate** — PaddleOCR's backend returns one confidence value per
+  image, not per word or character, so candidate generation cannot weight likely-bad
+  characters yet.
 - **Serial prefixes are not scored** — a leading letter (for example `E140302785`) may be
   present or absent in ground truth; the evaluator treats a suffix match as correct.
 - **PaddleOCR is CPU-tuned** — the default profile uses up to 16 CPU threads and is
@@ -390,9 +475,9 @@ When a manufacturer is omitted, an exact model-only match still succeeds but inc
 
 ## Roadmap
 
-1. **Phase 2 (in progress)** — Stage 1 OCR foundation and Stage 2 field parsing are
-   complete. Remaining stages: OCR-error candidate generation, end-to-end extraction →
-   retrieval bridge, CLI polish, and evaluation on more real photos.
+1. **Phase 2 (in progress)** — Stage 1 OCR foundation, Stage 2 field parsing, and Stage 3
+   OCR-error candidate generation are complete. Remaining stages: the end-to-end
+   extraction → retrieval bridge, CLI polish, and evaluation on more real photos.
 2. **Phase 3** — connect extraction to the retrieval engine; end-to-end photo → energy
    value workflow with confidence scoring and manual correction.
 3. **Phase 4** — add manufacturer manuals, other government datasets, and external APIs

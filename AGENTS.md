@@ -31,7 +31,8 @@ This document provides context, architecture details, conventions, and operation
 2. **Phase 2: Appliance Label Recognition and Information Extraction (In Progress)**
    - **Stage 1 (Complete):** OCR foundation in `scripts/label_ocr.py` — Pillow preprocessing, PaddleOCR default engine with Tesseract fallback, batch CLI, confidence reporting. Evaluated on six verified rating plates.
    - **Stage 2 (Complete):** Rule-based field parsing in `scripts/label_parse.py` — brand, model number, and serial number from raw OCR text using anchors, adjacent-line lookups, and token heuristics. Live evaluation: 6/6 brand, 6/6 model, 6/6 serial (prefix-tolerant) on the six verified plates.
-   - **Remaining stages:** OCR-error candidate generation, extraction → retrieval bridge, CLI polish, evaluation on more real photos.
+   - **Stage 3 (Complete):** OCR-error candidate generation in `scripts/label_candidates.py` — curated confusion map, one-substitution candidates by default, explainable edit trail and plausibility score, exact-only NRCan validation. Synthetic evaluation: recall@10 100% on the verified models; 265/265 true-model-first on sampled database models.
+   - **Remaining stages:** extraction → retrieval bridge, CLI polish, evaluation on more real photos.
    - Image preprocessing, OCR / Vision-Language Model (VLM) extraction of brand, model number, serial number, and electrical specs.
 3. **Phase 3: Integration of Image Recognition and Retrieval**
    - Connect OCR extraction pipeline to the Phase 1 retrieval engine with confidence scoring and manual fallback/correction mechanisms.
@@ -84,7 +85,9 @@ appliance-energy-tool/
 │   ├── ocr_backends.py            # Engine selection and per-engine preprocessing defaults
 │   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
 │   ├── label_parse.py             # Phase 2: brand/model/serial parser (anchors + heuristics)
+│   ├── label_candidates.py        # Phase 2: OCR-error candidates for model numbers
 │   ├── evaluate_parse.py          # Per-field parsing accuracy over data/samples
+│   ├── evaluate_candidates.py     # Candidate recall on synthetic OCR corruptions
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demonstration tool with interactive & demo modes
 ├── tests/
@@ -92,6 +95,7 @@ appliance-energy-tool/
 │   ├── test_label_ocr.py          # OCR foundation tests
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
 │   ├── test_label_parse.py        # Field parsing tests (synthetic + six verified plates)
+│   ├── test_label_candidates.py   # Candidate generation, ranking, and CLI tests
 │   ├── test_evaluate_parse.py     # Evaluation helper tests
 │   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
 │   └── test_ocr_backends.py       # Engine selection and fallback tests
@@ -181,9 +185,20 @@ NRCan uses different column names for annual energy consumption across appliance
 - **Scoring:** `model_score()` and `serial_score()` reject noise substrings (voltage, pressure, refrigerant, etc.), dates, and tokens lacking letters or digits where appropriate. `MODEL_MIN_SCORE = 0.95`, `SERIAL_MIN_SCORE = 0.9`. Model and serial values must never be identical; the serial is dropped when it equals the model.
 - **Confidence is rule-based per field**, keyed by extraction method (`label_anchor` 0.9, `label_anchor_before` 0.85, `adjacent_line` 0.8, `known_brand` 0.8, `company_suffix`/`glued_anchor` 0.7, heuristics 0.5–0.6). Do not use aggregate OCR confidence as a gate.
 - **Bilingual by default:** anchors and noise handling cover English and French (Canadian) labels.
-- **Scope:** parsing stops at brand/model/serial. OCR-error candidate generation (`0`/`O`, `1`/`I`, `8`/`B`) and the retrieval bridge belong to later stages; do not silently "correct" tokens here.
+- **Scope:** parsing stops at brand/model/serial and never "corrects" tokens. OCR-error candidate generation lives in `scripts/label_candidates.py` (Stage 3); the retrieval bridge is a later stage.
 - **Evaluation:** `scripts/evaluate_parse.py` runs OCR + parsing over `data/samples` and reports per-field accuracy. Serial comparison is prefix-tolerant (a leading letter may be absent from ground truth).
 - **Fixtures:** `data/processed/ocr_dump.json` is a tracked fixture containing the PaddleOCR raw text for all six verified plates; `tests/test_label_parse.py` uses it so parser tests run without the external photos.
+
+### Phase 2 Candidate Generation Conventions (`scripts/label_candidates.py`)
+
+- **Entry points:** `generate_candidates(model_number, max_edits=1, max_candidates=64)` returns the original first, then substitutions sorted by plausibility. `rank_candidates(candidates, manufacturer=..., category=..., validate=True)` adds `db_match`/`db_categories` and final ranks. `candidates_from_parse(parsed_fields, ...)` bridges parser output and returns `{original, manufacturer, category, validated, candidates}`.
+- **Never rewrite the parsed value:** the original normalized model is always rank 1 with `is_original: True`. Candidates are suggestions for the retrieval stage, not in-place corrections.
+- **Confusion map:** `CONFUSION_GROUPS` / `CONFUSION_MAP` are curated and symmetric (`0`/`O`, `1`/`I`/`L`, `2`/`Z`, `4`/`A`, `5`/`S`, `6`/`G`, `7`/`T`, `8`/`B`, `C`/`G`, `M`/`N`, `U`/`V`). Keep it narrow; every group multiplies the candidate list.
+- **Bounds:** substitutions only; `max_edits` is 0–2 (2 is opt-in and noisier); `max_candidates` includes the original; candidates are deduplicated and deterministically ordered.
+- **Ranking:** original → exact database-confirmed → fewer edits → higher `plausibility` → alphabetical. `plausibility` is the mean `class_fit`: whether the replacement matches the digit/letter class of its neighbours.
+- **Validation:** use `find_exact_matches()` / `find_exact_matches_batch()` from `scripts/appliance_lookup.py`, which run the exact stage only (no fuzzy fallback). `db_match` is `None` when validation is skipped, so "not checked" stays distinguishable from "checked and absent". `rank_candidates(validator=...)` accepts an in-memory index for batch evaluation.
+- **Evaluation:** `scripts/evaluate_candidates.py` corrupts the six verified models and a deterministic sample of NRCan models with every single confusion substitution. Recall is measured among corrections because the original always ranks first. Defaults: 40 database models, up to 25 corruptions each, seed 0.
+- **Non-goals:** insertions/deletions, per-character OCR confidence (the OCR backend exposes only aggregate confidence), and automatic correction.
 
 ---
 
@@ -234,6 +249,22 @@ Run all commands using the project `.venv` from the repository root:
 - **Measure per-field parsing accuracy on the verified plates:**
   ```bash
   .venv\Scripts\python.exe scripts/evaluate_parse.py
+  ```
+- **Generate OCR-error candidates for a model number:**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_candidates.py --model "PCKS433ET" --brand GE
+  ```
+- **Skip database validation (pure string ranking):**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_candidates.py --model "PCKS433ET" --no-validate --json
+  ```
+- **Measure candidate-generation recall (synthetic corruptions):**
+  ```bash
+  .venv\Scripts\python.exe scripts/evaluate_candidates.py
+  ```
+- **Run the candidate-generation test suite:**
+  ```bash
+  .venv\Scripts\python.exe -m unittest tests/test_label_candidates.py
   ```
 - **Run the PaddleOCR backend directly (isolated venv):**
   ```bash
