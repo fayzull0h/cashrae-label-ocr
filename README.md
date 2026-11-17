@@ -16,16 +16,17 @@ in a structured database using the extracted manufacturer and model number.
 |---|---|---|
 | **1A** | NRCan dataset acquisition, import pipeline, SQLite database | ✅ Complete |
 | **1B** | Retrieval engine (normalization, exact + fuzzy matching) | ✅ Complete, tested |
-| **2** | Label recognition / OCR / VLM extraction | 🟨 In progress — OCR + field parsing |
-| **3** | Integration of image extraction with retrieval | ⬜ Not started |
+| **2** | Label recognition / OCR / VLM extraction | 🟨 In progress — OCR + parsing + pipeline |
+| **3** | Integration of image extraction with retrieval | 🟨 Early — pipeline works, needs more real-photo evaluation |
 | **4** | Expanded data sources (manuals, other datasets, APIs) | ⬜ Not started |
 | **5** | User interface, reporting, final integration | ⬜ Not started |
 
-**Current position:** Phase 2, Stage 3 of 6 complete. The Phase 1 backend is functional and
+**Current position:** Phase 2, Stage 4 of 6 complete. The Phase 1 backend is functional and
 tested. Raw text extraction uses PaddleOCR by default (with automatic Tesseract fallback),
-a rule-based parser extracts brand, model number, and serial number from the OCR text, and
-the parser's model number can be expanded into ranked OCR-error candidates validated
-against the NRCan database. The extraction → retrieval bridge is next.
+a rule-based parser extracts brand, model number, and serial number from the OCR text, the
+parser's model number is expanded into ranked OCR-error candidates, and
+`scripts/label_pipeline.py` now runs the whole chain in one call: **label photo → fields →
+ranked lookups → AEC value**. CLI polish and evaluation on more real photos are next.
 
 ---
 
@@ -66,6 +67,15 @@ against the NRCan database. The extraction → retrieval bridge is next.
   `plausibility` score and optional exact-only NRCan validation. On 265 synthetic
   single-character corruptions of real NRCan models, exact validation put the true model
   first among database-confirmed candidates in **265/265** cases.
+- **End-to-end pipeline (Phase 2)** — `scripts/label_pipeline.py` chains OCR, parsing,
+  candidate search, and retrieval into one call, with a manual override for corrected
+  readings. The parsed value is never rewritten: every model tried is logged in `attempts`
+  and `retrieval.model_used` names the one that produced the value. Confidence is a coarse
+  band (`high`/`medium`/`low`) reported alongside its components. On 60 synthetic
+  single-character corruptions of real NRCan models, the pipeline recovered the true model
+  in **60/60** cases, returned the correct kWh/year in **54/60**, and returned a **wrong
+  energy value in 0/60** — the six misses are ambiguous duplicate records that report no
+  value rather than guessing.
 
 ---
 
@@ -96,8 +106,10 @@ appliance-energy-tool/
 │   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
 │   ├── label_parse.py             # Phase 2: brand/model/serial parser (anchors + heuristics)
 │   ├── label_candidates.py        # Phase 2: OCR-error candidates for model numbers
+│   ├── label_pipeline.py          # Phase 2: photo → fields → ranked lookups → AEC
 │   ├── evaluate_parse.py          # Per-field parsing accuracy over data/samples
 │   ├── evaluate_candidates.py     # Candidate recall on synthetic OCR corruptions
+│   ├── evaluate_pipeline.py       # End-to-end pipeline accuracy (model + energy value)
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demo, interactive mode, ad-hoc lookups
 ├── tests/
@@ -106,7 +118,9 @@ appliance-energy-tool/
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
 │   ├── test_label_parse.py        # Field parsing tests (synthetic + six verified plates)
 │   ├── test_label_candidates.py   # Candidate generation, ranking, and CLI tests
+│   ├── test_label_pipeline.py     # Pipeline flow, confidence bands, override, CLI tests
 │   ├── test_evaluate_parse.py     # Evaluation helper tests
+│   ├── test_evaluate_pipeline.py  # Pipeline evaluation helper tests
 │   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
 │   └── test_ocr_backends.py       # Engine selection and fallback tests
 ├── requirements.txt               # pandas, Pillow, pytesseract (Tesseract fallback)
@@ -234,9 +248,12 @@ python scripts/verify_import.py
 
 # Just OCR-error candidate generation
 .venv/Scripts/python.exe -m unittest tests/test_label_candidates.py
+
+# Just the end-to-end pipeline
+.venv/Scripts/python.exe -m unittest tests/test_label_pipeline.py
 ```
 
-Expected result: `Ran 143 tests ... OK` for the full suite. The PaddleOCR integration
+Expected result: `Ran 184 tests ... OK` for the full suite. The PaddleOCR integration
 test runs when PaddleOCR is installed (the default setup) and is skipped otherwise.
 
 ### Extract text from a label photo (Phase 2)
@@ -348,6 +365,57 @@ The harness corrupts each model with every single confusion substitution at ever
 and reports recall@1/@5/@10 and MRR for corrections (the original always ranks first), plus
 the exact-validation rates for real NRCan models.
 
+### Run the full pipeline on a label (Phase 2, Stage 4)
+
+`scripts/label_pipeline.py` is the end-to-end entry point: OCR → parse → ranked lookups →
+energy value. It stops at the first exact database hit and only falls back to fuzzy matching
+when nothing exact was found.
+
+```bash
+# Photo in, energy out
+.venv/Scripts/python.exe scripts/label_pipeline.py --image data/samples/dryer_label.png
+
+# Restrict to a category and emit JSON
+.venv/Scripts/python.exe scripts/label_pipeline.py \
+  --image data/samples/dryer_label.png --category clothes_dryers --json
+
+# Force the Tesseract fallback
+.venv/Scripts/python.exe scripts/label_pipeline.py --image ... --engine tesseract
+
+# Parse text you already have (no OCR)
+.venv/Scripts/python.exe scripts/label_pipeline.py --text "LG
+MODEL: DLE8400WE" --brand LG --category clothes_dryers
+
+# Manual override: skip OCR and parsing entirely
+.venv/Scripts/python.exe scripts/label_pipeline.py --model "PCKS433ET" --brand GE --category clothes_dryers
+
+# Exact matches only (no fuzzy fallback)
+.venv/Scripts/python.exe scripts/label_pipeline.py --model "DLE8400WE" --no-fuzzy
+```
+
+The result always reports `retrieval.model_used` (the model that produced the value),
+`retrieval.from_original`, the full `attempts` list, and a coarse `confidence` band with its
+`confidence_components` (parse confidence, candidate rank, match type, match confidence).
+The parsed model is never rewritten.
+
+### Measure end-to-end pipeline accuracy
+
+```bash
+# Verified plates (tracked OCR fixture) + 30 sampled NRCan models (default)
+.venv/Scripts/python.exe scripts/evaluate_pipeline.py
+
+# Verified plates only
+.venv/Scripts/python.exe scripts/evaluate_pipeline.py --no-db
+
+# JSON output
+.venv/Scripts/python.exe scripts/evaluate_pipeline.py --json
+```
+
+The first section feeds the tracked OCR fixture for the six verified plates through the
+pipeline: all six parse correctly and all six report an honest miss, because none of those
+models exist in the NRCan data. The second section corrupts real NRCan models with one OCR
+character swap and checks the model and the kWh/year value that come back.
+
 ### OCR engine evaluation and comparison
 
 The six-photo evaluation that selected PaddleOCR is reproducible with:
@@ -438,6 +506,26 @@ max_candidates=64)` and `rank_candidates(candidates, manufacturer=..., category=
 validate=True)`. Exact-only lookups (no fuzzy fallback) are available as
 `find_exact_matches()` and `find_exact_matches_batch()` in `scripts/appliance_lookup.py`.
 
+### End-to-end pipeline
+
+```python
+from scripts.label_pipeline import analyze_label
+
+result = analyze_label("data/samples/dryer_label.png", category="clothes_dryers")
+
+result["status"]                          # exact_match / fuzzy_match / ambiguous_match / not_found / no_model_found
+result["retrieval"]["model_used"]         # the model that produced the value
+result["retrieval"]["from_original"]      # False when a correction was used
+result["retrieval"]["annual_energy_consumption"]
+result["confidence"]                      # high / medium / low / None
+result["confidence_components"]           # parse confidence, candidate rank, match type, match confidence
+result["attempts"]                        # every model tried, in order
+```
+
+Pass `raw_text=...` to skip OCR, or `model_number=...` for a manual override. Set
+`allow_fuzzy=False` to use exact matching only. `lookup_appliance()` and
+`get_annual_energy_consumption()` accept the same `allow_fuzzy` flag.
+
 ---
 
 ## Known Limitations
@@ -451,6 +539,16 @@ validate=True)`. Exact-only lookups (no fuzzy fallback) are available as
 - **Field parsing is rule-based** — it handles the six verified plates and common bilingual
   labels, but unusual layouts may need new anchors. Parsed values are not yet
   cross-checked against the NRCan database in the parsing layer itself.
+- **The six verified plates cannot be retrieved** — none of their models exist in the NRCan
+  data, so the pipeline reports an honest miss for every one of them. End-to-end accuracy is
+  therefore measured on synthetic corruptions of database-resident models, not on the real
+  photos.
+- **Pipeline confidence is coarse** — `high`/`medium`/`low` bands come from match type,
+  candidate rank, and whether the parsed value was used unchanged. It is not a calibrated
+  probability, and the components are reported so the band can be audited.
+- **Ambiguous records return no value** — when several NRCan rows share a model number, the
+  pipeline refuses to pick one, so the energy value is `None` even though the model was
+  recovered.
 - **Candidates cover substitutions only** — `scripts/label_candidates.py` handles
   single-character confusion swaps (and optionally two), not insertions, deletions, or
   merged/split characters. The six verified models are not present in the NRCan data, so
@@ -475,11 +573,11 @@ validate=True)`. Exact-only lookups (no fuzzy fallback) are available as
 
 ## Roadmap
 
-1. **Phase 2 (in progress)** — Stage 1 OCR foundation, Stage 2 field parsing, and Stage 3
-   OCR-error candidate generation are complete. Remaining stages: the end-to-end
-   extraction → retrieval bridge, CLI polish, and evaluation on more real photos.
-2. **Phase 3** — connect extraction to the retrieval engine; end-to-end photo → energy
-   value workflow with confidence scoring and manual correction.
+1. **Phase 2 (in progress)** — Stage 1 OCR foundation, Stage 2 field parsing, Stage 3
+   OCR-error candidate generation, and Stage 4 end-to-end pipeline are complete.
+   Remaining stages: CLI polish and evaluation on more real photos.
+2. **Phase 3** — formal end-to-end integration: run the pipeline on a larger real-photo
+   set, add a manual correction flow for the auditor, and report confidence to the user.
 3. **Phase 4** — add manufacturer manuals, other government datasets, and external APIs
    with explicit source attribution and reliability indicators.
 4. **Phase 5** — user interface, audit-ready exportable reports, final integration.

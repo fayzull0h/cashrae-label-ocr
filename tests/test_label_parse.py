@@ -157,6 +157,14 @@ class TestAnchorParsing(unittest.TestCase):
         self.assertEqual(_value(parsed, "model_number"), "DAR044A4WDD-6")
         self.assertEqual(_value(parsed, "serial_number"), "4322043058424")
 
+    def test_anchor_accepts_serial_like_model_numbers(self):
+        # One letter plus a long digit run scores 0.8, below the heuristic
+        # threshold, but an explicit MODEL label makes it unambiguous.
+        parsed = parse_fields("Kenmore\nMODEL NO: 970C5035\nSERIAL: 503KWVQ6K991")
+
+        self.assertEqual(_value(parsed, "model_number"), "970C5035")
+        self.assertEqual(parsed["model_number"]["method"], "label_anchor")
+
     def test_value_before_anchor_on_same_line(self):
         parsed = parse_fields(RIGHT_ALIGNED_PLATE)
 

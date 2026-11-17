@@ -423,6 +423,7 @@ def lookup_appliance(
     model_number: str = "",
     category: str | None = None,
     db_path: Path | str = DEFAULT_DB_PATH,
+    allow_fuzzy: bool = True,
 ) -> dict[str, Any]:
     """Look up an appliance in the NRCan database by model number and optional manufacturer.
 
@@ -431,6 +432,8 @@ def lookup_appliance(
         model_number: Model number string (e.g. "PCKS-433-ET", "ABC 123"). Required.
         category: Appliance category to restrict search (e.g. "clothes_dryers"). Optional.
         db_path: Path to the SQLite database.
+        allow_fuzzy: Set to ``False`` to run the exact stage only. A miss then
+            returns ``not_found`` instead of falling through to SequenceMatcher.
 
     Returns:
         Structured dictionary containing match status, confidence, appliance details,
@@ -507,6 +510,17 @@ def lookup_appliance(
         # =====================================================================
         # Stage B: Fuzzy Matching
         # =====================================================================
+        if not allow_fuzzy:
+            return {
+                "status": "not_found",
+                "message": (
+                    f"No exact match found for model '{model_number}' and fuzzy matching is disabled."
+                ),
+                "annual_energy_consumption": None,
+                "energy_consumption_available": False,
+                "match_confidence": 0.0,
+            }
+
         fuzzy_candidates = _search_fuzzy(conn, target_tables, norm_mfg, norm_model, db_name)
 
         if not fuzzy_candidates:
@@ -565,6 +579,7 @@ def get_annual_energy_consumption(
     model_number: str = "",
     category: str | None = None,
     db_path: Path | str = DEFAULT_DB_PATH,
+    allow_fuzzy: bool = True,
 ) -> dict[str, Any]:
     """Retrieve an appliance's annual energy consumption (kWh/year).
 
@@ -575,6 +590,7 @@ def get_annual_energy_consumption(
         model_number: Model number string. Required.
         category: Appliance category restriction. Optional.
         db_path: Path to database.
+        allow_fuzzy: Set to ``False`` to skip the fuzzy stage entirely.
 
     Returns:
         Structured dictionary containing:
@@ -590,4 +606,5 @@ def get_annual_energy_consumption(
         model_number=model_number,
         category=category,
         db_path=db_path,
+        allow_fuzzy=allow_fuzzy,
     )

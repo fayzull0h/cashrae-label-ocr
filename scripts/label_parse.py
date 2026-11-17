@@ -168,6 +168,11 @@ KNOWN_BRANDS: tuple[tuple[str, str], ...] = tuple(
 )
 
 MODEL_MIN_SCORE = 0.95
+#: An explicit ``MODEL`` label is strong evidence, so a value on the same line
+#: is accepted below the heuristic threshold. This matters for real model
+#: numbers that look serial-like (``970C5035``: one letter, long digit run),
+#: which the heuristic penalises to 0.8 even though the label is unambiguous.
+MODEL_ANCHOR_MIN_SCORE = 0.7
 SERIAL_MIN_SCORE = 0.9
 ADJACENT_DISTANCE = 4
 
@@ -317,13 +322,17 @@ def _find_model(lines: Sequence[str]) -> dict[str, Any]:
     for index, line in enumerate(lines):
         anchors = list(MODEL_ANCHOR_RE.finditer(line))
         for match in anchors:
-            inline = _best_token(line[match.end() :], model_score, MODEL_MIN_SCORE)
+            inline = _best_token(line[match.end() :], model_score, MODEL_MIN_SCORE) or _best_token(
+                line[match.end() :], model_score, MODEL_ANCHOR_MIN_SCORE
+            )
             if inline:
                 score, token = inline
                 candidates.append((score, index, token, "label_anchor"))
                 continue
 
-            before = _prefix_token(line, match.start(), model_score, MODEL_MIN_SCORE)
+            before = _prefix_token(
+                line, match.start(), model_score, MODEL_MIN_SCORE
+            ) or _prefix_token(line, match.start(), model_score, MODEL_ANCHOR_MIN_SCORE)
             if before:
                 score, token = before
                 candidates.append((score - 0.01, index, token, "label_anchor_before"))

@@ -32,7 +32,8 @@ This document provides context, architecture details, conventions, and operation
    - **Stage 1 (Complete):** OCR foundation in `scripts/label_ocr.py` — Pillow preprocessing, PaddleOCR default engine with Tesseract fallback, batch CLI, confidence reporting. Evaluated on six verified rating plates.
    - **Stage 2 (Complete):** Rule-based field parsing in `scripts/label_parse.py` — brand, model number, and serial number from raw OCR text using anchors, adjacent-line lookups, and token heuristics. Live evaluation: 6/6 brand, 6/6 model, 6/6 serial (prefix-tolerant) on the six verified plates.
    - **Stage 3 (Complete):** OCR-error candidate generation in `scripts/label_candidates.py` — curated confusion map, one-substitution candidates by default, explainable edit trail and plausibility score, exact-only NRCan validation. Synthetic evaluation: recall@10 100% on the verified models; 265/265 true-model-first on sampled database models.
-   - **Remaining stages:** extraction → retrieval bridge, CLI polish, evaluation on more real photos.
+   - **Stage 4 (Complete):** End-to-end pipeline in `scripts/label_pipeline.py` — OCR → parse → ranked candidate lookups → NRCan retrieval → AEC, with manual override, fuzzy fallback, coarse confidence bands, and a full attempt log. Synthetic evaluation: 60/60 true model recovered, 54/60 correct kWh/year, 0/60 wrong values.
+   - **Remaining stages:** CLI polish, evaluation on more real photos.
    - Image preprocessing, OCR / Vision-Language Model (VLM) extraction of brand, model number, serial number, and electrical specs.
 3. **Phase 3: Integration of Image Recognition and Retrieval**
    - Connect OCR extraction pipeline to the Phase 1 retrieval engine with confidence scoring and manual fallback/correction mechanisms.
@@ -86,8 +87,10 @@ appliance-energy-tool/
 │   ├── label_ocr_paddle.py        # PaddleOCR backend (fast profile, optional accurate mode)
 │   ├── label_parse.py             # Phase 2: brand/model/serial parser (anchors + heuristics)
 │   ├── label_candidates.py        # Phase 2: OCR-error candidates for model numbers
+│   ├── label_pipeline.py          # Phase 2: photo → fields → ranked lookups → AEC
 │   ├── evaluate_parse.py          # Per-field parsing accuracy over data/samples
 │   ├── evaluate_candidates.py     # Candidate recall on synthetic OCR corruptions
+│   ├── evaluate_pipeline.py       # End-to-end pipeline accuracy (model + energy value)
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demonstration tool with interactive & demo modes
 ├── tests/
@@ -96,7 +99,9 @@ appliance-energy-tool/
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
 │   ├── test_label_parse.py        # Field parsing tests (synthetic + six verified plates)
 │   ├── test_label_candidates.py   # Candidate generation, ranking, and CLI tests
+│   ├── test_label_pipeline.py     # Pipeline flow, confidence, override, and CLI tests
 │   ├── test_evaluate_parse.py     # Evaluation helper tests
+│   ├── test_evaluate_pipeline.py  # Pipeline evaluation helper tests
 │   ├── test_compare_ocr.py        # Comparison metrics and reporting tests
 │   └── test_ocr_backends.py       # Engine selection and fallback tests
 ├── docs/
@@ -160,6 +165,8 @@ NRCan uses different column names for annual energy consumption across appliance
 - **Two-Stage Matching:**
   - **Stage A (Exact):** Queries normalized model number (and brand if supplied). Returns immediately if a unique match is found.
   - **Stage B (Fuzzy):** Uses Python's `difflib.SequenceMatcher` with a minimum confidence threshold (`MIN_FUZZY_CONFIDENCE = 0.70`). If a manufacturer is supplied, only rows of that exact normalized brand are compared first; if none exist, the search broadens to the whole table. When the brand differs, the score is blended as `model_score * 0.85 + brand_score * 0.15` (a penalty, not a boost). `HIGH_CONFIDENCE_THRESHOLD = 0.85` marks a reliable fuzzy match (defined but not currently enforced separately).
+  - `allow_fuzzy=False` on `lookup_appliance()` / `get_annual_energy_consumption()` skips Stage B and returns `not_found` on an exact miss.
+- **Exact-only helpers:** `find_exact_matches()` and `find_exact_matches_batch()` expose Stage A alone (no SequenceMatcher) for candidate validation. The batch form keys every requested normalized model to an (often empty) list and uses a two-phase rowid-then-row lookup, which is much faster than `SELECT *` with a `NORMALIZE()` predicate on wide tables.
 - **Ambiguity Detection:**
   - If multiple exact matches exist across categories or if top fuzzy candidate scores are within `AMBIGUITY_MARGIN = 0.04`, the engine returns `status: "ambiguous_match"` with candidate lists rather than guessing. Ambiguous results deliberately return `annual_energy_consumption: None` so no single value is implied. Fuzzy ambiguity returns up to 10 candidates; a clear `fuzzy_match` also includes the top 5 in `candidates`.
 - **Return Statuses:** `exact_match`, `fuzzy_match`, `ambiguous_match`, `not_found`, `invalid_input`. Exact matches include `is_exact: True`; a model-only exact match adds a `warning` that no manufacturer was specified.
@@ -182,7 +189,7 @@ NRCan uses different column names for annual energy consumption across appliance
 - **Entry points:** `parse_fields(raw_text)` returns `{brand, model_number, serial_number, unparsed_lines}`. Each field is `{value, normalized, confidence, source_line, method}`. `parse_ocr_result(result)` adds `image_path` and an `ocr` provenance block (`backend`, `confidence`, `preprocessing`).
 - **Normalization:** every value is normalized with `normalize_alphanum()` from `scripts/appliance_lookup.py`, so parsed fields can be passed directly to the retrieval engine.
 - **Extraction order:** explicit anchors (`MODEL`/`MODÈLE`/`MOD`, `SERIAL`/`SÉRIE`/`S/N`/`SER`/`SN`, `BRAND`/`MANUFACTURER`/`MARQUE`/`MFG`) → same-line value after the anchor → same-line value before the anchor → adjacent lines (forward, then backward for serials; backward only as a last resort for models) → heuristic token scoring. Brands also use a known-brand list (longest match wins) and a company-suffix fallback.
-- **Scoring:** `model_score()` and `serial_score()` reject noise substrings (voltage, pressure, refrigerant, etc.), dates, and tokens lacking letters or digits where appropriate. `MODEL_MIN_SCORE = 0.95`, `SERIAL_MIN_SCORE = 0.9`. Model and serial values must never be identical; the serial is dropped when it equals the model.
+- **Scoring:** `model_score()` and `serial_score()` reject noise substrings (voltage, pressure, refrigerant, etc.), dates, and tokens lacking letters or digits where appropriate. `MODEL_MIN_SCORE = 0.95`, `SERIAL_MIN_SCORE = 0.9`. A value on the same line as an explicit `MODEL` label is accepted down to `MODEL_ANCHOR_MIN_SCORE = 0.7`, because real models like `970C5035` (one letter, long digit run) score 0.8 under the serial-like penalty despite an unambiguous label. Model and serial values must never be identical; the serial is dropped when it equals the model.
 - **Confidence is rule-based per field**, keyed by extraction method (`label_anchor` 0.9, `label_anchor_before` 0.85, `adjacent_line` 0.8, `known_brand` 0.8, `company_suffix`/`glued_anchor` 0.7, heuristics 0.5–0.6). Do not use aggregate OCR confidence as a gate.
 - **Bilingual by default:** anchors and noise handling cover English and French (Canadian) labels.
 - **Scope:** parsing stops at brand/model/serial and never "corrects" tokens. OCR-error candidate generation lives in `scripts/label_candidates.py` (Stage 3); the retrieval bridge is a later stage.
@@ -199,6 +206,16 @@ NRCan uses different column names for annual energy consumption across appliance
 - **Validation:** use `find_exact_matches()` / `find_exact_matches_batch()` from `scripts/appliance_lookup.py`, which run the exact stage only (no fuzzy fallback). `db_match` is `None` when validation is skipped, so "not checked" stays distinguishable from "checked and absent". `rank_candidates(validator=...)` accepts an in-memory index for batch evaluation.
 - **Evaluation:** `scripts/evaluate_candidates.py` corrupts the six verified models and a deterministic sample of NRCan models with every single confusion substitution. Recall is measured among corrections because the original always ranks first. Defaults: 40 database models, up to 25 corruptions each, seed 0.
 - **Non-goals:** insertions/deletions, per-character OCR confidence (the OCR backend exposes only aggregate confidence), and automatic correction.
+
+### Phase 2 Pipeline Conventions (`scripts/label_pipeline.py`)
+
+- **Entry point:** `analyze_label(image_path=None, *, raw_text=None, model_number=None, manufacturer=None, category=None, engine="auto", max_candidates=64, max_attempts=8, allow_fuzzy=True, db_path=...)`. Provide exactly one of `image_path` (OCR + parse), `raw_text` (parse only), or `model_number` (manual override). Returns `{status, image_path, ocr, parsed, category, retrieval, attempts, confidence, confidence_components}`.
+- **Order of operations:** parse → `candidates_from_parse()` (exact validation) → try up to `max_attempts` candidates in rank order → stop at the first exact hit → only if nothing exact, optionally fall back to `lookup_appliance(..., allow_fuzzy=allow_fuzzy)` on the literal reading.
+- **Never rewrite the parsed value:** `retrieval.model_used` names the model that produced the value, `retrieval.from_original` says whether it was the parsed value, and `attempts` logs every model tried with its result and `db_match`.
+- **Confidence is a coarse band** (`high` / `medium` / `low` / `None`): exact match on the original → `high`; exact match via a correction → `medium`; fuzzy match → `medium` only when it is on the original and `>= HIGH_CONFIDENCE_THRESHOLD`, otherwise `low`; anything else → `None`. Report `confidence_components` (parse confidence, candidate rank, from_original, match type, match confidence) so the band can be audited; do not collapse them into a fake probability.
+- **Category is validated up front** with `normalize_category()` so a typo raises `ValueError` before OCR runs. `lookup_appliance()` and `get_annual_energy_consumption()` accept `allow_fuzzy=False` for exact-only retrieval.
+- **Honesty over coverage:** ambiguous records and categories without AEC (room air conditioners) return `annual_energy_consumption: None`. The six verified plate models are absent from NRCan, so the pipeline reports `not_found`/`ambiguous_match` for them — that is the correct result, not a bug.
+- **Evaluation:** `scripts/evaluate_pipeline.py` runs the tracked OCR fixture through the pipeline for the six plates (parse + honest-miss check) and corrupts sampled NRCan models with one OCR character swap (model recovery + energy-value correctness). `energy_value_correct` counts `None` as correct only when the record has no AEC; `wrong_energy_value` must stay at 0.
 
 ---
 
@@ -261,6 +278,22 @@ Run all commands using the project `.venv` from the repository root:
 - **Measure candidate-generation recall (synthetic corruptions):**
   ```bash
   .venv\Scripts\python.exe scripts/evaluate_candidates.py
+  ```
+- **Run the full pipeline on a label photo:**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_pipeline.py --image data/samples/dryer_label.png --category clothes_dryers
+  ```
+- **Manual model override (skips OCR and parsing):**
+  ```bash
+  .venv\Scripts\python.exe scripts/label_pipeline.py --model "PCKS433ET" --brand GE --category clothes_dryers
+  ```
+- **Measure end-to-end pipeline accuracy:**
+  ```bash
+  .venv\Scripts\python.exe scripts/evaluate_pipeline.py
+  ```
+- **Run the pipeline test suite:**
+  ```bash
+  .venv\Scripts\python.exe -m unittest tests/test_label_pipeline.py
   ```
 - **Run the candidate-generation test suite:**
   ```bash
