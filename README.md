@@ -45,11 +45,12 @@ ranked lookups → AEC value**. CLI polish and evaluation on more real photos ar
 - **Ambiguity handling** — returns `ambiguous_match` with candidate lists instead of
   guessing when scores are too close (`0.04` margin).
 - **Heterogeneous energy columns** — resolves the correct AEC column per category.
-- **Honest energy reporting** — never fabricates values; room air conditioners report
-  `EE_RATIO` (EER) instead of kWh/year and return `None` with an explanatory note.
+- **Honest energy reporting** — never fabricates values; NRCan room-air-conditioner
+  records report `EE_RATIO` (EER) instead of kWh/year, while ENERGY STAR estimates remain
+  separate source values.
 - **Source provenance** — every result includes the database, table, source file, and
   `REC_REF_KEY`.
-- **CLI demo + interactive mode** and a **12-test suite** covering the Phase 1 requirements.
+- **CLI demo + interactive mode** with tests covering NRCan retrieval and ENERGY STAR sources.
 - **OCR foundation (Phase 2)** — PaddleOCR (tuned PP-OCRv5 mobile profile) is the default
   engine, with automatic fallback to Tesseract when Paddle is unavailable. Pillow
   preprocessing, a pluggable backend interface, single-image and batch CLI modes, and
@@ -64,7 +65,8 @@ ranked lookups → AEC value**. CLI polish and evaluation on more real photos ar
   number into plausible corrections for the character swaps OCR actually makes (`0`/`O`,
   `1`/`I`/`L`, `5`/`S`, `8`/`B`, …). The original value always ranks first and is never
   rewritten. One substitution by default, capped at 64 candidates, with an explainable
-  `plausibility` score and optional exact-only NRCan validation. On 265 synthetic
+  `plausibility` score and optional exact-only validation against NRCan and the configured
+  ENERGY STAR snapshot. On 265 synthetic
   single-character corruptions of real NRCan models, exact validation put the true model
   first among database-confirmed candidates in **265/265** cases.
 - **End-to-end pipeline (Phase 2)** — `scripts/label_pipeline.py` chains OCR, parsing,
@@ -99,7 +101,9 @@ appliance-energy-tool/
 │   └── paddleocr-experiment.md    # OCR engine evaluation and adoption record
 ├── scripts/
 │   ├── import_datasets.py         # CSV ingestion pipeline into SQLite
-│   ├── refresh_energy_star_washers.py # Refresh ENERGY STAR washer snapshot
+│   ├── energy_star_config.py      # ENERGY STAR dataset fields and metrics by category
+│   ├── refresh_energy_star.py     # Refresh any configured ENERGY STAR snapshot
+│   ├── refresh_energy_star_washers.py # Backward-compatible washer refresh command
 │   ├── verify_import.py           # Database inspection / sanity check
 │   ├── appliance_lookup.py        # Retrieval engine (normalization, exact/fuzzy search)
 │   ├── label_ocr.py               # Phase 2: preprocessing + OCR entry point (Paddle default)
@@ -114,7 +118,11 @@ appliance-energy-tool/
 │   ├── compare_ocr.py             # Tesseract vs PaddleOCR comparison harness
 │   └── test_lookup.py             # CLI demo, interactive mode, ad-hoc lookups
 ├── tests/
-│   ├── test_lookup.py             # 12 integration tests for the retrieval engine
+│   ├── test_lookup.py             # Integration tests for the retrieval engine
+│   ├── test_energy_star_washers.py # Washer compatibility and shared-path tests
+│   ├── test_energy_star_room_air_conditioners.py # Room-AC source tests
+│   ├── test_energy_star_refrigerators.py # Refrigerator source tests
+│   ├── test_energy_star_dishwashers.py # Dishwasher source tests
 │   ├── test_label_ocr.py          # OCR foundation tests
 │   ├── test_label_ocr_paddle.py   # PaddleOCR backend tests (integration skipped without Paddle)
 │   ├── test_label_parse.py        # Field parsing tests (synthetic + six verified plates)
@@ -168,13 +176,21 @@ NRCan uses different column names across datasets:
 | `dishwashers` | `TAEC_C373_04` |
 | `room_air_conditioners` | none — reports `EE_RATIO` (EER) |
 
-### ENERGY STAR washer lookup
+### ENERGY STAR category lookup
 
-`lookup_appliance()` also attaches `sources.energy_star` for washer lookups (or when no category is supplied), while retaining the existing NRCan result fields at the top level. ENERGY STAR results use literal normalized model matches first; source `*` wildcards match exactly one letter and `#` exactly one digit. `additional_model_information` is retained as source data but is not parsed for matching. Multiple matching ENERGY STAR records are returned as ambiguous candidates. ENERGY STAR provides both `annual_energy_use_kwh_year` (kWh/year) and IMEF (ft³/kWh/cycle); both remain source-specific. The legacy top-level annual energy value continues to reflect NRCan. If both sources have annual values and they differ, `energy_conflict` and `energy_conflict_note` make that disagreement explicit.
+`lookup_appliance()` attaches `sources.energy_star` for clothes washers, room air conditioners, refrigerators, and dishwashers. If no category is supplied, or the category is clothes washer-dryers, the existing washer lookup behavior is retained. NRCan fields remain at the top level. ENERGY STAR results use literal normalized model matches first; masks are not treated as literals after their wildcard characters are stripped. Source `*` wildcards match exactly one letter and `#` exactly one digit. `additional_model_information` is retained as source data but is not parsed for matching. Multiple matching ENERGY STAR records are returned as ambiguous candidates. Annual energy and category-specific efficiency metrics remain source-specific. The legacy top-level annual energy value continues to reflect NRCan. A conflict is reported only when both sources have a unique exact result, both annual values are present, and those values differ.
 
-The label pipeline validates each attempted OCR candidate against both sources, records source-specific outcomes per attempt, and checks both sources for the selected exact hit. The structured retrieval includes per-source energy details; the CLI shows ENERGY STAR model matches, its annual energy and IMEF separately, and flags differing annual values. Top-level status and annual energy continue to describe NRCan retrieval.
+ENERGY STAR metric fields are configured per dataset: washers report IMEF (ft³/kWh/cycle), room air conditioners report CEER (Btu/Wh), cooling capacity (Btu/hr), and percent below the U.S. federal energy standard; refrigerators include total capacity and adjusted volume (ft³), the federal standard (kWh/year), and percent below the standard; dishwashers include water use (gallons/cycle), energy and water federal standards, and percent below each standard. Each candidate carries the source dataset ID, URL, record ID, snapshot date, and unmodified raw record.
 
-The checked-in working database was refreshed on **2026-11-17** and contains **421** ENERGY STAR washer rows. Refresh it with `python scripts/refresh_energy_star_washers.py` from the project root; the script records date and row count in `energy_star_refresh_metadata`. ENERGY STAR is a changing certification list, so refresh before relying on coverage. Matching uses only `model_number`: normalized literal matches take precedence, and source `*`/`#` masks match exactly one letter/digit. It does not parse `additional_model_information` or expand multi-character wildcard families. ENERGY STAR annual energy use is its own estimated value and may differ from NRCan AEC; no source is treated as a correction of the other.
+For room air conditioners, the dataset provides `annual_energy_use_kwh_yr` directly in kWh/year. ENERGY STAR describes this estimate as assuming 750 compressor operating hours per year; lookup results and both relevant CLIs show that context. CEER is a distinct efficiency rating; the tool reports it with its source unit (Btu/Wh) and does not derive annual kWh from it. If the annual energy field is missing, the result stays unavailable even when CEER is present. See the [ENERGY STAR room air conditioner dataset](https://data.energystar.gov/Active-Specifications/ENERGY-STAR-Certified-Room-Air-Conditioners/5xn2-dv4h) for its field definitions.
+
+For refrigerators and coolers, `annual_energy_use_kwh_yr` is ENERGY STAR's estimated annual energy in kWh/year. The lookup also reports total capacity and adjusted volume (ft³), the U.S. federal standard (kWh/year), and percent less energy use than that standard. `additional_model_information`, UPCs, and all other dataset fields remain in the raw source record; matching uses only `model_number`. The dataset assigns a unique `pd_id` per row, so repeated models may legitimately yield an ambiguous result. The reported ENERGY STAR value and NRCan `AEC` remain separate; when both sources have unique exact matches with annual values and those values differ, `energy_conflict` is set and both values remain visible. See the [ENERGY STAR refrigerator dataset](https://data.energystar.gov/w/p5st-her9/im48-wy4k) for field definitions.
+
+For residential dishwashers, `annual_energy_use_kwh_year` is an estimated annual value in kWh/year under typical conditions. ENERGY STAR's dataset description says it includes energy used by the dishwasher during cycles, additional energy used by a water heater to heat the water, and standby energy; the estimate assumes 215 loads per year (about four per week) under the DOE test procedure. Actual energy use varies with usage patterns and selected cycle. Lookup and CLI output carry this context with the ENERGY STAR value. The lookup also reports water use (gallons/cycle), energy and water federal standards, and the reported percent below each standard. The ENERGY STAR estimate and NRCan `TAEC_C373_04` remain separate; a difference is flagged only when both sources have unique exact matches and annual values. Model-family rows remain ambiguous when more than one record matches, and all source fields remain available in the raw record. See the [ENERGY STAR residential dishwasher dataset](https://data.energystar.gov/Active-Specifications/ENERGY-STAR-Certified-Residential-Dishwashers/q8py-6w3f) for the documented assumptions and definitions.
+
+The label pipeline and candidate CLI validate candidates against NRCan and the configured ENERGY STAR dataset, record or display the matching sources, and preserve source-specific outcomes. The structured retrieval includes per-source energy details; the lookup and pipeline CLIs show ENERGY STAR model matches, annual energy, configured category metrics and documented annual-energy context, and flag differing annual values. Top-level status and annual energy continue to describe NRCan retrieval.
+
+The checked-in working database contains 421 ENERGY STAR washer rows (refreshed 2026-11-17), 608 room air conditioner rows, 4,942 refrigerator rows, and 753 dishwasher rows (the latter three refreshed 2026-11-18). ENERGY STAR snapshots use category-specific dataset configurations and tables, retain the full source row as `raw_fields_json`, and record source URL, refresh date, and row count in `energy_star_refresh_metadata`. ENERGY STAR is a changing certification list, so refresh before relying on coverage. Matching uses only `model_number`: normalized literal matches take precedence, and source `*`/`#` masks match exactly one letter/digit. It does not parse `additional_model_information` or expand multi-character wildcard families. ENERGY STAR annual energy use is its own estimated value and may differ from NRCan AEC; no source is treated as a correction of the other.
 
 ---
 
@@ -234,15 +250,19 @@ python scripts/verify_import.py
 .venv/Scripts/python.exe scripts/import_datasets.py
 ```
 
-### Refresh the ENERGY STAR washer snapshot
+### Refresh an ENERGY STAR snapshot
 
 Run from the project root with network access:
 
 ```bash
 .venv/Scripts/python.exe scripts/refresh_energy_star_washers.py
+.venv/Scripts/python.exe scripts/refresh_energy_star.py clothes_washers
+.venv/Scripts/python.exe scripts/refresh_energy_star.py room_air_conditioners
+.venv/Scripts/python.exe scripts/refresh_energy_star.py refrigerators
+.venv/Scripts/python.exe scripts/refresh_energy_star.py dishwashers
 ```
 
-The script downloads all pages from the ENERGY STAR Socrata API, validates record IDs and model numbers, then atomically replaces `energy_star_clothes_washers`. Source fields are retained in `raw_fields_json`; `energy_star_refresh_metadata` records the dataset URL, refresh date, and row count. A failed or incomplete download leaves the previous snapshot intact.
+The legacy washer command remains supported. The shared command accepts `clothes_washers`, `room_air_conditioners`, `refrigerators`, or `dishwashers`. Each refresh downloads all pages from its configured ENERGY STAR Socrata API, validates record IDs and model numbers, then transactionally replaces only that category's snapshot table. Source fields are retained in `raw_fields_json`; `energy_star_refresh_metadata` records dataset ID, URL, refresh date, and row count. A failed or empty download leaves the previous snapshot intact.
 
 ### Inspect the database
 
@@ -272,8 +292,8 @@ The script downloads all pages from the ENERGY STAR Socrata API, validates recor
 .venv/Scripts/python.exe -m unittest tests/test_label_pipeline.py
 ```
 
-Expected result: `Ran 184 tests ... OK` for the full suite. The PaddleOCR integration
-test runs when PaddleOCR is installed (the default setup) and is skipped otherwise.
+The full suite should finish with `OK`. Optional OCR integration cases may be skipped when
+their dependencies or external fixtures are unavailable.
 
 ### Extract text from a label photo (Phase 2)
 
@@ -362,10 +382,11 @@ next stage.
 ```
 
 Each candidate carries its `edit_count`, the exact `edits` (`position`, `from`, `to`,
-`class_fit`), a `plausibility` score, and `db_match` / `db_categories` from the exact-only
-NRCan lookup. Ranking order is: original → database-confirmed → fewer edits → higher
-plausibility → alphabetical. `db_match` is `null` when `--no-validate` is used, so
-"not checked" is distinguishable from "checked and absent".
+`class_fit`), a `plausibility` score, and `db_match` / `db_categories` from exact-only
+NRCan and ENERGY STAR checks. `db_sources` identifies which source confirmed a candidate;
+the text and JSON reports include this information. Ranking order is: original →
+database-confirmed → fewer edits → higher plausibility → alphabetical. `db_match` is `null`
+when `--no-validate` is used, so "not checked" is distinguishable from "checked and absent".
 
 ### Measure candidate-generation recall
 

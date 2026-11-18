@@ -17,6 +17,8 @@ import re
 import sqlite3
 from typing import Any
 
+from scripts.energy_star_config import dataset_for_category
+
 # Default database path (relative to project root)
 DEFAULT_DB_PATH = Path("database/appliances.db")
 
@@ -575,14 +577,18 @@ def _lookup_nrcan(
         conn.close()
 
 
-def _energy_star_washer_lookup(conn, manufacturer, model_number):
-    """Match literal washer models, then explicit ENERGY STAR * / # model masks."""
-    table = "energy_star_clothes_washers"
+def _energy_star_lookup(conn, manufacturer, model_number, category):
+    """Look up a model in the configured ENERGY STAR category snapshot."""
+    dataset = dataset_for_category(category)
+    if dataset is None:
+        return None
+    table = dataset.table
     exists = conn.execute(
         "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)
     ).fetchone()
     if not exists:
-        return {"status": "not_available", "source": "ENERGY_STAR", "candidates": []}
+        return {"status": "not_available", "source": "ENERGY_STAR",
+                "dataset_id": dataset.dataset_id, "candidates": []}
     wanted = normalize_alphanum(model_number)
     brand = normalize_alphanum(manufacturer)
     rows = [dict(row) for row in conn.execute(f"SELECT * FROM {table}")]
@@ -593,46 +599,54 @@ def _energy_star_washer_lookup(conn, manufacturer, model_number):
         raw = row.get("model_number") or ""
         normalized = normalize_alphanum(raw)
         kind = None
-        if normalized == wanted:
+        has_mask = "*" in raw or "#" in raw
+        if not has_mask and normalized == wanted:
             kind = "literal"
-        else:
+        elif has_mask:
             # Only the source model_number is parsed. * means one letter; # means one digit.
             pattern = "".join("[A-Z]" if char == "*" else "[0-9]" if char == "#"
                              else re.escape(char) for char in str(raw).upper()
                              if char.isalnum() or char in "*#")
-            if ("*" in raw or "#" in raw) and re.fullmatch(pattern, wanted):
+            if re.fullmatch(pattern, wanted):
                 kind = "wildcard"
         if kind:
+            record = json.loads(row.get("raw_fields_json") or "{}")
+            energy = _numeric_energy(record.get(dataset.annual_energy_field))
+            metrics = [{"name": metric.name, "value": record.get(metric.field),
+                        "unit": metric.unit} for metric in dataset.metrics]
             matches.append({
                 "manufacturer": row.get("brand_name"), "model_number": raw,
                 "normalized_model": normalized, "match_type": kind,
                 "match_confidence": 1.0 if kind == "literal" else None,
-                "source": {"dataset": "ENERGY STAR", "dataset_id": "bghd-e2wd",
+                "source": {"dataset": "ENERGY STAR", "dataset_id": dataset.dataset_id,
                            "url": row.get("source_url"), "record_id": row.get("record_id"),
                            "snapshot_date": row.get("snapshot_date")},
-                "record": json.loads(row.get("raw_fields_json") or "{}"),
-                "annual_energy_consumption": _numeric_energy(
-                    json.loads(row.get("raw_fields_json") or "{}").get("annual_energy_use_kwh_year")
-                ),
-                "annual_energy_unit": "kWh/year" if _numeric_energy(
-                    json.loads(row.get("raw_fields_json") or "{}").get("annual_energy_use_kwh_year")
-                ) is not None else None,
-                "energy_metric": {"name": "integrated_modified_energy_factor_imef",
-                                  "value": (json.loads(row.get("raw_fields_json") or "{}").get(
-                                      "integrated_modified_energy_factor_imef")),
-                                  "unit": "ft³/kWh/cycle"},
+                "record": record,
+                "annual_energy_consumption": energy,
+                "annual_energy_unit": dataset.annual_energy_unit if energy is not None else None,
+                "annual_energy_context": dataset.annual_energy_context,
+                "energy_metrics": metrics,
+                # Preserve the washer metric's existing key and shape.
+                "energy_metric": metrics[0] if len(metrics) == 1 else None,
             })
     # Exact literal records take precedence over wildcard families.
     literal = [m for m in matches if m["match_type"] == "literal"]
     matches = literal or matches
     status = "not_found" if not matches else "exact_match" if len(matches) == 1 else "ambiguous_match"
     selected_energy = matches[0].get("annual_energy_consumption") if len(matches) == 1 else None
-    return {"status": status, "source": "ENERGY_STAR", "match_type":
+    return {"status": status, "source": "ENERGY_STAR", "dataset_id": dataset.dataset_id,
+            "match_type":
             matches[0]["match_type"] if len(matches) == 1 else None,
             "annual_energy_consumption": selected_energy,
-            "unit": "kWh/year" if selected_energy is not None else None,
+            "unit": dataset.annual_energy_unit if selected_energy is not None else None,
+            "annual_energy_context": dataset.annual_energy_context,
             "energy_consumption_available": selected_energy is not None,
             "candidates": matches}
+
+
+def _energy_star_washer_lookup(conn, manufacturer, model_number):
+    """Compatibility wrapper for callers of the former washer-only helper."""
+    return _energy_star_lookup(conn, manufacturer, model_number, "clothes_washers")
 
 
 def _numeric_energy(value):
@@ -642,11 +656,64 @@ def _numeric_energy(value):
         return None
 
 
+def find_energy_star_exact_matches_batch(
+    model_numbers: list[str], *, manufacturer: str | None = None,
+    category: str | None = None, db_path: Path | str = DEFAULT_DB_PATH,
+) -> dict[str, list[dict[str, Any]]]:
+    """Validate model candidates against one ENERGY STAR snapshot (exact/mask only)."""
+    try:
+        normalized_category = normalize_category(category)
+    except ValueError:
+        normalized_category = "__invalid__"
+    dataset = dataset_for_category(normalized_category)
+    normalized_models = {normalize_alphanum(model) for model in model_numbers}
+    result = {model: [] for model in normalized_models}
+    if dataset is None:
+        return result
+    conn = get_db_connection(db_path)
+    try:
+        exists = conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (dataset.table,)
+        ).fetchone()
+        if not exists:
+            return result
+        brand = normalize_alphanum(manufacturer)
+        rows = [dict(row) for row in conn.execute(f"SELECT * FROM {dataset.table}")]
+    finally:
+        conn.close()
+
+    by_model: dict[str, list[dict[str, Any]]] = {model: [] for model in normalized_models}
+    for row in rows:
+        if brand and normalize_alphanum(row.get("brand_name")) != brand:
+            continue
+        raw = row.get("model_number") or ""
+        normalized = normalize_alphanum(raw)
+        has_mask = "*" in raw or "#" in raw
+        literal_models = set() if has_mask else {normalized} & normalized_models
+        if literal_models:
+            for model in literal_models:
+                by_model[model].append({"model_number": raw, "match_type": "literal"})
+            continue
+        if not has_mask:
+            continue
+        pattern = "".join(
+            "[A-Z]" if char == "*" else "[0-9]" if char == "#" else re.escape(char)
+            for char in str(raw).upper() if char.isalnum() or char in "*#"
+        )
+        for model in normalized_models:
+            if re.fullmatch(pattern, model):
+                by_model[model].append({"model_number": raw, "match_type": "wildcard"})
+    for model, hits in by_model.items():
+        literals = [hit for hit in hits if hit["match_type"] == "literal"]
+        result[model] = literals or hits
+    return result
+
+
 def lookup_appliance(
     manufacturer: str | None = None, model_number: str = "", category: str | None = None,
     db_path: Path | str = DEFAULT_DB_PATH, allow_fuzzy: bool = True,
 ) -> dict[str, Any]:
-    """Look up in NRCan and attach an independent ENERGY STAR washer result."""
+    """Look up in NRCan and attach an independent category-specific ENERGY STAR result."""
     result = _lookup_nrcan(manufacturer, model_number, category, db_path, allow_fuzzy)
     if result.get("status") == "invalid_input":
         return result
@@ -654,11 +721,13 @@ def lookup_appliance(
         normalized_category = normalize_category(category)
     except ValueError:
         return result
-    if normalized_category not in (None, "clothes_washers", "clothes_washer_dryers"):
+    if dataset_for_category(normalized_category) is None:
         return result
     conn = get_db_connection(db_path)
     try:
-        energy_star = _energy_star_washer_lookup(conn, manufacturer, model_number)
+        energy_star = _energy_star_lookup(
+            conn, manufacturer, model_number, normalized_category
+        )
     finally:
         conn.close()
     # Keep all legacy NRCan top-level fields and add namespaced source details.
@@ -673,7 +742,11 @@ def lookup_appliance(
     nrcan_aec = result.get("annual_energy_consumption")
     star_aec = energy_star.get("annual_energy_consumption")
     result["energy_conflict"] = bool(
-        nrcan_aec is not None and star_aec is not None and float(nrcan_aec) != float(star_aec)
+        result.get("status") == "exact_match"
+        and energy_star.get("status") == "exact_match"
+        and nrcan_aec is not None
+        and star_aec is not None
+        and float(nrcan_aec) != float(star_aec)
     )
     if result["energy_conflict"]:
         result["energy_conflict_note"] = (

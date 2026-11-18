@@ -35,18 +35,42 @@ def display_result(result: dict) -> None:
     """Format and print a lookup result to stdout."""
     status = result.get("status")
 
+    energy_star = (result.get("sources") or {}).get("energy_star")
+    if energy_star and energy_star.get("status") not in ("not_found", "not_available"):
+        print(f"\nENERGY STAR: {energy_star['status']} (dataset {energy_star.get('dataset_id')})")
+        if energy_star.get("annual_energy_consumption") is not None:
+            print(f"  Annual energy: {energy_star['annual_energy_consumption']} "
+                  f"{energy_star.get('unit') or 'kWh/year'}")
+        if energy_star.get("annual_energy_context"):
+            print(f"  Annual energy context: {energy_star['annual_energy_context']}")
+        for candidate in energy_star.get("candidates", []):
+            print(f"  {candidate.get('manufacturer')} {candidate.get('model_number')} "
+                  f"({candidate.get('match_type')})")
+            source = candidate.get("source") or {}
+            if source:
+                print(f"    Source: {source.get('url')} (record {source.get('record_id')}, "
+                      f"snapshot {source.get('snapshot_date')})")
+            metrics = candidate.get("energy_metrics")
+            if metrics is None:
+                metrics = [candidate.get("energy_metric") or {}]
+            for metric in metrics:
+                if metric.get("value") is not None:
+                    print(f"    {metric.get('name')}: {metric['value']} {metric.get('unit')}")
+    if result.get("energy_conflict"):
+        print(f"Energy note: {result.get('energy_conflict_note')}")
+
     if status == "invalid_input":
         print("\n[!] Invalid input:")
         print(f"    {result.get('message')}")
         return
 
     if status == "not_found":
-        print("\nNo match found.")
+        print("\nNo NRCan match found.")
         print(f"Message: {result.get('message')}")
         return
 
     if status == "ambiguous_match":
-        print(f"\n[?] Ambiguous match: {result.get('message')}")
+        print(f"\n[?] Ambiguous NRCan match: {result.get('message')}")
         candidates = result.get("candidates", [])
         print(f"    Found {len(candidates)} candidate records:")
         for idx, cand in enumerate(candidates, 1):
@@ -59,7 +83,7 @@ def display_result(result: dict) -> None:
         return
 
     if status in ("exact_match", "fuzzy_match"):
-        print("\nMatch found!\n")
+        print("\nNRCan match found!\n")
         mfg = result.get("manufacturer")
         model = result.get("model_number")
         cat_disp = result.get("category_display", result.get("category"))

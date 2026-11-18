@@ -1,80 +1,36 @@
-"""Refresh the ENERGY STAR certified residential clothes washer snapshot."""
+"""Backward-compatible washer snapshot refresh command and API."""
 
-from datetime import datetime, timezone
-import json
+from urllib.request import urlopen
+import sys
 from pathlib import Path
-import sqlite3
-from urllib.request import Request, urlopen
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.energy_star_config import ENERGY_STAR_DATASETS
+from scripts.refresh_energy_star import (
+    DB_PATH,
+    PAGE_SIZE,
+    REQUIRED_FIELDS,
+    download_records as _download_records,
+    replace_snapshot as _replace_snapshot,
+)
 
 
-DATASET_URL = "https://data.energystar.gov/Active-Specifications/ENERGY-STAR-Certified-Residential-Clothes-Washers/bghd-e2wd"
-API_URL = "https://data.energystar.gov/resource/bghd-e2wd.json"
-DB_PATH = Path("database/appliances.db")
-TABLE = "energy_star_clothes_washers"
-PAGE_SIZE = 1000
-REQUIRED_FIELDS = {"pd_id", "brand_name", "model_number"}
+DATASET = ENERGY_STAR_DATASETS["clothes_washers"]
+DATASET_URL = DATASET.dataset_url
+API_URL = DATASET.api_url
+TABLE = DATASET.table
 
 
 def download_records():
-    records = []
-    offset = 0
-    while True:
-        url = f"{API_URL}?$limit={PAGE_SIZE}&$offset={offset}"
-        request = Request(url, headers={"User-Agent": "cashrae-label-ocr/1.0"})
-        with urlopen(request, timeout=60) as response:
-            page = json.load(response)
-        if not isinstance(page, list):
-            raise ValueError("ENERGY STAR API returned a non-list page")
-        if not page:
-            break
-        for record in page:
-            missing = REQUIRED_FIELDS - record.keys()
-            if missing:
-                raise ValueError(f"ENERGY STAR record is missing required fields: {sorted(missing)}")
-            if not record["pd_id"] or not record["model_number"]:
-                raise ValueError("ENERGY STAR record has an empty ID or model number")
-        records.extend(page)
-        if len(page) < PAGE_SIZE:
-            break
-        offset += len(page)
-    if not records:
-        raise ValueError("ENERGY STAR API returned no records; existing snapshot was not changed")
-    ids = [str(record["pd_id"]) for record in records]
-    if len(ids) != len(set(ids)):
-        raise ValueError("ENERGY STAR API returned duplicate record IDs")
-    return records
+    # Keep these module-level seams so existing tests and callers can patch them.
+    return _download_records("clothes_washers", page_size=PAGE_SIZE, opener=urlopen)
 
 
 def replace_snapshot(records, db_path=DB_PATH):
-    refreshed_at = datetime.now(timezone.utc).date().isoformat()
-    with sqlite3.connect(db_path) as conn:
-        conn.execute("BEGIN")
-        conn.execute(f"DROP TABLE IF EXISTS {TABLE}")
-        conn.execute(f"""CREATE TABLE {TABLE} (
-            record_id TEXT PRIMARY KEY,
-            source_url TEXT NOT NULL,
-            snapshot_date TEXT NOT NULL,
-            brand_name TEXT,
-            model_number TEXT,
-            additional_model_information TEXT,
-            upc TEXT,
-            special_type TEXT,
-            raw_fields_json TEXT NOT NULL
-        )""")
-        conn.executemany(
-            f"INSERT INTO {TABLE} VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            [(str(r["pd_id"]), DATASET_URL, refreshed_at, r.get("brand_name"),
-              r.get("model_number"), r.get("additional_model_information"),
-              r.get("upc"), r.get("special_type"),
-              json.dumps(r, ensure_ascii=False, sort_keys=True)) for r in records],
-        )
-        conn.execute("""CREATE TABLE IF NOT EXISTS energy_star_refresh_metadata (
-            dataset_id TEXT PRIMARY KEY, source_url TEXT NOT NULL,
-            refresh_date TEXT NOT NULL, row_count INTEGER NOT NULL
-        )""")
-        conn.execute("""INSERT OR REPLACE INTO energy_star_refresh_metadata
-            VALUES (?, ?, ?, ?)""", ("bghd-e2wd", DATASET_URL, refreshed_at, len(records)))
-    return refreshed_at
+    return _replace_snapshot(records, "clothes_washers", db_path)
 
 
 def main():

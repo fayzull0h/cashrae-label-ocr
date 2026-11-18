@@ -15,9 +15,8 @@ Design rules:
   the character class (digit vs letter) of its neighbours.
 - **Bounded.** One edit by default, substitutions only, hard candidate cap.
 - **Database validation is a ranking signal, not a rewrite.** When validation is
-  enabled, a candidate that exists in the NRCan database ranks above one that
-  does not. Validation uses the exact-only helper, so a fuzzy hit can never
-  promote a candidate.
+  enabled, candidates are checked exactly against NRCan and the category's
+  configured ENERGY STAR snapshot. A fuzzy hit can never promote a candidate.
 
 Retrieval (turning a corrected model into an AEC value) belongs to Stage 4.
 
@@ -53,6 +52,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from scripts.appliance_lookup import (  # noqa: E402
     DEFAULT_DB_PATH,
+    find_energy_star_exact_matches_batch,
     find_exact_matches_batch,
     normalize_alphanum,
 )
@@ -335,6 +335,31 @@ def candidates_from_parse(
         validate=validate,
         db_path=db_path,
     )
+    if validate:
+        star_matches = find_energy_star_exact_matches_batch(
+            [candidate["normalized"] for candidate in ranked],
+            manufacturer=manufacturer,
+            category=category,
+            db_path=db_path,
+        )
+        for candidate in ranked:
+            hits = star_matches.get(candidate["normalized"], [])
+            candidate["energy_star_match_count"] = len(hits)
+            candidate["db_sources"] = (["nrcan"] if candidate["db_match"] else []) + (
+                ["energy_star"] if hits else []
+            )
+            if hits:
+                candidate["db_match"] = True
+                candidate["db_match_count"] += len(hits)
+                if category and category not in candidate["db_categories"]:
+                    candidate["db_categories"].append(category)
+        ranked.sort(key=_rank_key)
+        for position, candidate in enumerate(ranked, start=1):
+            candidate["rank"] = position
+    else:
+        for candidate in ranked:
+            candidate["energy_star_match_count"] = None
+            candidate["db_sources"] = []
 
     return {
         "original": {
@@ -379,7 +404,8 @@ def _print_report(payload: dict[str, Any]) -> None:
         print()
         return
 
-    header = f"{'Rank':>4}  {'Candidate':22} {'Edits':>5}  {'DB':3}  {'Fit':>4}  Correction"
+    header = (f"{'Rank':>4}  {'Candidate':22} {'Edits':>5}  {'DB':3}  "
+              f"{'Sources':20} {'Fit':>4}  Correction")
     print(header)
     print("-" * len(header))
     for candidate in payload["candidates"]:
@@ -387,9 +413,11 @@ def _print_report(payload: dict[str, Any]) -> None:
             database = "n/a"
         else:
             database = "hit" if candidate["db_match"] else "--"
+        sources = ", ".join(candidate.get("db_sources") or []) or "-"
         print(
             f"{candidate['rank']:>4}  {candidate['model_number']:22} "
-            f"{candidate['edit_count']:>5}  {database:3}  {candidate['plausibility']:>4.2f}  "
+            f"{candidate['edit_count']:>5}  {database:3}  {sources:20} "
+            f"{candidate['plausibility']:>4.2f}  "
             f"{_format_edits(candidate)}"
         )
     print()
@@ -425,7 +453,7 @@ def main(argv: list[str] | None = None) -> int:
         "--no-validate",
         dest="validate",
         action="store_false",
-        help="Skip NRCan database validation (db_match becomes null)",
+        help="Skip NRCan and ENERGY STAR validation (db_match becomes null)",
     )
     parser.add_argument("--db", default=str(DEFAULT_DB_PATH), help="Path to the SQLite database")
     parser.add_argument("--json", action="store_true", help="Emit JSON instead of a text report")
@@ -438,34 +466,18 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     try:
-        generated = generate_candidates(
-            args.model,
-            max_edits=args.max_edits,
-            max_candidates=args.max_candidates,
-        )
-        candidates = rank_candidates(
-            generated,
+        payload = candidates_from_parse(
+            {"model_number": {"value": args.model, "normalized": normalized}},
             manufacturer=args.brand,
             category=args.category,
             validate=args.validate,
+            max_edits=args.max_edits,
+            max_candidates=args.max_candidates,
             db_path=args.db,
         )
     except (FileNotFoundError, ValueError) as exc:
         print(str(exc), file=sys.stderr)
         return 1
-
-    payload = {
-        "original": {
-            "value": args.model,
-            "normalized": normalized,
-            "confidence": None,
-            "method": None,
-        },
-        "manufacturer": args.brand,
-        "category": args.category,
-        "validated": args.validate,
-        "candidates": candidates,
-    }
 
     if args.output:
         output_path = Path(args.output)

@@ -386,16 +386,28 @@ def _print_report(payload: dict[str, Any]) -> None:
             print(f"Source:     {source.get('database')} / {source.get('table')}")
         energy_star = (retrieval.get("sources") or {}).get("energy_star")
         if energy_star and energy_star.get("status") not in ("not_found", "not_available"):
-            print(f"ENERGY STAR: {energy_star['status']}")
+            print(f"ENERGY STAR: {energy_star['status']} "
+                  f"(dataset {energy_star.get('dataset_id')})")
             if energy_star.get("annual_energy_consumption") is not None:
                 print(f"             annual energy: {energy_star['annual_energy_consumption']} "
                       f"{energy_star.get('unit')}")
+            if energy_star.get("annual_energy_context"):
+                print(f"             annual energy context: "
+                      f"{energy_star['annual_energy_context']}")
             for candidate in energy_star.get("candidates", []):
                 print(f"             {candidate.get('manufacturer')} {candidate.get('model_number')} "
                       f"({candidate.get('match_type')})")
-                metric = candidate.get("energy_metric") or {}
-                if metric.get("value") is not None:
-                    print(f"             {metric.get('name')}: {metric['value']} {metric.get('unit')}")
+                source = candidate.get("source") or {}
+                if source:
+                    print(f"             Source: {source.get('url')} "
+                          f"(record {source.get('record_id')}, snapshot {source.get('snapshot_date')})")
+                metrics = candidate.get("energy_metrics")
+                if metrics is None:
+                    metrics = [candidate.get("energy_metric") or {}]
+                for metric in metrics:
+                    if metric.get("value") is not None:
+                        print(f"             {metric.get('name')}: {metric['value']} "
+                              f"{metric.get('unit')}")
         if retrieval.get("energy_conflict"):
             print(f"Energy note: {retrieval.get('energy_conflict_note')}")
         print(f"Confidence: {payload['confidence'] or '-'}")
