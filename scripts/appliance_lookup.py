@@ -11,6 +11,7 @@ Provides:
 """
 
 from difflib import SequenceMatcher
+import json
 from pathlib import Path
 import re
 import sqlite3
@@ -418,7 +419,7 @@ def find_exact_matches_batch(
     return normalized
 
 
-def lookup_appliance(
+def _lookup_nrcan(
     manufacturer: str | None = None,
     model_number: str = "",
     category: str | None = None,
@@ -572,6 +573,114 @@ def lookup_appliance(
 
     finally:
         conn.close()
+
+
+def _energy_star_washer_lookup(conn, manufacturer, model_number):
+    """Match literal washer models, then explicit ENERGY STAR * / # model masks."""
+    table = "energy_star_clothes_washers"
+    exists = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)
+    ).fetchone()
+    if not exists:
+        return {"status": "not_available", "source": "ENERGY_STAR", "candidates": []}
+    wanted = normalize_alphanum(model_number)
+    brand = normalize_alphanum(manufacturer)
+    rows = [dict(row) for row in conn.execute(f"SELECT * FROM {table}")]
+    matches = []
+    for row in rows:
+        if brand and normalize_alphanum(row.get("brand_name")) != brand:
+            continue
+        raw = row.get("model_number") or ""
+        normalized = normalize_alphanum(raw)
+        kind = None
+        if normalized == wanted:
+            kind = "literal"
+        else:
+            # Only the source model_number is parsed. * means one letter; # means one digit.
+            pattern = "".join("[A-Z]" if char == "*" else "[0-9]" if char == "#"
+                             else re.escape(char) for char in str(raw).upper()
+                             if char.isalnum() or char in "*#")
+            if ("*" in raw or "#" in raw) and re.fullmatch(pattern, wanted):
+                kind = "wildcard"
+        if kind:
+            matches.append({
+                "manufacturer": row.get("brand_name"), "model_number": raw,
+                "normalized_model": normalized, "match_type": kind,
+                "match_confidence": 1.0 if kind == "literal" else None,
+                "source": {"dataset": "ENERGY STAR", "dataset_id": "bghd-e2wd",
+                           "url": row.get("source_url"), "record_id": row.get("record_id"),
+                           "snapshot_date": row.get("snapshot_date")},
+                "record": json.loads(row.get("raw_fields_json") or "{}"),
+                "annual_energy_consumption": _numeric_energy(
+                    json.loads(row.get("raw_fields_json") or "{}").get("annual_energy_use_kwh_year")
+                ),
+                "annual_energy_unit": "kWh/year" if _numeric_energy(
+                    json.loads(row.get("raw_fields_json") or "{}").get("annual_energy_use_kwh_year")
+                ) is not None else None,
+                "energy_metric": {"name": "integrated_modified_energy_factor_imef",
+                                  "value": (json.loads(row.get("raw_fields_json") or "{}").get(
+                                      "integrated_modified_energy_factor_imef")),
+                                  "unit": "ft³/kWh/cycle"},
+            })
+    # Exact literal records take precedence over wildcard families.
+    literal = [m for m in matches if m["match_type"] == "literal"]
+    matches = literal or matches
+    status = "not_found" if not matches else "exact_match" if len(matches) == 1 else "ambiguous_match"
+    selected_energy = matches[0].get("annual_energy_consumption") if len(matches) == 1 else None
+    return {"status": status, "source": "ENERGY_STAR", "match_type":
+            matches[0]["match_type"] if len(matches) == 1 else None,
+            "annual_energy_consumption": selected_energy,
+            "unit": "kWh/year" if selected_energy is not None else None,
+            "energy_consumption_available": selected_energy is not None,
+            "candidates": matches}
+
+
+def _numeric_energy(value):
+    try:
+        return float(value) if value is not None and str(value).strip() else None
+    except (TypeError, ValueError):
+        return None
+
+
+def lookup_appliance(
+    manufacturer: str | None = None, model_number: str = "", category: str | None = None,
+    db_path: Path | str = DEFAULT_DB_PATH, allow_fuzzy: bool = True,
+) -> dict[str, Any]:
+    """Look up in NRCan and attach an independent ENERGY STAR washer result."""
+    result = _lookup_nrcan(manufacturer, model_number, category, db_path, allow_fuzzy)
+    if result.get("status") == "invalid_input":
+        return result
+    try:
+        normalized_category = normalize_category(category)
+    except ValueError:
+        return result
+    if normalized_category not in (None, "clothes_washers", "clothes_washer_dryers"):
+        return result
+    conn = get_db_connection(db_path)
+    try:
+        energy_star = _energy_star_washer_lookup(conn, manufacturer, model_number)
+    finally:
+        conn.close()
+    # Keep all legacy NRCan top-level fields and add namespaced source details.
+    result["sources"] = {"nrcan": {"status": result["status"],
+                                    "match_type": result.get("match_type"),
+                                    "source": result.get("source"),
+                                    "annual_energy_consumption": result.get("annual_energy_consumption"),
+                                    "unit": result.get("unit"),
+                                    "energy_consumption_available": result.get("energy_consumption_available", False),
+                                    "candidates": result.get("candidates", [])},
+                        "energy_star": energy_star}
+    nrcan_aec = result.get("annual_energy_consumption")
+    star_aec = energy_star.get("annual_energy_consumption")
+    result["energy_conflict"] = bool(
+        nrcan_aec is not None and star_aec is not None and float(nrcan_aec) != float(star_aec)
+    )
+    if result["energy_conflict"]:
+        result["energy_conflict_note"] = (
+            "NRCan and ENERGY STAR report different annual energy values; "
+            "see sources for source-specific values."
+        )
+    return result
 
 
 def get_annual_energy_consumption(

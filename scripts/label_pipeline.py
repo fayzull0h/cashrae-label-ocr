@@ -87,6 +87,9 @@ def _summarize_lookup(
         "match_confidence": result.get("match_confidence"),
         "from_original": from_original,
         "source": result.get("source"),
+        "sources": result.get("sources"),
+        "energy_conflict": result.get("energy_conflict", False),
+        "energy_conflict_note": result.get("energy_conflict_note"),
     }
     for key in ("message", "notes", "warning"):
         if result.get(key):
@@ -265,16 +268,27 @@ def analyze_label(
     attempts: list[dict[str, Any]] = []
     accepted: dict[str, Any] | None = None
     for candidate in candidates[:max_attempts]:
+        source_probe = lookup_appliance(
+            manufacturer=parsed_brand, model_number=candidate["model_number"],
+            category=category, db_path=db_path, allow_fuzzy=False,
+        )
         entry = {
             "rank": candidate["rank"],
             "model": candidate["model_number"],
             "is_original": candidate["is_original"],
             "db_match": candidate["db_match"],
+            "source_matches": {
+                name: {"status": detail.get("status"),
+                       "match_type": detail.get("match_type"),
+                       "candidates": detail.get("candidates", [])}
+                for name, detail in source_probe.get("sources", {}).items()
+            },
         }
         if candidate["db_match"]:
             entry["result"] = "exact_match"
             attempts.append(entry)
-            accepted = candidate
+            if accepted is None:
+                accepted = candidate
             break
         entry["result"] = "no exact match"
         attempts.append(entry)
@@ -370,6 +384,20 @@ def _print_report(payload: dict[str, Any]) -> None:
             print("Energy:     unavailable")
         if source:
             print(f"Source:     {source.get('database')} / {source.get('table')}")
+        energy_star = (retrieval.get("sources") or {}).get("energy_star")
+        if energy_star and energy_star.get("status") not in ("not_found", "not_available"):
+            print(f"ENERGY STAR: {energy_star['status']}")
+            if energy_star.get("annual_energy_consumption") is not None:
+                print(f"             annual energy: {energy_star['annual_energy_consumption']} "
+                      f"{energy_star.get('unit')}")
+            for candidate in energy_star.get("candidates", []):
+                print(f"             {candidate.get('manufacturer')} {candidate.get('model_number')} "
+                      f"({candidate.get('match_type')})")
+                metric = candidate.get("energy_metric") or {}
+                if metric.get("value") is not None:
+                    print(f"             {metric.get('name')}: {metric['value']} {metric.get('unit')}")
+        if retrieval.get("energy_conflict"):
+            print(f"Energy note: {retrieval.get('energy_conflict_note')}")
         print(f"Confidence: {payload['confidence'] or '-'}")
         if retrieval.get("notes"):
             print(f"Note:       {retrieval['notes']}")
@@ -388,6 +416,10 @@ def _print_report(payload: dict[str, Any]) -> None:
             print(
                 f"  {rank:>4}  {attempt['model']:22} {attempt['result']:18} {database}"
             )
+            for source_name, source_match in attempt.get("source_matches", {}).items():
+                if source_match.get("status") not in ("not_found", "not_available"):
+                    print(f"             {source_name}: {source_match['status']} "
+                          f"({source_match.get('match_type') or 'multiple matches'})")
     print()
 
 

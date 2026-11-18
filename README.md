@@ -99,6 +99,7 @@ appliance-energy-tool/
 │   └── paddleocr-experiment.md    # OCR engine evaluation and adoption record
 ├── scripts/
 │   ├── import_datasets.py         # CSV ingestion pipeline into SQLite
+│   ├── refresh_energy_star_washers.py # Refresh ENERGY STAR washer snapshot
 │   ├── verify_import.py           # Database inspection / sanity check
 │   ├── appliance_lookup.py        # Retrieval engine (normalization, exact/fuzzy search)
 │   ├── label_ocr.py               # Phase 2: preprocessing + OCR entry point (Paddle default)
@@ -167,6 +168,14 @@ NRCan uses different column names across datasets:
 | `dishwashers` | `TAEC_C373_04` |
 | `room_air_conditioners` | none — reports `EE_RATIO` (EER) |
 
+### ENERGY STAR washer lookup
+
+`lookup_appliance()` also attaches `sources.energy_star` for washer lookups (or when no category is supplied), while retaining the existing NRCan result fields at the top level. ENERGY STAR results use literal normalized model matches first; source `*` wildcards match exactly one letter and `#` exactly one digit. `additional_model_information` is retained as source data but is not parsed for matching. Multiple matching ENERGY STAR records are returned as ambiguous candidates. ENERGY STAR provides both `annual_energy_use_kwh_year` (kWh/year) and IMEF (ft³/kWh/cycle); both remain source-specific. The legacy top-level annual energy value continues to reflect NRCan. If both sources have annual values and they differ, `energy_conflict` and `energy_conflict_note` make that disagreement explicit.
+
+The label pipeline validates each attempted OCR candidate against both sources, records source-specific outcomes per attempt, and checks both sources for the selected exact hit. The structured retrieval includes per-source energy details; the CLI shows ENERGY STAR model matches, its annual energy and IMEF separately, and flags differing annual values. Top-level status and annual energy continue to describe NRCan retrieval.
+
+The checked-in working database was refreshed on **2026-11-17** and contains **421** ENERGY STAR washer rows. Refresh it with `python scripts/refresh_energy_star_washers.py` from the project root; the script records date and row count in `energy_star_refresh_metadata`. ENERGY STAR is a changing certification list, so refresh before relying on coverage. Matching uses only `model_number`: normalized literal matches take precedence, and source `*`/`#` masks match exactly one letter/digit. It does not parse `additional_model_information` or expand multi-character wildcard families. ENERGY STAR annual energy use is its own estimated value and may differ from NRCan AEC; no source is treated as a correction of the other.
+
 ---
 
 ## Requirements
@@ -224,6 +233,16 @@ python scripts/verify_import.py
 ```bash
 .venv/Scripts/python.exe scripts/import_datasets.py
 ```
+
+### Refresh the ENERGY STAR washer snapshot
+
+Run from the project root with network access:
+
+```bash
+.venv/Scripts/python.exe scripts/refresh_energy_star_washers.py
+```
+
+The script downloads all pages from the ENERGY STAR Socrata API, validates record IDs and model numbers, then atomically replaces `energy_star_clothes_washers`. Source fields are retained in `raw_fields_json`; `energy_star_refresh_metadata` records the dataset URL, refresh date, and row count. A failed or incomplete download leaves the previous snapshot intact.
 
 ### Inspect the database
 
